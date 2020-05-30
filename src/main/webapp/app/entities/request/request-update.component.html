@@ -1,0 +1,157 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-request-heading" jhiTranslate="animalCretificationApp.request.home.createOrEditLabel">Create or edit a Request</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.request.transportType" for="field_transportType">Transport Type</label>
+                    <select class="form-control" name="transportType" formControlName="transportType" id="field_transportType">
+                        <option value="CAR">{{ 'animalCretificationApp.TransportType.CAR' | translate }}</option>
+                        <option value="TRAIN">{{ 'animalCretificationApp.TransportType.TRAIN' | translate }}</option>
+                        <option value="AIR_TRANSPORT">{{ 'animalCretificationApp.TransportType.AIR_TRANSPORT' | translate }}</option>
+                        <option value="WATER_TRANSPORT">{{ 'animalCretificationApp.TransportType.WATER_TRANSPORT' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.request.vehicleNumber" for="field_vehicleNumber">Vehicle Number</label>
+                    <input type="text" class="form-control" name="vehicleNumber" id="field_vehicleNumber"
+                           formControlName="vehicleNumber"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.request.transactionType" for="field_transactionType">Transaction Type</label>
+                    <select class="form-control" name="transactionType" formControlName="transactionType" id="field_transactionType">
+                        <option value="TRAVEL">{{ 'animalCretificationApp.TransactionType.TRAVEL' | translate }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.request.storageWay" for="field_storageWay">Storage Way</label>
+                    <input type="text" class="form-control" name="storageWay" id="field_storageWay"
+                           formControlName="storageWay"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.request.postalCode" for="field_postalCode">Postal Code</label>
+                    <input type="text" class="form-control" name="postalCode" id="field_postalCode"
+                           formControlName="postalCode"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.request.departureAt" for="field_departureAt">Departure At</label>
+                    <div class="d-flex">
+                        <input id="field_departureAt" type="datetime-local" class="form-control" name="departureAt" formControlName="departureAt" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.request.createdAt" for="field_createdAt">Created At</label>
+                    <div class="d-flex">
+                        <input id="field_createdAt" type="datetime-local" class="form-control" name="createdAt" formControlName="createdAt" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('createdAt')!.invalid && (editForm.get('createdAt')!.dirty || editForm.get('createdAt')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdAt')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('createdAt')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.request.lastModifiedAt" for="field_lastModifiedAt">Last Modified At</label>
+                    <div class="d-flex">
+                        <input id="field_lastModifiedAt" type="datetime-local" class="form-control" name="lastModifiedAt" formControlName="lastModifiedAt" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.request.status" for="field_status">Status</label>
+                    <select class="form-control" name="status" formControlName="status" id="field_status">
+                        <option value="CREATED">{{ 'animalCretificationApp.RequestStatus.CREATED' | translate }}</option>
+                        <option value="PREPARED">{{ 'animalCretificationApp.RequestStatus.PREPARED' | translate }}</option>
+                        <option value="CONFIRM">{{ 'animalCretificationApp.RequestStatus.CONFIRM' | translate }}</option>
+                        <option value="FROM_ONE_CERTIFICATED">{{ 'animalCretificationApp.RequestStatus.FROM_ONE_CERTIFICATED' | translate }}</option>
+                        <option value="EXPORT_DOCS_ISSUED">{{ 'animalCretificationApp.RequestStatus.EXPORT_DOCS_ISSUED' | translate }}</option>
+                        <option value="CLOSED">{{ 'animalCretificationApp.RequestStatus.CLOSED' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('status')!.invalid && (editForm.get('status')!.dirty || editForm.get('status')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('status')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.request.creater" for="field_creater">Creater</label>
+                    <select class="form-control" id="field_creater" name="creater" formControlName="creater">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === editForm.get('creater')!.value?.id ? editForm.get('creater')!.value : userOption" *ngFor="let userOption of users; trackBy: trackById">{{ userOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.request.veterinarian" for="field_veterinarian">Veterinarian</label>
+                    <select class="form-control" id="field_veterinarian" name="veterinarian" formControlName="veterinarian">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === editForm.get('veterinarian')!.value?.id ? editForm.get('veterinarian')!.value : userOption" *ngFor="let userOption of users; trackBy: trackById">{{ userOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.request.rshInspector" for="field_rshInspector">Rsh Inspector</label>
+                    <select class="form-control" id="field_rshInspector" name="rshInspector" formControlName="rshInspector">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === editForm.get('rshInspector')!.value?.id ? editForm.get('rshInspector')!.value : userOption" *ngFor="let userOption of users; trackBy: trackById">{{ userOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.request.destinationCountry" for="field_destinationCountry">Destination Country</label>
+                    <select class="form-control" id="field_destinationCountry" name="destinationCountry" formControlName="destinationCountry">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="countryOption.id === editForm.get('destinationCountry')!.value?.id ? editForm.get('destinationCountry')!.value : countryOption" *ngFor="let countryOption of countries; trackBy: trackById">{{ countryOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.request.borderCrossingPoint" for="field_borderCrossingPoint">Border Crossing Point</label>
+                    <select class="form-control" id="field_borderCrossingPoint" name="borderCrossingPoint" formControlName="borderCrossingPoint">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="countryOption.id === editForm.get('borderCrossingPoint')!.value?.id ? editForm.get('borderCrossingPoint')!.value : countryOption" *ngFor="let countryOption of countries; trackBy: trackById">{{ countryOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="animalCretificationApp.request.documents" for="field_documents">Documents</label>
+                    <select class="form-control" id="field_documents" multiple name="documents" formControlName="documents">
+                        <option [ngValue]="getSelected(editForm.get('documents')!.value, documentOption)" *ngFor="let documentOption of documents; trackBy: trackById">{{ documentOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+{
+  "animalCretificationApp": {
+    "animalType": {
+      "home": {
+        "title": "Animal Types",
+        "createLabel": "Создать новый Animal Type",
+        "createOrEditLabel": "Создать или отредактировать Animal Type",
+        "notFound": "No Animal Types found"
+      },
+      "created": "Новый Animal Type создан с идентификатором {{ param }}",
+      "updated": "Animal Type обновлен с идентификатором {{ param }}",
+      "deleted": "Animal Type удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Animal Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Animal Type"
+      },
+      "typeName": "Type Name",
+      "typeNameEng": "Type Name Eng",
+      "scientificNameENG": "Scientific Name ENG"
+    }
+  }
+}

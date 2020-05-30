@@ -1,0 +1,77 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="animalCretificationApp.laboratoryResearch.home.title">Laboratory Researches</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-laboratory-research" [routerLink]="['/laboratory-research/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="animalCretificationApp.laboratoryResearch.home.createLabel">
+            Create a new Laboratory Research
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="laboratoryResearches?.length === 0">
+        <span jhiTranslate="animalCretificationApp.laboratoryResearch.home.notFound">No laboratoryResearches found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="laboratoryResearches && laboratoryResearches.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCretificationApp.laboratoryResearch.laboratoty">Laboratoty</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCretificationApp.laboratoryResearch.indicator">Indicator</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCretificationApp.laboratoryResearch.resultReceiptDate">Result Receipt Date</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCretificationApp.laboratoryResearch.resurchMethod">Resurch Method</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCretificationApp.laboratoryResearch.examinationNumber">Examination Number</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCretificationApp.laboratoryResearch.result">Result</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCretificationApp.laboratoryResearch.animal">Animal</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let laboratoryResearch of laboratoryResearches ;trackBy: trackId">
+                    <td><a [routerLink]="['/laboratory-research', laboratoryResearch.id, 'view']">{{ laboratoryResearch.id }}</a></td>
+                    <td>{{ laboratoryResearch.laboratoty }}</td>
+                    <td>{{ laboratoryResearch.indicator }}</td>
+                    <td>{{ laboratoryResearch.resultReceiptDate }}</td>
+                    <td>{{ laboratoryResearch.resurchMethod }}</td>
+                    <td>{{ laboratoryResearch.examinationNumber }}</td>
+                    <td jhiTranslate="{{ 'animalCretificationApp.LaboratoryTestResult.' + laboratoryResearch.result }}">{{ laboratoryResearch.result }}</td>
+                    <td>
+                        <div *ngIf="laboratoryResearch.animal">
+                            <a [routerLink]="['/animal', laboratoryResearch.animal?.id, 'view']" >{{ laboratoryResearch.animal?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/laboratory-research', laboratoryResearch.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/laboratory-research', laboratoryResearch.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(laboratoryResearch)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

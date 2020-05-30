@@ -1,0 +1,23 @@
+{
+  "animalCretificationApp": {
+    "documentType": {
+      "home": {
+        "title": "Document Types",
+        "createLabel": "Создать новый Document Type",
+        "createOrEditLabel": "Создать или отредактировать Document Type",
+        "notFound": "No Document Types found"
+      },
+      "created": "Новый Document Type создан с идентификатором {{ param }}",
+      "updated": "Document Type обновлен с идентификатором {{ param }}",
+      "deleted": "Document Type удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Document Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Document Type"
+      },
+      "name": "Name",
+      "nameEng": "Name Eng"
+    }
+  }
+}

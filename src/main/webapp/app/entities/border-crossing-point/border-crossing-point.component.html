@@ -1,0 +1,81 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="animalCretificationApp.borderCrossingPoint.home.title">Border Crossing Points</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-border-crossing-point" [routerLink]="['/border-crossing-point/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="animalCretificationApp.borderCrossingPoint.home.createLabel">
+            Create a new Border Crossing Point
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="borderCrossingPoints?.length === 0">
+        <span jhiTranslate="animalCretificationApp.borderCrossingPoint.home.notFound">No borderCrossingPoints found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="borderCrossingPoints && borderCrossingPoints.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCretificationApp.borderCrossingPoint.location">Location</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCretificationApp.borderCrossingPoint.adjacentPoint">Adjacent Point</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCretificationApp.borderCrossingPoint.classification">Classification</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCretificationApp.borderCrossingPoint.schedule">Schedule</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCretificationApp.borderCrossingPoint.scheduleOfOfficals">Schedule Of Officals</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCretificationApp.borderCrossingPoint.firstCountry">First Country</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCretificationApp.borderCrossingPoint.secondCountry">Second Country</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let borderCrossingPoint of borderCrossingPoints ;trackBy: trackId">
+                    <td><a [routerLink]="['/border-crossing-point', borderCrossingPoint.id, 'view']">{{ borderCrossingPoint.id }}</a></td>
+                    <td>{{ borderCrossingPoint.location }}</td>
+                    <td>{{ borderCrossingPoint.adjacentPoint }}</td>
+                    <td>{{ borderCrossingPoint.classification }}</td>
+                    <td>{{ borderCrossingPoint.schedule }}</td>
+                    <td>{{ borderCrossingPoint.scheduleOfOfficals }}</td>
+                    <td>
+                        <div *ngIf="borderCrossingPoint.firstCountry">
+                            <a [routerLink]="['/country', borderCrossingPoint.firstCountry?.id, 'view']" >{{ borderCrossingPoint.firstCountry?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="borderCrossingPoint.secondCountry">
+                            <a [routerLink]="['/country', borderCrossingPoint.secondCountry?.id, 'view']" >{{ borderCrossingPoint.secondCountry?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/border-crossing-point', borderCrossingPoint.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/border-crossing-point', borderCrossingPoint.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(borderCrossingPoint)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

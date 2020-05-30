@@ -1,0 +1,128 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-animal-heading" jhiTranslate="animalCretificationApp.animal.home.createOrEditLabel">Create or edit a Animal</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.animal.nickname" for="field_nickname">Nickname</label>
+                    <input type="text" class="form-control" name="nickname" id="field_nickname"
+                           formControlName="nickname"/>
+                    <div *ngIf="editForm.get('nickname')!.invalid && (editForm.get('nickname')!.dirty || editForm.get('nickname')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nickname')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.animal.birthdate" for="field_birthdate">Birthdate</label>
+                    <div class="d-flex">
+                        <input id="field_birthdate" type="datetime-local" class="form-control" name="birthdate" formControlName="birthdate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('birthdate')!.invalid && (editForm.get('birthdate')!.dirty || editForm.get('birthdate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('birthdate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('birthdate')?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.animal.gender" for="field_gender">Gender</label>
+                    <select class="form-control" name="gender" formControlName="gender" id="field_gender">
+                        <option value="MALE">{{ 'animalCretificationApp.Gender.MALE' | translate }}</option>
+                        <option value="FEMALE">{{ 'animalCretificationApp.Gender.FEMALE' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('gender')!.invalid && (editForm.get('gender')!.dirty || editForm.get('gender')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('gender')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.animal.chip" for="field_chip">Chip</label>
+                    <input type="text" class="form-control" name="chip" id="field_chip"
+                           formControlName="chip"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.animal.birthPlace" for="field_birthPlace">Birth Place</label>
+                    <input type="text" class="form-control" name="birthPlace" id="field_birthPlace"
+                           formControlName="birthPlace"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.animal.tnvedCode" for="field_tnvedCode">Tnved Code</label>
+                    <input type="text" class="form-control" name="tnvedCode" id="field_tnvedCode"
+                           formControlName="tnvedCode"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.animal.color" for="field_color">Color</label>
+                    <input type="text" class="form-control" name="color" id="field_color"
+                           formControlName="color"/>
+                    <div *ngIf="editForm.get('color')!.invalid && (editForm.get('color')!.dirty || editForm.get('color')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('color')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.animal.colorEng" for="field_colorEng">Color Eng</label>
+                    <input type="text" class="form-control" name="colorEng" id="field_colorEng"
+                           formControlName="colorEng"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.animal.status" for="field_status">Status</label>
+                    <select class="form-control" name="status" formControlName="status" id="field_status">
+                        <option value="READY_TO_REQUEST">{{ 'animalCretificationApp.AnimalStatus.READY_TO_REQUEST' | translate }}</option>
+                        <option value="IN_REQUEST">{{ 'animalCretificationApp.AnimalStatus.IN_REQUEST' | translate }}</option>
+                        <option value="IN_CONFIRM_REQUEST">{{ 'animalCretificationApp.AnimalStatus.IN_CONFIRM_REQUEST' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('status')!.invalid && (editForm.get('status')!.dirty || editForm.get('status')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('status')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.animal.breed" for="field_breed">Breed</label>
+                    <select class="form-control" id="field_breed" name="breed" formControlName="breed">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="breedOption.id === editForm.get('breed')!.value?.id ? editForm.get('breed')!.value : breedOption" *ngFor="let breedOption of breeds; trackBy: trackById">{{ breedOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

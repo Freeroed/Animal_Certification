@@ -1,0 +1,28 @@
+{
+  "animalCretificationApp": {
+    "laboratoryResearch": {
+      "home": {
+        "title": "Laboratory Researches",
+        "createLabel": "Создать новый Laboratory Research",
+        "createOrEditLabel": "Создать или отредактировать Laboratory Research",
+        "notFound": "No Laboratory Researches found"
+      },
+      "created": "Новый Laboratory Research создан с идентификатором {{ param }}",
+      "updated": "Laboratory Research обновлен с идентификатором {{ param }}",
+      "deleted": "Laboratory Research удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Laboratory Research {{ id }}?"
+      },
+      "detail": {
+        "title": "Laboratory Research"
+      },
+      "laboratoty": "Laboratoty",
+      "indicator": "Indicator",
+      "resultReceiptDate": "Result Receipt Date",
+      "resurchMethod": "Resurch Method",
+      "examinationNumber": "Examination Number",
+      "result": "Result",
+      "animal": "Animal"
+    }
+  }
+}

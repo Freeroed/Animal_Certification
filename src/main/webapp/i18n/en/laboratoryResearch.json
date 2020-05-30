@@ -1,0 +1,28 @@
+{
+  "animalCretificationApp": {
+    "laboratoryResearch": {
+      "home": {
+        "title": "Laboratory Researches",
+        "createLabel": "Create a new Laboratory Research",
+        "createOrEditLabel": "Create or edit a Laboratory Research",
+        "notFound": "No Laboratory Researches found"
+      },
+      "created": "A new Laboratory Research is created with identifier {{ param }}",
+      "updated": "A Laboratory Research is updated with identifier {{ param }}",
+      "deleted": "A Laboratory Research is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Laboratory Research {{ id }}?"
+      },
+      "detail": {
+        "title": "Laboratory Research"
+      },
+      "laboratoty": "Laboratoty",
+      "indicator": "Indicator",
+      "resultReceiptDate": "Result Receipt Date",
+      "resurchMethod": "Resurch Method",
+      "examinationNumber": "Examination Number",
+      "result": "Result",
+      "animal": "Animal"
+    }
+  }
+}

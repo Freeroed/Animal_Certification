@@ -1,0 +1,24 @@
+{
+  "animalCretificationApp": {
+    "breed": {
+      "home": {
+        "title": "Breeds",
+        "createLabel": "Создать новый Breed",
+        "createOrEditLabel": "Создать или отредактировать Breed",
+        "notFound": "No Breeds found"
+      },
+      "created": "Новый Breed создан с идентификатором {{ param }}",
+      "updated": "Breed обновлен с идентификатором {{ param }}",
+      "deleted": "Breed удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Breed {{ id }}?"
+      },
+      "detail": {
+        "title": "Breed"
+      },
+      "breedName": "Breed Name",
+      "breedNameEng": "Breed Name Eng",
+      "type": "Type"
+    }
+  }
+}

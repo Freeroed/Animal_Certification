@@ -1,0 +1,13 @@
+{
+  "animalCretificationApp": {
+    "RequestStatus": {
+      "null": "",
+      "CREATED": "CREATED",
+      "PREPARED": "PREPARED",
+      "CONFIRM": "CONFIRM",
+      "FROM_ONE_CERTIFICATED": "FROM_ONE_CERTIFICATED",
+      "EXPORT_DOCS_ISSUED": "EXPORT_DOCS_ISSUED",
+      "CLOSED": "CLOSED"
+    }
+  }
+}

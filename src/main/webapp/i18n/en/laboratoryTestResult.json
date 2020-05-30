@@ -1,0 +1,11 @@
+{
+  "animalCretificationApp": {
+    "LaboratoryTestResult": {
+      "null": "",
+      "POSITIVE": "POSITIVE",
+      "NEGATIVE": "NEGATIVE",
+      "NOT_KNOWN": "NOT_KNOWN",
+      "NOT_STANDARDIZED": "NOT_STANDARDIZED"
+    }
+  }
+}

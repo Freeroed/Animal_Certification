@@ -1,0 +1,78 @@
+{
+  "name": "Animal",
+  "fields": [
+    {
+      "fieldName": "nickname",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "birthdate",
+      "fieldType": "Instant",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "gender",
+      "fieldType": "Gender",
+      "fieldValues": "MALE,FEMALE",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "chip",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "birthPlace",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tnvedCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "color",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "colorEng",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "AnimalStatus",
+      "fieldValues": "READY_TO_REQUEST,IN_REQUEST,IN_CONFIRM_REQUEST",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "breed",
+      "otherEntityRelationshipName": "animal",
+      "relationshipName": "breed",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200530171757",
+  "entityTableName": "animal",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

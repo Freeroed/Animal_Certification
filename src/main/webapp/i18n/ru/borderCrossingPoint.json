@@ -1,0 +1,28 @@
+{
+  "animalCretificationApp": {
+    "borderCrossingPoint": {
+      "home": {
+        "title": "Border Crossing Points",
+        "createLabel": "Создать новый Border Crossing Point",
+        "createOrEditLabel": "Создать или отредактировать Border Crossing Point",
+        "notFound": "No Border Crossing Points found"
+      },
+      "created": "Новый Border Crossing Point создан с идентификатором {{ param }}",
+      "updated": "Border Crossing Point обновлен с идентификатором {{ param }}",
+      "deleted": "Border Crossing Point удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Border Crossing Point {{ id }}?"
+      },
+      "detail": {
+        "title": "Border Crossing Point"
+      },
+      "location": "Location",
+      "adjacentPoint": "Adjacent Point",
+      "classification": "Classification",
+      "schedule": "Schedule",
+      "scheduleOfOfficals": "Schedule Of Officals",
+      "firstCountry": "First Country",
+      "secondCountry": "Second Country"
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "name": "LaboratoryResearch",
+  "fields": [
+    {
+      "fieldName": "laboratoty",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "indicator",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "resultReceiptDate",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "resurchMethod",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "examinationNumber",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "result",
+      "fieldType": "LaboratoryTestResult",
+      "fieldValues": "POSITIVE,NEGATIVE,NOT_KNOWN,NOT_STANDARDIZED",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "animal",
+      "otherEntityRelationshipName": "laboratoryResearch",
+      "relationshipName": "animal",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200530172157",
+  "entityTableName": "laboratory_research",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

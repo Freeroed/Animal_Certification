@@ -1,0 +1,107 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="animalCretificationApp.request.home.title">Requests</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-request" [routerLink]="['/request/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="animalCretificationApp.request.home.createLabel">
+            Create a new Request
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="requests?.length === 0">
+        <span jhiTranslate="animalCretificationApp.request.home.notFound">No requests found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="requests && requests.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCretificationApp.request.transportType">Transport Type</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCretificationApp.request.vehicleNumber">Vehicle Number</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCretificationApp.request.transactionType">Transaction Type</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCretificationApp.request.storageWay">Storage Way</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCretificationApp.request.postalCode">Postal Code</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCretificationApp.request.departureAt">Departure At</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCretificationApp.request.createdAt">Created At</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCretificationApp.request.lastModifiedAt">Last Modified At</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCretificationApp.request.status">Status</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCretificationApp.request.creater">Creater</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCretificationApp.request.veterinarian">Veterinarian</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCretificationApp.request.rshInspector">Rsh Inspector</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCretificationApp.request.destinationCountry">Destination Country</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCretificationApp.request.borderCrossingPoint">Border Crossing Point</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCretificationApp.request.documents">Documents</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let request of requests ;trackBy: trackId">
+                    <td><a [routerLink]="['/request', request.id, 'view']">{{ request.id }}</a></td>
+                    <td jhiTranslate="{{ 'animalCretificationApp.TransportType.' + request.transportType }}">{{ request.transportType }}</td>
+                    <td>{{ request.vehicleNumber }}</td>
+                    <td jhiTranslate="{{ 'animalCretificationApp.TransactionType.' + request.transactionType }}">{{ request.transactionType }}</td>
+                    <td>{{ request.storageWay }}</td>
+                    <td>{{ request.postalCode }}</td>
+                    <td>{{ request.departureAt | date:'medium' }}</td>
+                    <td>{{ request.createdAt | date:'medium' }}</td>
+                    <td>{{ request.lastModifiedAt | date:'medium' }}</td>
+                    <td jhiTranslate="{{ 'animalCretificationApp.RequestStatus.' + request.status }}">{{ request.status }}</td>
+                    <td>
+                        {{ request.creater?.id }}
+                    </td>
+                    <td>
+                        {{ request.veterinarian?.id }}
+                    </td>
+                    <td>
+                        {{ request.rshInspector?.id }}
+                    </td>
+                    <td>
+                        <div *ngIf="request.destinationCountry">
+                            <a [routerLink]="['/country', request.destinationCountry?.id, 'view']" >{{ request.destinationCountry?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="request.borderCrossingPoint">
+                            <a [routerLink]="['/country', request.borderCrossingPoint?.id, 'view']" >{{ request.borderCrossingPoint?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <span *ngFor="let documents of request.documents; let last = last">
+                            <a class="form-control-static" [routerLink]="['/document', documents?.id, 'view']">{{ documents.id }}</a>{{ last ? '' : ', ' }}
+                        </span>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/request', request.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/request', request.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(request)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

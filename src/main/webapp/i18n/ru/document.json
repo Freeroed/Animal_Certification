@@ -1,0 +1,26 @@
+{
+  "animalCretificationApp": {
+    "document": {
+      "home": {
+        "title": "Documents",
+        "createLabel": "Создать новый Document",
+        "createOrEditLabel": "Создать или отредактировать Document",
+        "notFound": "No Documents found"
+      },
+      "created": "Новый Document создан с идентификатором {{ param }}",
+      "updated": "Document обновлен с идентификатором {{ param }}",
+      "deleted": "Document удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Document {{ id }}?"
+      },
+      "detail": {
+        "title": "Document"
+      },
+      "issuedAt": "Issued At",
+      "link": "Link",
+      "documentNumber": "Document Number",
+      "type": "Type",
+      "request": "Request"
+    }
+  }
+}

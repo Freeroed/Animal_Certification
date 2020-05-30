@@ -1,0 +1,9 @@
+{
+  "animalCretificationApp": {
+    "VaccineType": {
+      "null": "",
+      "TREATMENT": "TREATMENT",
+      "IMMUNIZATION": "IMMUNIZATION"
+    }
+  }
+}

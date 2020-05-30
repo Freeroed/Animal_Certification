@@ -1,0 +1,163 @@
+entity Animal {
+	nickname String required,
+    birthdate Instant required,
+    gender Gender required,
+    chip String,
+    birthPlace String,
+    tnvedCode String,
+    color String required,
+    colorEng String,
+    status AnimalStatus required
+}
+
+relationship ManyToOne {
+	Animal{breed} to Breed
+}
+
+enum Gender {
+	MALE, FEMALE
+}
+
+enum AnimalStatus {
+	READY_TO_REQUEST, IN_REQUEST, IN_CONFIRM_REQUEST
+}
+
+entity Breed {
+	breedName String required,
+    breedNameEng String required
+}
+
+relationship ManyToOne {
+	Breed{type} to AnimalType
+}
+
+entity AnimalType {
+	typeName String required,
+    typeNameEng String required,
+    scientificNameENG String required
+}
+
+entity Vaccine {
+    title String required,
+    date Instant required,
+    batchNumber String required,
+    nameAndManufacturer String required,
+    validUtil Instant required,
+    type VaccineType required
+}
+
+relationship ManyToOne {
+	Vaccine{animal} to Animal
+}
+
+enum VaccineType {
+	TREATMENT, IMMUNIZATION
+}
+
+entity LaboratoryResearch {
+	laboratoty String required,
+    indicator String required,
+    resultReceiptDate String required,
+    resurchMethod String required,
+    examinationNumber String required,
+    result LaboratoryTestResult required
+
+}
+
+enum LaboratoryTestResult {
+	POSITIVE, NEGATIVE, NOT_KNOWN, NOT_STANDARDIZED
+}
+
+relationship ManyToOne {
+	LaboratoryResearch{animal} to Animal
+}
+
+entity Request {
+    transportType TransportType,
+    vehicleNumber String,
+    transactionType TransactionType,
+    storageWay String,
+    postalCode String,
+    departureAt Instant,
+    createdAt Instant required,
+    lastModifiedAt Instant,
+    status RequestStatus required
+}
+
+relationship ManyToOne {
+	Request{creater} to User,
+    Request{veterinarian} to User,
+    Request{rshInspector} to User,
+    Request{destinationCountry} to Country,
+    Request{borderCrossingPoint} to Country,
+}
+
+relationship ManyToMany {
+	Request{documents} to Document
+}
+
+enum TransportType {
+	CAR, TRAIN, AIR_TRANSPORT, WATER_TRANSPORT
+}
+
+enum RequestStatus {
+	CREATED, PREPARED, CONFIRM, FROM_ONE_CERTIFICATED, EXPORT_DOCS_ISSUED, CLOSED
+}
+
+enum TransactionType {
+	TRAVEL
+}
+entity Region {
+	name String required,
+    nameEng String required
+}
+
+entity Country {
+	name String required,
+    nameEng String required,
+    isoCode String required
+}
+
+relationship ManyToOne {
+	Country{region} to Region
+}
+
+entity DocumentType {
+	name String required,
+    nameEng String required
+}
+
+entity Document {
+    issuedAt Instant required,
+    link String required,
+    documentNumber String required
+}
+
+relationship ManyToOne {
+	Document{type} to DocumentType
+}
+
+entity BorderCrossingPoint {
+	location String required,
+    adjacentPoint String required,
+    classification String required,
+    schedule String required,
+    scheduleOfOfficals String required,
+}
+
+relationship ManyToOne {
+	BorderCrossingPoint{firstCountry} to Country,
+    BorderCrossingPoint{secondCountry} to Country,
+}
+
+entity User {
+	name String required,
+    surname String required,
+    nameEng String required,
+    surnameEng String required,
+    patronymic String required,
+    phone String required,
+    address String required,
+    inn String required,
+}
+

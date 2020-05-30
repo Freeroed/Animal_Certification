@@ -1,0 +1,110 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-laboratory-research-heading" jhiTranslate="animalCretificationApp.laboratoryResearch.home.createOrEditLabel">Create or edit a Laboratory Research</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.laboratoryResearch.laboratoty" for="field_laboratoty">Laboratoty</label>
+                    <input type="text" class="form-control" name="laboratoty" id="field_laboratoty"
+                           formControlName="laboratoty"/>
+                    <div *ngIf="editForm.get('laboratoty')!.invalid && (editForm.get('laboratoty')!.dirty || editForm.get('laboratoty')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('laboratoty')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.laboratoryResearch.indicator" for="field_indicator">Indicator</label>
+                    <input type="text" class="form-control" name="indicator" id="field_indicator"
+                           formControlName="indicator"/>
+                    <div *ngIf="editForm.get('indicator')!.invalid && (editForm.get('indicator')!.dirty || editForm.get('indicator')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('indicator')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.laboratoryResearch.resultReceiptDate" for="field_resultReceiptDate">Result Receipt Date</label>
+                    <input type="text" class="form-control" name="resultReceiptDate" id="field_resultReceiptDate"
+                           formControlName="resultReceiptDate"/>
+                    <div *ngIf="editForm.get('resultReceiptDate')!.invalid && (editForm.get('resultReceiptDate')!.dirty || editForm.get('resultReceiptDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('resultReceiptDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.laboratoryResearch.resurchMethod" for="field_resurchMethod">Resurch Method</label>
+                    <input type="text" class="form-control" name="resurchMethod" id="field_resurchMethod"
+                           formControlName="resurchMethod"/>
+                    <div *ngIf="editForm.get('resurchMethod')!.invalid && (editForm.get('resurchMethod')!.dirty || editForm.get('resurchMethod')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('resurchMethod')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.laboratoryResearch.examinationNumber" for="field_examinationNumber">Examination Number</label>
+                    <input type="text" class="form-control" name="examinationNumber" id="field_examinationNumber"
+                           formControlName="examinationNumber"/>
+                    <div *ngIf="editForm.get('examinationNumber')!.invalid && (editForm.get('examinationNumber')!.dirty || editForm.get('examinationNumber')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('examinationNumber')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.laboratoryResearch.result" for="field_result">Result</label>
+                    <select class="form-control" name="result" formControlName="result" id="field_result">
+                        <option value="POSITIVE">{{ 'animalCretificationApp.LaboratoryTestResult.POSITIVE' | translate }}</option>
+                        <option value="NEGATIVE">{{ 'animalCretificationApp.LaboratoryTestResult.NEGATIVE' | translate }}</option>
+                        <option value="NOT_KNOWN">{{ 'animalCretificationApp.LaboratoryTestResult.NOT_KNOWN' | translate }}</option>
+                        <option value="NOT_STANDARDIZED">{{ 'animalCretificationApp.LaboratoryTestResult.NOT_STANDARDIZED' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('result')!.invalid && (editForm.get('result')!.dirty || editForm.get('result')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('result')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.laboratoryResearch.animal" for="field_animal">Animal</label>
+                    <select class="form-control" id="field_animal" name="animal" formControlName="animal">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="animalOption.id === editForm.get('animal')!.value?.id ? editForm.get('animal')!.value : animalOption" *ngFor="let animalOption of animals; trackBy: trackById">{{ animalOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

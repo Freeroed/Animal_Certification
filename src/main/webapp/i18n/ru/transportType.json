@@ -1,0 +1,11 @@
+{
+  "animalCretificationApp": {
+    "TransportType": {
+      "null": "",
+      "CAR": "CAR",
+      "TRAIN": "TRAIN",
+      "AIR_TRANSPORT": "AIR_TRANSPORT",
+      "WATER_TRANSPORT": "WATER_TRANSPORT"
+    }
+  }
+}

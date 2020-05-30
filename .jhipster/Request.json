@@ -1,0 +1,106 @@
+{
+  "name": "Request",
+  "fields": [
+    {
+      "fieldName": "transportType",
+      "fieldType": "TransportType",
+      "fieldValues": "CAR,TRAIN,AIR_TRANSPORT,WATER_TRANSPORT"
+    },
+    {
+      "fieldName": "vehicleNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "transactionType",
+      "fieldType": "TransactionType",
+      "fieldValues": "TRAVEL"
+    },
+    {
+      "fieldName": "storageWay",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "postalCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "departureAt",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "Instant",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "lastModifiedAt",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "RequestStatus",
+      "fieldValues": "CREATED,PREPARED,CONFIRM,FROM_ONE_CERTIFICATED,EXPORT_DOCS_ISSUED,CLOSED",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "request",
+      "relationshipName": "creater",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "request",
+      "relationshipName": "veterinarian",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "request",
+      "relationshipName": "rshInspector",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "country",
+      "otherEntityRelationshipName": "request",
+      "relationshipName": "destinationCountry",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "country",
+      "otherEntityRelationshipName": "request",
+      "relationshipName": "borderCrossingPoint",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "document",
+      "otherEntityRelationshipName": "request",
+      "relationshipName": "documents",
+      "otherEntityField": "id",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20200530172257",
+  "entityTableName": "request",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

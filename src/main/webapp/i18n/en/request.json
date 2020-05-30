@@ -1,0 +1,36 @@
+{
+  "animalCretificationApp": {
+    "request": {
+      "home": {
+        "title": "Requests",
+        "createLabel": "Create a new Request",
+        "createOrEditLabel": "Create or edit a Request",
+        "notFound": "No Requests found"
+      },
+      "created": "A new Request is created with identifier {{ param }}",
+      "updated": "A Request is updated with identifier {{ param }}",
+      "deleted": "A Request is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Request {{ id }}?"
+      },
+      "detail": {
+        "title": "Request"
+      },
+      "transportType": "Transport Type",
+      "vehicleNumber": "Vehicle Number",
+      "transactionType": "Transaction Type",
+      "storageWay": "Storage Way",
+      "postalCode": "Postal Code",
+      "departureAt": "Departure At",
+      "createdAt": "Created At",
+      "lastModifiedAt": "Last Modified At",
+      "status": "Status",
+      "creater": "Creater",
+      "veterinarian": "Veterinarian",
+      "rshInspector": "Rsh Inspector",
+      "destinationCountry": "Destination Country",
+      "borderCrossingPoint": "Border Crossing Point",
+      "documents": "Documents"
+    }
+  }
+}

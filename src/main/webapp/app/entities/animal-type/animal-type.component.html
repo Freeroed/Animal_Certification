@@ -1,0 +1,65 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="animalCretificationApp.animalType.home.title">Animal Types</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-animal-type" [routerLink]="['/animal-type/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="animalCretificationApp.animalType.home.createLabel">
+            Create a new Animal Type
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="animalTypes?.length === 0">
+        <span jhiTranslate="animalCretificationApp.animalType.home.notFound">No animalTypes found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="animalTypes && animalTypes.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCretificationApp.animalType.typeName">Type Name</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCretificationApp.animalType.typeNameEng">Type Name Eng</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCretificationApp.animalType.scientificNameENG">Scientific Name ENG</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let animalType of animalTypes ;trackBy: trackId">
+                    <td><a [routerLink]="['/animal-type', animalType.id, 'view']">{{ animalType.id }}</a></td>
+                    <td>{{ animalType.typeName }}</td>
+                    <td>{{ animalType.typeNameEng }}</td>
+                    <td>{{ animalType.scientificNameENG }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/animal-type', animalType.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/animal-type', animalType.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(animalType)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

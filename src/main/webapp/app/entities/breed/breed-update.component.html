@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-breed-heading" jhiTranslate="animalCretificationApp.breed.home.createOrEditLabel">Create or edit a Breed</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.breed.breedName" for="field_breedName">Breed Name</label>
+                    <input type="text" class="form-control" name="breedName" id="field_breedName"
+                           formControlName="breedName"/>
+                    <div *ngIf="editForm.get('breedName')!.invalid && (editForm.get('breedName')!.dirty || editForm.get('breedName')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('breedName')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.breed.breedNameEng" for="field_breedNameEng">Breed Name Eng</label>
+                    <input type="text" class="form-control" name="breedNameEng" id="field_breedNameEng"
+                           formControlName="breedNameEng"/>
+                    <div *ngIf="editForm.get('breedNameEng')!.invalid && (editForm.get('breedNameEng')!.dirty || editForm.get('breedNameEng')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('breedNameEng')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.breed.type" for="field_type">Type</label>
+                    <select class="form-control" id="field_type" name="type" formControlName="type">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="animalTypeOption.id === editForm.get('type')!.value?.id ? editForm.get('type')!.value : animalTypeOption" *ngFor="let animalTypeOption of animaltypes; trackBy: trackById">{{ animalTypeOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

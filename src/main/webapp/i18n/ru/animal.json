@@ -1,0 +1,31 @@
+{
+  "animalCretificationApp": {
+    "animal": {
+      "home": {
+        "title": "Animals",
+        "createLabel": "Создать новый Animal",
+        "createOrEditLabel": "Создать или отредактировать Animal",
+        "notFound": "No Animals found"
+      },
+      "created": "Новый Animal создан с идентификатором {{ param }}",
+      "updated": "Animal обновлен с идентификатором {{ param }}",
+      "deleted": "Animal удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Animal {{ id }}?"
+      },
+      "detail": {
+        "title": "Animal"
+      },
+      "nickname": "Nickname",
+      "birthdate": "Birthdate",
+      "gender": "Gender",
+      "chip": "Chip",
+      "birthPlace": "Birth Place",
+      "tnvedCode": "Tnved Code",
+      "color": "Color",
+      "colorEng": "Color Eng",
+      "status": "Status",
+      "breed": "Breed"
+    }
+  }
+}

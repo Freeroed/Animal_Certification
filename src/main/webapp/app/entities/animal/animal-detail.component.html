@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="animal">
+            <h2><span jhiTranslate="animalCretificationApp.animal.detail.title">Animal</span> {{ animal.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="animalCretificationApp.animal.nickname">Nickname</span></dt>
+                <dd>
+                    <span>{{ animal.nickname }}</span>
+                </dd>
+                <dt><span jhiTranslate="animalCretificationApp.animal.birthdate">Birthdate</span></dt>
+                <dd>
+                    <span>{{ animal.birthdate }}</span>
+                </dd>
+                <dt><span jhiTranslate="animalCretificationApp.animal.gender">Gender</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'animalCretificationApp.Gender.' + animal.gender }}">{{ animal.gender }}</span>
+                </dd>
+                <dt><span jhiTranslate="animalCretificationApp.animal.chip">Chip</span></dt>
+                <dd>
+                    <span>{{ animal.chip }}</span>
+                </dd>
+                <dt><span jhiTranslate="animalCretificationApp.animal.birthPlace">Birth Place</span></dt>
+                <dd>
+                    <span>{{ animal.birthPlace }}</span>
+                </dd>
+                <dt><span jhiTranslate="animalCretificationApp.animal.tnvedCode">Tnved Code</span></dt>
+                <dd>
+                    <span>{{ animal.tnvedCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="animalCretificationApp.animal.color">Color</span></dt>
+                <dd>
+                    <span>{{ animal.color }}</span>
+                </dd>
+                <dt><span jhiTranslate="animalCretificationApp.animal.colorEng">Color Eng</span></dt>
+                <dd>
+                    <span>{{ animal.colorEng }}</span>
+                </dd>
+                <dt><span jhiTranslate="animalCretificationApp.animal.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'animalCretificationApp.AnimalStatus.' + animal.status }}">{{ animal.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="animalCretificationApp.animal.breed">Breed</span></dt>
+                <dd>
+                    <div *ngIf="animal.breed">
+                        <a [routerLink]="['/breed', animal.breed?.id, 'view']">{{ animal.breed?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/animal', animal.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

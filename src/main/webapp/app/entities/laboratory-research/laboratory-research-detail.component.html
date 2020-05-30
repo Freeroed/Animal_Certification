@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="laboratoryResearch">
+            <h2><span jhiTranslate="animalCretificationApp.laboratoryResearch.detail.title">Laboratory Research</span> {{ laboratoryResearch.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="animalCretificationApp.laboratoryResearch.laboratoty">Laboratoty</span></dt>
+                <dd>
+                    <span>{{ laboratoryResearch.laboratoty }}</span>
+                </dd>
+                <dt><span jhiTranslate="animalCretificationApp.laboratoryResearch.indicator">Indicator</span></dt>
+                <dd>
+                    <span>{{ laboratoryResearch.indicator }}</span>
+                </dd>
+                <dt><span jhiTranslate="animalCretificationApp.laboratoryResearch.resultReceiptDate">Result Receipt Date</span></dt>
+                <dd>
+                    <span>{{ laboratoryResearch.resultReceiptDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="animalCretificationApp.laboratoryResearch.resurchMethod">Resurch Method</span></dt>
+                <dd>
+                    <span>{{ laboratoryResearch.resurchMethod }}</span>
+                </dd>
+                <dt><span jhiTranslate="animalCretificationApp.laboratoryResearch.examinationNumber">Examination Number</span></dt>
+                <dd>
+                    <span>{{ laboratoryResearch.examinationNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="animalCretificationApp.laboratoryResearch.result">Result</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'animalCretificationApp.LaboratoryTestResult.' + laboratoryResearch.result }}">{{ laboratoryResearch.result }}</span>
+                </dd>
+                <dt><span jhiTranslate="animalCretificationApp.laboratoryResearch.animal">Animal</span></dt>
+                <dd>
+                    <div *ngIf="laboratoryResearch.animal">
+                        <a [routerLink]="['/animal', laboratoryResearch.animal?.id, 'view']">{{ laboratoryResearch.animal?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/laboratory-research', laboratoryResearch.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

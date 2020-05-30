@@ -7,6 +7,17 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Сущности",
+        "animal": "Animal",
+        "breed": "Breed",
+        "animalType": "Animal Type",
+        "vaccine": "Vaccine",
+        "laboratoryResearch": "Laboratory Research",
+        "request": "Request",
+        "region": "Region",
+        "country": "Country",
+        "documentType": "Document Type",
+        "document": "Document",
+        "borderCrossingPoint": "Border Crossing Point",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

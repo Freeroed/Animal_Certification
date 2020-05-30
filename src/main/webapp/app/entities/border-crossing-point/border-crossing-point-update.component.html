@@ -1,0 +1,102 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-border-crossing-point-heading" jhiTranslate="animalCretificationApp.borderCrossingPoint.home.createOrEditLabel">Create or edit a Border Crossing Point</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.borderCrossingPoint.location" for="field_location">Location</label>
+                    <input type="text" class="form-control" name="location" id="field_location"
+                           formControlName="location"/>
+                    <div *ngIf="editForm.get('location')!.invalid && (editForm.get('location')!.dirty || editForm.get('location')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('location')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.borderCrossingPoint.adjacentPoint" for="field_adjacentPoint">Adjacent Point</label>
+                    <input type="text" class="form-control" name="adjacentPoint" id="field_adjacentPoint"
+                           formControlName="adjacentPoint"/>
+                    <div *ngIf="editForm.get('adjacentPoint')!.invalid && (editForm.get('adjacentPoint')!.dirty || editForm.get('adjacentPoint')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('adjacentPoint')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.borderCrossingPoint.classification" for="field_classification">Classification</label>
+                    <input type="text" class="form-control" name="classification" id="field_classification"
+                           formControlName="classification"/>
+                    <div *ngIf="editForm.get('classification')!.invalid && (editForm.get('classification')!.dirty || editForm.get('classification')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('classification')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.borderCrossingPoint.schedule" for="field_schedule">Schedule</label>
+                    <input type="text" class="form-control" name="schedule" id="field_schedule"
+                           formControlName="schedule"/>
+                    <div *ngIf="editForm.get('schedule')!.invalid && (editForm.get('schedule')!.dirty || editForm.get('schedule')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('schedule')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.borderCrossingPoint.scheduleOfOfficals" for="field_scheduleOfOfficals">Schedule Of Officals</label>
+                    <input type="text" class="form-control" name="scheduleOfOfficals" id="field_scheduleOfOfficals"
+                           formControlName="scheduleOfOfficals"/>
+                    <div *ngIf="editForm.get('scheduleOfOfficals')!.invalid && (editForm.get('scheduleOfOfficals')!.dirty || editForm.get('scheduleOfOfficals')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('scheduleOfOfficals')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.borderCrossingPoint.firstCountry" for="field_firstCountry">First Country</label>
+                    <select class="form-control" id="field_firstCountry" name="firstCountry" formControlName="firstCountry">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="countryOption.id === editForm.get('firstCountry')!.value?.id ? editForm.get('firstCountry')!.value : countryOption" *ngFor="let countryOption of countries; trackBy: trackById">{{ countryOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCretificationApp.borderCrossingPoint.secondCountry" for="field_secondCountry">Second Country</label>
+                    <select class="form-control" id="field_secondCountry" name="secondCountry" formControlName="secondCountry">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="countryOption.id === editForm.get('secondCountry')!.value?.id ? editForm.get('secondCountry')!.value : countryOption" *ngFor="let countryOption of countries; trackBy: trackById">{{ countryOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

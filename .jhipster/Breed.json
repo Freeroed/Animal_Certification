@@ -1,0 +1,39 @@
+{
+  "name": "Breed",
+  "fields": [
+    {
+      "fieldName": "breedName",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "breedNameEng",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "animalType",
+      "otherEntityRelationshipName": "breed",
+      "relationshipName": "type",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200530171857",
+  "entityTableName": "breed",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

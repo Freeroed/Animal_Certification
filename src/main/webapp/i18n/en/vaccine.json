@@ -1,0 +1,28 @@
+{
+  "animalCretificationApp": {
+    "vaccine": {
+      "home": {
+        "title": "Vaccines",
+        "createLabel": "Create a new Vaccine",
+        "createOrEditLabel": "Create or edit a Vaccine",
+        "notFound": "No Vaccines found"
+      },
+      "created": "A new Vaccine is created with identifier {{ param }}",
+      "updated": "A Vaccine is updated with identifier {{ param }}",
+      "deleted": "A Vaccine is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Vaccine {{ id }}?"
+      },
+      "detail": {
+        "title": "Vaccine"
+      },
+      "title": "Title",
+      "date": "Date",
+      "batchNumber": "Batch Number",
+      "nameAndManufacturer": "Name And Manufacturer",
+      "validUtil": "Valid Util",
+      "type": "Type",
+      "animal": "Animal"
+    }
+  }
+}
