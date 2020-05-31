@@ -1,1 +1,1 @@
-web: java -jar target / *. war --spring.profiles.active = prod --server.port = $8080
+web: java -jar target / *. war --spring.profiles.active = prod --server.port = $PORT
