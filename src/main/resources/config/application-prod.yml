@@ -33,9 +33,9 @@ spring:
       enabled: false
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://localhost:5432/Animal_Cretification
-    username: Animal_Cretification
-    password:
+    url: postgres://jqbefxmhpxivfg:0e037fb3fc827e14b1ecc6b2acb5b5824cbfd1ad5a31c3a9a69af29b6b6996f4@ec2-54-217-204-34.eu-west-1.compute.amazonaws.com:5432/daspu76k65ikvb
+    username: jqbefxmhpxivfg
+    password: 0e037fb3fc827e14b1ecc6b2acb5b5824cbfd1ad5a31c3a9a69af29b6b6996f4
     hikari:
       poolName: Hikari
       auto-commit: false
