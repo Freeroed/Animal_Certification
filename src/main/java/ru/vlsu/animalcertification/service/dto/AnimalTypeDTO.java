@@ -1,7 +1,5 @@
 package ru.vlsu.animalcertification.service.dto;
 
-import javax.persistence.Column;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
 

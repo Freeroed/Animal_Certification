@@ -1,11 +1,13 @@
 package ru.vlsu.animalcertification.service.dto;
 
 import ru.vlsu.animalcertification.config.Constants;
-
 import ru.vlsu.animalcertification.domain.Authority;
 import ru.vlsu.animalcertification.domain.User;
 
-import javax.validation.constraints.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.time.Instant;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -14,7 +16,7 @@ import java.util.stream.Collectors;
  * A DTO representing a user, with his authorities.
  */
 public class UserDTO {
-
+    //TODO add personalData and address
     private Long id;
 
     @NotBlank

@@ -27,6 +27,7 @@ import java.util.Set;
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class User extends AbstractAuditingEntity implements Serializable {
 
+    //TODO add personalData and address
     private static final long serialVersionUID = 1L;
 
     @Id
