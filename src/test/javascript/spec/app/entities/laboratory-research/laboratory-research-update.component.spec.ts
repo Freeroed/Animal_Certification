@@ -3,7 +3,7 @@ import { HttpResponse } from '@angular/common/http';
 import { FormBuilder } from '@angular/forms';
 import { of } from 'rxjs';
 
-import { AnimalCretificationTestModule } from '../../../test.module';
+import { AnimalCertificationTestModule } from '../../../test.module';
 import { LaboratoryResearchUpdateComponent } from 'app/entities/laboratory-research/laboratory-research-update.component';
 import { LaboratoryResearchService } from 'app/entities/laboratory-research/laboratory-research.service';
 import { LaboratoryResearch } from 'app/shared/model/laboratory-research.model';
@@ -16,7 +16,7 @@ describe('Component Tests', () => {
 
     beforeEach(() => {
       TestBed.configureTestingModule({
-        imports: [AnimalCretificationTestModule],
+        imports: [AnimalCertificationTestModule],
         declarations: [LaboratoryResearchUpdateComponent],
         providers: [FormBuilder],
       })

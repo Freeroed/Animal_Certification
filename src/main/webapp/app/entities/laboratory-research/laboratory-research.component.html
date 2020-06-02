@@ -1,10 +1,10 @@
 <div>
     <h2 id="page-heading">
-        <span jhiTranslate="animalCretificationApp.laboratoryResearch.home.title">Laboratory Researches</span>
+        <span jhiTranslate="animalCertificationApp.laboratoryResearch.home.title">Laboratory Researches</span>
 
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-laboratory-research" [routerLink]="['/laboratory-research/new']">
             <fa-icon icon="plus"></fa-icon>
-            <span  jhiTranslate="animalCretificationApp.laboratoryResearch.home.createLabel">
+            <span  jhiTranslate="animalCertificationApp.laboratoryResearch.home.createLabel">
             Create a new Laboratory Research
             </span>
         </button>
@@ -15,7 +15,7 @@
     <jhi-alert></jhi-alert>
 
     <div class="alert alert-warning" id="no-result" *ngIf="laboratoryResearches?.length === 0">
-        <span jhiTranslate="animalCretificationApp.laboratoryResearch.home.notFound">No laboratoryResearches found</span>
+        <span jhiTranslate="animalCertificationApp.laboratoryResearch.home.notFound">No laboratoryResearches found</span>
     </div>
 
     <div class="table-responsive" id="entities" *ngIf="laboratoryResearches && laboratoryResearches.length > 0">
@@ -23,13 +23,13 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="animalCretificationApp.laboratoryResearch.laboratoty">Laboratoty</span></th>
-                    <th scope="col" ><span jhiTranslate="animalCretificationApp.laboratoryResearch.indicator">Indicator</span></th>
-                    <th scope="col" ><span jhiTranslate="animalCretificationApp.laboratoryResearch.resultReceiptDate">Result Receipt Date</span></th>
-                    <th scope="col" ><span jhiTranslate="animalCretificationApp.laboratoryResearch.resurchMethod">Resurch Method</span></th>
-                    <th scope="col" ><span jhiTranslate="animalCretificationApp.laboratoryResearch.examinationNumber">Examination Number</span></th>
-                    <th scope="col" ><span jhiTranslate="animalCretificationApp.laboratoryResearch.result">Result</span></th>
-                    <th scope="col" ><span jhiTranslate="animalCretificationApp.laboratoryResearch.animal">Animal</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.laboratoryResearch.laboratoty">Laboratoty</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.laboratoryResearch.indicator">Indicator</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.laboratoryResearch.resultReceiptDate">Result Receipt Date</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.laboratoryResearch.resurchMethod">Resurch Method</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.laboratoryResearch.examinationNumber">Examination Number</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.laboratoryResearch.result">Result</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.laboratoryResearch.animal">Animal</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -41,7 +41,7 @@
                     <td>{{ laboratoryResearch.resultReceiptDate }}</td>
                     <td>{{ laboratoryResearch.resurchMethod }}</td>
                     <td>{{ laboratoryResearch.examinationNumber }}</td>
-                    <td jhiTranslate="{{ 'animalCretificationApp.LaboratoryTestResult.' + laboratoryResearch.result }}">{{ laboratoryResearch.result }}</td>
+                    <td jhiTranslate="{{ 'animalCertificationApp.LaboratoryTestResult.' + laboratoryResearch.result }}">{{ laboratoryResearch.result }}</td>
                     <td>
                         <div *ngIf="laboratoryResearch.animal">
                             <a [routerLink]="['/animal', laboratoryResearch.animal?.id, 'view']" >{{ laboratoryResearch.animal?.id }}</a>

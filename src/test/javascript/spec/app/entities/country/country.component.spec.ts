@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { HttpHeaders, HttpResponse } from '@angular/common/http';
 
-import { AnimalCretificationTestModule } from '../../../test.module';
+import { AnimalCertificationTestModule } from '../../../test.module';
 import { CountryComponent } from 'app/entities/country/country.component';
 import { CountryService } from 'app/entities/country/country.service';
 import { Country } from 'app/shared/model/country.model';
@@ -15,7 +15,7 @@ describe('Component Tests', () => {
 
     beforeEach(() => {
       TestBed.configureTestingModule({
-        imports: [AnimalCretificationTestModule],
+        imports: [AnimalCertificationTestModule],
         declarations: [CountryComponent],
       })
         .overrideTemplate(CountryComponent, '')

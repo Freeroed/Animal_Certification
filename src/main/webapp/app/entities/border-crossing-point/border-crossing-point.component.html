@@ -1,10 +1,10 @@
 <div>
     <h2 id="page-heading">
-        <span jhiTranslate="animalCretificationApp.borderCrossingPoint.home.title">Border Crossing Points</span>
+        <span jhiTranslate="animalCertificationApp.borderCrossingPoint.home.title">Border Crossing Points</span>
 
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-border-crossing-point" [routerLink]="['/border-crossing-point/new']">
             <fa-icon icon="plus"></fa-icon>
-            <span  jhiTranslate="animalCretificationApp.borderCrossingPoint.home.createLabel">
+            <span  jhiTranslate="animalCertificationApp.borderCrossingPoint.home.createLabel">
             Create a new Border Crossing Point
             </span>
         </button>
@@ -15,7 +15,7 @@
     <jhi-alert></jhi-alert>
 
     <div class="alert alert-warning" id="no-result" *ngIf="borderCrossingPoints?.length === 0">
-        <span jhiTranslate="animalCretificationApp.borderCrossingPoint.home.notFound">No borderCrossingPoints found</span>
+        <span jhiTranslate="animalCertificationApp.borderCrossingPoint.home.notFound">No borderCrossingPoints found</span>
     </div>
 
     <div class="table-responsive" id="entities" *ngIf="borderCrossingPoints && borderCrossingPoints.length > 0">
@@ -23,13 +23,14 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="animalCretificationApp.borderCrossingPoint.location">Location</span></th>
-                    <th scope="col" ><span jhiTranslate="animalCretificationApp.borderCrossingPoint.adjacentPoint">Adjacent Point</span></th>
-                    <th scope="col" ><span jhiTranslate="animalCretificationApp.borderCrossingPoint.classification">Classification</span></th>
-                    <th scope="col" ><span jhiTranslate="animalCretificationApp.borderCrossingPoint.schedule">Schedule</span></th>
-                    <th scope="col" ><span jhiTranslate="animalCretificationApp.borderCrossingPoint.scheduleOfOfficals">Schedule Of Officals</span></th>
-                    <th scope="col" ><span jhiTranslate="animalCretificationApp.borderCrossingPoint.firstCountry">First Country</span></th>
-                    <th scope="col" ><span jhiTranslate="animalCretificationApp.borderCrossingPoint.secondCountry">Second Country</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.borderCrossingPoint.location">Location</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.borderCrossingPoint.adjacentPoint">Adjacent Point</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.borderCrossingPoint.classification">Classification</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.borderCrossingPoint.schedule">Schedule</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.borderCrossingPoint.scheduleOfOfficals">Schedule Of Officals</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.borderCrossingPoint.coordinates">Coordinates</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.borderCrossingPoint.firstCountry">First Country</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.borderCrossingPoint.secondCountry">Second Country</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -41,6 +42,7 @@
                     <td>{{ borderCrossingPoint.classification }}</td>
                     <td>{{ borderCrossingPoint.schedule }}</td>
                     <td>{{ borderCrossingPoint.scheduleOfOfficals }}</td>
+                    <td>{{ borderCrossingPoint.coordinates }}</td>
                     <td>
                         <div *ngIf="borderCrossingPoint.firstCountry">
                             <a [routerLink]="['/country', borderCrossingPoint.firstCountry?.id, 'view']" >{{ borderCrossingPoint.firstCountry?.id }}</a>

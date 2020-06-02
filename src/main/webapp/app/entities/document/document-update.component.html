@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-            <h2 id="jhi-document-heading" jhiTranslate="animalCretificationApp.document.home.createOrEditLabel">Create or edit a Document</h2>
+            <h2 id="jhi-document-heading" jhiTranslate="animalCertificationApp.document.home.createOrEditLabel">Create or edit a Document</h2>
 
             <div>
                 <jhi-alert-error></jhi-alert-error>
@@ -12,7 +12,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.document.issuedAt" for="field_issuedAt">Issued At</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.document.issuedAt" for="field_issuedAt">Issued At</label>
                     <div class="d-flex">
                         <input id="field_issuedAt" type="datetime-local" class="form-control" name="issuedAt" formControlName="issuedAt" placeholder="YYYY-MM-DD HH:mm"/>
                     </div>
@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.document.link" for="field_link">Link</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.document.link" for="field_link">Link</label>
                     <input type="text" class="form-control" name="link" id="field_link"
                            formControlName="link"/>
                     <div *ngIf="editForm.get('link')!.invalid && (editForm.get('link')!.dirty || editForm.get('link')!.touched)">
@@ -41,7 +41,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.document.documentNumber" for="field_documentNumber">Document Number</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.document.documentNumber" for="field_documentNumber">Document Number</label>
                     <input type="text" class="form-control" name="documentNumber" id="field_documentNumber"
                            formControlName="documentNumber"/>
                     <div *ngIf="editForm.get('documentNumber')!.invalid && (editForm.get('documentNumber')!.dirty || editForm.get('documentNumber')!.touched)">
@@ -53,7 +53,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.document.type" for="field_type">Type</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.document.type" for="field_type">Type</label>
                     <select class="form-control" id="field_type" name="type" formControlName="type">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="documentTypeOption.id === editForm.get('type')!.value?.id ? editForm.get('type')!.value : documentTypeOption" *ngFor="let documentTypeOption of documenttypes; trackBy: trackById">{{ documentTypeOption.id }}</option>

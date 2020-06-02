@@ -40,7 +40,7 @@ export const documentRoute: Routes = [
     component: DocumentComponent,
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'animalCretificationApp.document.home.title',
+      pageTitle: 'animalCertificationApp.document.home.title',
     },
     canActivate: [UserRouteAccessService],
   },
@@ -52,7 +52,7 @@ export const documentRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'animalCretificationApp.document.home.title',
+      pageTitle: 'animalCertificationApp.document.home.title',
     },
     canActivate: [UserRouteAccessService],
   },
@@ -64,7 +64,7 @@ export const documentRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'animalCretificationApp.document.home.title',
+      pageTitle: 'animalCertificationApp.document.home.title',
     },
     canActivate: [UserRouteAccessService],
   },
@@ -76,7 +76,7 @@ export const documentRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'animalCretificationApp.document.home.title',
+      pageTitle: 'animalCertificationApp.document.home.title',
     },
     canActivate: [UserRouteAccessService],
   },

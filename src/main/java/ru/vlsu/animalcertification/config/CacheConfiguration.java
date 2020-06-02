@@ -61,6 +61,8 @@ public class CacheConfiguration {
             createCache(cm, ru.vlsu.animalcertification.domain.Document.class.getName());
             createCache(cm, ru.vlsu.animalcertification.domain.Document.class.getName() + ".requests");
             createCache(cm, ru.vlsu.animalcertification.domain.BorderCrossingPoint.class.getName());
+            createCache(cm, ru.vlsu.animalcertification.domain.PersonData.class.getName());
+            createCache(cm, ru.vlsu.animalcertification.domain.Address.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

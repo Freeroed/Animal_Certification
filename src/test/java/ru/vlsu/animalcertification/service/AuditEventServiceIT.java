@@ -2,7 +2,7 @@ package ru.vlsu.animalcertification.service;
 
 import ru.vlsu.animalcertification.domain.PersistentAuditEvent;
 import ru.vlsu.animalcertification.repository.PersistenceAuditEventRepository;
-import ru.vlsu.animalcertification.AnimalCretificationApp;
+import ru.vlsu.animalcertification.AnimalCertificationApp;
 import io.github.jhipster.config.JHipsterProperties;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * Integration tests for {@link AuditEventService}.
  */
-@SpringBootTest(classes = AnimalCretificationApp.class)
+@SpringBootTest(classes = AnimalCertificationApp.class)
 @Transactional
 public class AuditEventServiceIT {
     @Autowired

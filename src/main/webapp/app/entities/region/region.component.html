@@ -1,10 +1,10 @@
 <div>
     <h2 id="page-heading">
-        <span jhiTranslate="animalCretificationApp.region.home.title">Regions</span>
+        <span jhiTranslate="animalCertificationApp.region.home.title">Regions</span>
 
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-region" [routerLink]="['/region/new']">
             <fa-icon icon="plus"></fa-icon>
-            <span  jhiTranslate="animalCretificationApp.region.home.createLabel">
+            <span  jhiTranslate="animalCertificationApp.region.home.createLabel">
             Create a new Region
             </span>
         </button>
@@ -15,7 +15,7 @@
     <jhi-alert></jhi-alert>
 
     <div class="alert alert-warning" id="no-result" *ngIf="regions?.length === 0">
-        <span jhiTranslate="animalCretificationApp.region.home.notFound">No regions found</span>
+        <span jhiTranslate="animalCertificationApp.region.home.notFound">No regions found</span>
     </div>
 
     <div class="table-responsive" id="entities" *ngIf="regions && regions.length > 0">
@@ -23,8 +23,8 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="animalCretificationApp.region.name">Name</span></th>
-                    <th scope="col" ><span jhiTranslate="animalCretificationApp.region.nameEng">Name Eng</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.region.name">Name</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.region.nameEng">Name Eng</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>

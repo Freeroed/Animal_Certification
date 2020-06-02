@@ -1,38 +1,38 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div *ngIf="laboratoryResearch">
-            <h2><span jhiTranslate="animalCretificationApp.laboratoryResearch.detail.title">Laboratory Research</span> {{ laboratoryResearch.id }}</h2>
+            <h2><span jhiTranslate="animalCertificationApp.laboratoryResearch.detail.title">Laboratory Research</span> {{ laboratoryResearch.id }}</h2>
 
             <hr>
 
             <jhi-alert-error></jhi-alert-error>
 
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="animalCretificationApp.laboratoryResearch.laboratoty">Laboratoty</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.laboratoryResearch.laboratoty">Laboratoty</span></dt>
                 <dd>
                     <span>{{ laboratoryResearch.laboratoty }}</span>
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.laboratoryResearch.indicator">Indicator</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.laboratoryResearch.indicator">Indicator</span></dt>
                 <dd>
                     <span>{{ laboratoryResearch.indicator }}</span>
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.laboratoryResearch.resultReceiptDate">Result Receipt Date</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.laboratoryResearch.resultReceiptDate">Result Receipt Date</span></dt>
                 <dd>
                     <span>{{ laboratoryResearch.resultReceiptDate }}</span>
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.laboratoryResearch.resurchMethod">Resurch Method</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.laboratoryResearch.resurchMethod">Resurch Method</span></dt>
                 <dd>
                     <span>{{ laboratoryResearch.resurchMethod }}</span>
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.laboratoryResearch.examinationNumber">Examination Number</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.laboratoryResearch.examinationNumber">Examination Number</span></dt>
                 <dd>
                     <span>{{ laboratoryResearch.examinationNumber }}</span>
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.laboratoryResearch.result">Result</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.laboratoryResearch.result">Result</span></dt>
                 <dd>
-                    <span jhiTranslate="{{ 'animalCretificationApp.LaboratoryTestResult.' + laboratoryResearch.result }}">{{ laboratoryResearch.result }}</span>
+                    <span jhiTranslate="{{ 'animalCertificationApp.LaboratoryTestResult.' + laboratoryResearch.result }}">{{ laboratoryResearch.result }}</span>
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.laboratoryResearch.animal">Animal</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.laboratoryResearch.animal">Animal</span></dt>
                 <dd>
                     <div *ngIf="laboratoryResearch.animal">
                         <a [routerLink]="['/animal', laboratoryResearch.animal?.id, 'view']">{{ laboratoryResearch.animal?.id }}</a>

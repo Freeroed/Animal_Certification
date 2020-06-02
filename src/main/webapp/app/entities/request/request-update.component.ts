@@ -13,10 +13,12 @@ import { IUser } from 'app/core/user/user.model';
 import { UserService } from 'app/core/user/user.service';
 import { ICountry } from 'app/shared/model/country.model';
 import { CountryService } from 'app/entities/country/country.service';
+import { IBorderCrossingPoint } from 'app/shared/model/border-crossing-point.model';
+import { BorderCrossingPointService } from 'app/entities/border-crossing-point/border-crossing-point.service';
 import { IDocument } from 'app/shared/model/document.model';
 import { DocumentService } from 'app/entities/document/document.service';
 
-type SelectableEntity = IUser | ICountry | IDocument;
+type SelectableEntity = IUser | ICountry | IBorderCrossingPoint | IDocument;
 
 @Component({
   selector: 'jhi-request-update',
@@ -26,6 +28,7 @@ export class RequestUpdateComponent implements OnInit {
   isSaving = false;
   users: IUser[] = [];
   countries: ICountry[] = [];
+  bordercrossingpoints: IBorderCrossingPoint[] = [];
   documents: IDocument[] = [];
 
   editForm = this.fb.group({
@@ -51,6 +54,7 @@ export class RequestUpdateComponent implements OnInit {
     protected requestService: RequestService,
     protected userService: UserService,
     protected countryService: CountryService,
+    protected borderCrossingPointService: BorderCrossingPointService,
     protected documentService: DocumentService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
@@ -70,6 +74,10 @@ export class RequestUpdateComponent implements OnInit {
       this.userService.query().subscribe((res: HttpResponse<IUser[]>) => (this.users = res.body || []));
 
       this.countryService.query().subscribe((res: HttpResponse<ICountry[]>) => (this.countries = res.body || []));
+
+      this.borderCrossingPointService
+        .query()
+        .subscribe((res: HttpResponse<IBorderCrossingPoint[]>) => (this.bordercrossingpoints = res.body || []));
 
       this.documentService.query().subscribe((res: HttpResponse<IDocument[]>) => (this.documents = res.body || []));
     });

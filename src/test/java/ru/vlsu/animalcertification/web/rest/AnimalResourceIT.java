@@ -1,6 +1,6 @@
 package ru.vlsu.animalcertification.web.rest;
 
-import ru.vlsu.animalcertification.AnimalCretificationApp;
+import ru.vlsu.animalcertification.AnimalCertificationApp;
 import ru.vlsu.animalcertification.domain.Animal;
 import ru.vlsu.animalcertification.repository.AnimalRepository;
 
@@ -28,7 +28,7 @@ import ru.vlsu.animalcertification.domain.enumeration.AnimalStatus;
 /**
  * Integration tests for the {@link AnimalResource} REST controller.
  */
-@SpringBootTest(classes = AnimalCretificationApp.class)
+@SpringBootTest(classes = AnimalCertificationApp.class)
 @AutoConfigureMockMvc
 @WithMockUser
 public class AnimalResourceIT {

@@ -67,6 +67,10 @@ public class Animal implements Serializable {
     @JsonIgnoreProperties(value = "animals", allowSetters = true)
     private Breed breed;
 
+    @ManyToOne
+    @JsonIgnoreProperties(value = "animals", allowSetters = true)
+    private User master;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
         return id;
@@ -204,6 +208,19 @@ public class Animal implements Serializable {
 
     public void setBreed(Breed breed) {
         this.breed = breed;
+    }
+
+    public User getMaster() {
+        return master;
+    }
+
+    public Animal master(User user) {
+        this.master = user;
+        return this;
+    }
+
+    public void setMaster(User user) {
+        this.master = user;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

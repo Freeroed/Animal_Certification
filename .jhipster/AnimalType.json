@@ -24,7 +24,7 @@
     }
   ],
   "relationships": [],
-  "changelogDate": "20200530171957",
+  "changelogDate": "20200601231013",
   "entityTableName": "animal_type",
   "dto": "no",
   "pagination": "no",

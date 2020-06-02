@@ -75,7 +75,7 @@ import { fontAwesomeIcons } from './icons/font-awesome-icons';
     },
   ],
 })
-export class AnimalCretificationCoreModule {
+export class AnimalCertificationCoreModule {
   constructor(iconLibrary: FaIconLibrary, dpConfig: NgbDatepickerConfig, languageService: JhiLanguageService) {
     registerLocaleData(locale);
     iconLibrary.addIcons(...fontAwesomeIcons);

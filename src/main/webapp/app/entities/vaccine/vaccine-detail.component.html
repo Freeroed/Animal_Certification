@@ -1,38 +1,38 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div *ngIf="vaccine">
-            <h2><span jhiTranslate="animalCretificationApp.vaccine.detail.title">Vaccine</span> {{ vaccine.id }}</h2>
+            <h2><span jhiTranslate="animalCertificationApp.vaccine.detail.title">Vaccine</span> {{ vaccine.id }}</h2>
 
             <hr>
 
             <jhi-alert-error></jhi-alert-error>
 
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="animalCretificationApp.vaccine.title">Title</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.vaccine.title">Title</span></dt>
                 <dd>
                     <span>{{ vaccine.title }}</span>
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.vaccine.date">Date</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.vaccine.date">Date</span></dt>
                 <dd>
                     <span>{{ vaccine.date }}</span>
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.vaccine.batchNumber">Batch Number</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.vaccine.batchNumber">Batch Number</span></dt>
                 <dd>
                     <span>{{ vaccine.batchNumber }}</span>
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.vaccine.nameAndManufacturer">Name And Manufacturer</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.vaccine.nameAndManufacturer">Name And Manufacturer</span></dt>
                 <dd>
                     <span>{{ vaccine.nameAndManufacturer }}</span>
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.vaccine.validUtil">Valid Util</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.vaccine.validUtil">Valid Util</span></dt>
                 <dd>
                     <span>{{ vaccine.validUtil }}</span>
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.vaccine.type">Type</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.vaccine.type">Type</span></dt>
                 <dd>
-                    <span jhiTranslate="{{ 'animalCretificationApp.VaccineType.' + vaccine.type }}">{{ vaccine.type }}</span>
+                    <span jhiTranslate="{{ 'animalCertificationApp.VaccineType.' + vaccine.type }}">{{ vaccine.type }}</span>
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.vaccine.animal">Animal</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.vaccine.animal">Animal</span></dt>
                 <dd>
                     <div *ngIf="vaccine.animal">
                         <a [routerLink]="['/animal', vaccine.animal?.id, 'view']">{{ vaccine.animal?.id }}</a>

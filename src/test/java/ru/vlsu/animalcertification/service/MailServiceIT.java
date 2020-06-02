@@ -2,7 +2,7 @@ package ru.vlsu.animalcertification.service;
 
 import ru.vlsu.animalcertification.config.Constants;
 
-import ru.vlsu.animalcertification.AnimalCretificationApp;
+import ru.vlsu.animalcertification.AnimalCertificationApp;
 import ru.vlsu.animalcertification.domain.User;
 import io.github.jhipster.config.JHipsterProperties;
 import org.junit.jupiter.api.BeforeEach;
@@ -40,7 +40,7 @@ import static org.mockito.Mockito.*;
 /**
  * Integration tests for {@link MailService}.
  */
-@SpringBootTest(classes = AnimalCretificationApp.class)
+@SpringBootTest(classes = AnimalCertificationApp.class)
 public class MailServiceIT {
 
     private static final String[] languages = {

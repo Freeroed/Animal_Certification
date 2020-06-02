@@ -1,22 +1,22 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div *ngIf="breed">
-            <h2><span jhiTranslate="animalCretificationApp.breed.detail.title">Breed</span> {{ breed.id }}</h2>
+            <h2><span jhiTranslate="animalCertificationApp.breed.detail.title">Breed</span> {{ breed.id }}</h2>
 
             <hr>
 
             <jhi-alert-error></jhi-alert-error>
 
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="animalCretificationApp.breed.breedName">Breed Name</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.breed.breedName">Breed Name</span></dt>
                 <dd>
                     <span>{{ breed.breedName }}</span>
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.breed.breedNameEng">Breed Name Eng</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.breed.breedNameEng">Breed Name Eng</span></dt>
                 <dd>
                     <span>{{ breed.breedNameEng }}</span>
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.breed.type">Type</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.breed.type">Type</span></dt>
                 <dd>
                     <div *ngIf="breed.type">
                         <a [routerLink]="['/animal-type', breed.type?.id, 'view']">{{ breed.type?.id }}</a>

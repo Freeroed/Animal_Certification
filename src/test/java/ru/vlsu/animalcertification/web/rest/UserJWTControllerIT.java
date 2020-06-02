@@ -1,6 +1,6 @@
 package ru.vlsu.animalcertification.web.rest;
 
-import ru.vlsu.animalcertification.AnimalCretificationApp;
+import ru.vlsu.animalcertification.AnimalCertificationApp;
 import ru.vlsu.animalcertification.domain.User;
 import ru.vlsu.animalcertification.repository.UserRepository;
 import ru.vlsu.animalcertification.web.rest.vm.LoginVM;
@@ -27,7 +27,7 @@ import static org.hamcrest.Matchers.not;
  * Integration tests for the {@link UserJWTController} REST controller.
  */
 @AutoConfigureMockMvc
-@SpringBootTest(classes = AnimalCretificationApp.class)
+@SpringBootTest(classes = AnimalCertificationApp.class)
 public class UserJWTControllerIT {
 
     @Autowired

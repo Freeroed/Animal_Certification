@@ -1,6 +1,6 @@
 package ru.vlsu.animalcertification.web.rest;
 
-import ru.vlsu.animalcertification.AnimalCretificationApp;
+import ru.vlsu.animalcertification.AnimalCertificationApp;
 import ru.vlsu.animalcertification.domain.Breed;
 import ru.vlsu.animalcertification.repository.BreedRepository;
 
@@ -24,7 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 /**
  * Integration tests for the {@link BreedResource} REST controller.
  */
-@SpringBootTest(classes = AnimalCretificationApp.class)
+@SpringBootTest(classes = AnimalCertificationApp.class)
 @AutoConfigureMockMvc
 @WithMockUser
 public class BreedResourceIT {

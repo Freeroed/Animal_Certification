@@ -1,74 +1,74 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div *ngIf="request">
-            <h2><span jhiTranslate="animalCretificationApp.request.detail.title">Request</span> {{ request.id }}</h2>
+            <h2><span jhiTranslate="animalCertificationApp.request.detail.title">Request</span> {{ request.id }}</h2>
 
             <hr>
 
             <jhi-alert-error></jhi-alert-error>
 
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="animalCretificationApp.request.transportType">Transport Type</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.request.transportType">Transport Type</span></dt>
                 <dd>
-                    <span jhiTranslate="{{ 'animalCretificationApp.TransportType.' + request.transportType }}">{{ request.transportType }}</span>
+                    <span jhiTranslate="{{ 'animalCertificationApp.TransportType.' + request.transportType }}">{{ request.transportType }}</span>
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.request.vehicleNumber">Vehicle Number</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.request.vehicleNumber">Vehicle Number</span></dt>
                 <dd>
                     <span>{{ request.vehicleNumber }}</span>
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.request.transactionType">Transaction Type</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.request.transactionType">Transaction Type</span></dt>
                 <dd>
-                    <span jhiTranslate="{{ 'animalCretificationApp.TransactionType.' + request.transactionType }}">{{ request.transactionType }}</span>
+                    <span jhiTranslate="{{ 'animalCertificationApp.TransactionType.' + request.transactionType }}">{{ request.transactionType }}</span>
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.request.storageWay">Storage Way</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.request.storageWay">Storage Way</span></dt>
                 <dd>
                     <span>{{ request.storageWay }}</span>
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.request.postalCode">Postal Code</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.request.postalCode">Postal Code</span></dt>
                 <dd>
                     <span>{{ request.postalCode }}</span>
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.request.departureAt">Departure At</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.request.departureAt">Departure At</span></dt>
                 <dd>
                     <span>{{ request.departureAt }}</span>
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.request.createdAt">Created At</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.request.createdAt">Created At</span></dt>
                 <dd>
                     <span>{{ request.createdAt }}</span>
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.request.lastModifiedAt">Last Modified At</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.request.lastModifiedAt">Last Modified At</span></dt>
                 <dd>
                     <span>{{ request.lastModifiedAt }}</span>
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.request.status">Status</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.request.status">Status</span></dt>
                 <dd>
-                    <span jhiTranslate="{{ 'animalCretificationApp.RequestStatus.' + request.status }}">{{ request.status }}</span>
+                    <span jhiTranslate="{{ 'animalCertificationApp.RequestStatus.' + request.status }}">{{ request.status }}</span>
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.request.creater">Creater</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.request.creater">Creater</span></dt>
                 <dd>
                     {{ request.creater?.id }}
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.request.veterinarian">Veterinarian</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.request.veterinarian">Veterinarian</span></dt>
                 <dd>
                     {{ request.veterinarian?.id }}
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.request.rshInspector">Rsh Inspector</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.request.rshInspector">Rsh Inspector</span></dt>
                 <dd>
                     {{ request.rshInspector?.id }}
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.request.destinationCountry">Destination Country</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.request.destinationCountry">Destination Country</span></dt>
                 <dd>
                     <div *ngIf="request.destinationCountry">
                         <a [routerLink]="['/country', request.destinationCountry?.id, 'view']">{{ request.destinationCountry?.id }}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.request.borderCrossingPoint">Border Crossing Point</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.request.borderCrossingPoint">Border Crossing Point</span></dt>
                 <dd>
                     <div *ngIf="request.borderCrossingPoint">
-                        <a [routerLink]="['/country', request.borderCrossingPoint?.id, 'view']">{{ request.borderCrossingPoint?.id }}</a>
+                        <a [routerLink]="['/border-crossing-point', request.borderCrossingPoint?.id, 'view']">{{ request.borderCrossingPoint?.id }}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.request.documents">Documents</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.request.documents">Documents</span></dt>
                 <dd>
                     <span *ngFor="let documents of request.documents; let last = last">
                         <a [routerLink]="['/document', documents?.id, 'view']">{{ documents.id }}</a>{{ last ? '' : ', ' }}

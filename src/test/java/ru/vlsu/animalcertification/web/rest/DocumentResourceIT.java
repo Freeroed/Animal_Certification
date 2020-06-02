@@ -1,6 +1,6 @@
 package ru.vlsu.animalcertification.web.rest;
 
-import ru.vlsu.animalcertification.AnimalCretificationApp;
+import ru.vlsu.animalcertification.AnimalCertificationApp;
 import ru.vlsu.animalcertification.domain.Document;
 import ru.vlsu.animalcertification.repository.DocumentRepository;
 
@@ -26,7 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 /**
  * Integration tests for the {@link DocumentResource} REST controller.
  */
-@SpringBootTest(classes = AnimalCretificationApp.class)
+@SpringBootTest(classes = AnimalCertificationApp.class)
 @AutoConfigureMockMvc
 @WithMockUser
 public class DocumentResourceIT {

@@ -40,7 +40,7 @@ export const vaccineRoute: Routes = [
     component: VaccineComponent,
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'animalCretificationApp.vaccine.home.title',
+      pageTitle: 'animalCertificationApp.vaccine.home.title',
     },
     canActivate: [UserRouteAccessService],
   },
@@ -52,7 +52,7 @@ export const vaccineRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'animalCretificationApp.vaccine.home.title',
+      pageTitle: 'animalCertificationApp.vaccine.home.title',
     },
     canActivate: [UserRouteAccessService],
   },
@@ -64,7 +64,7 @@ export const vaccineRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'animalCretificationApp.vaccine.home.title',
+      pageTitle: 'animalCertificationApp.vaccine.home.title',
     },
     canActivate: [UserRouteAccessService],
   },
@@ -76,7 +76,7 @@ export const vaccineRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'animalCretificationApp.vaccine.home.title',
+      pageTitle: 'animalCertificationApp.vaccine.home.title',
     },
     canActivate: [UserRouteAccessService],
   },

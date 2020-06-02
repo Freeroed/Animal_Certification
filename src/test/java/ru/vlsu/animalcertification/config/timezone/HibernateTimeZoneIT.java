@@ -1,6 +1,6 @@
 package ru.vlsu.animalcertification.config.timezone;
 
-import ru.vlsu.animalcertification.AnimalCretificationApp;
+import ru.vlsu.animalcertification.AnimalCertificationApp;
 import ru.vlsu.animalcertification.repository.timezone.DateTimeWrapper;
 import ru.vlsu.animalcertification.repository.timezone.DateTimeWrapperRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -20,7 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * Integration tests for the UTC Hibernate configuration.
  */
-@SpringBootTest(classes = AnimalCretificationApp.class)
+@SpringBootTest(classes = AnimalCertificationApp.class)
 public class HibernateTimeZoneIT {
 
     @Autowired

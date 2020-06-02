@@ -1,10 +1,10 @@
 <div>
     <h2 id="page-heading">
-        <span jhiTranslate="animalCretificationApp.documentType.home.title">Document Types</span>
+        <span jhiTranslate="animalCertificationApp.documentType.home.title">Document Types</span>
 
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-document-type" [routerLink]="['/document-type/new']">
             <fa-icon icon="plus"></fa-icon>
-            <span  jhiTranslate="animalCretificationApp.documentType.home.createLabel">
+            <span  jhiTranslate="animalCertificationApp.documentType.home.createLabel">
             Create a new Document Type
             </span>
         </button>
@@ -15,7 +15,7 @@
     <jhi-alert></jhi-alert>
 
     <div class="alert alert-warning" id="no-result" *ngIf="documentTypes?.length === 0">
-        <span jhiTranslate="animalCretificationApp.documentType.home.notFound">No documentTypes found</span>
+        <span jhiTranslate="animalCertificationApp.documentType.home.notFound">No documentTypes found</span>
     </div>
 
     <div class="table-responsive" id="entities" *ngIf="documentTypes && documentTypes.length > 0">
@@ -23,8 +23,8 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="animalCretificationApp.documentType.name">Name</span></th>
-                    <th scope="col" ><span jhiTranslate="animalCretificationApp.documentType.nameEng">Name Eng</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.documentType.name">Name</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.documentType.nameEng">Name Eng</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>

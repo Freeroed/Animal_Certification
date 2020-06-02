@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 
-import { AnimalCretificationTestModule } from '../../../test.module';
+import { AnimalCertificationTestModule } from '../../../test.module';
 import { AnimalDetailComponent } from 'app/entities/animal/animal-detail.component';
 import { Animal } from 'app/shared/model/animal.model';
 
@@ -14,7 +14,7 @@ describe('Component Tests', () => {
 
     beforeEach(() => {
       TestBed.configureTestingModule({
-        imports: [AnimalCretificationTestModule],
+        imports: [AnimalCertificationTestModule],
         declarations: [AnimalDetailComponent],
         providers: [{ provide: ActivatedRoute, useValue: route }],
       })

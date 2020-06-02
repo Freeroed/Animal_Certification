@@ -1,7 +1,7 @@
 {
-  "name": "animal-cretification",
+  "name": "animal-certification",
   "version": "0.0.1-SNAPSHOT",
-  "description": "Description for Animal_Cretification",
+  "description": "Description for Animal_Certification",
   "private": true,
   "license": "UNLICENSED",
   "cacheDirectories": [
@@ -23,6 +23,7 @@
     "@ngx-translate/core": "12.1.2",
     "@ngx-translate/http-loader": "4.0.0",
     "bootstrap": "4.4.1",
+    "bootswatch": "^4.4.1",
     "moment": "2.24.0",
     "ng-jhipster": "0.13.0",
     "ngx-cookie-service": "3.0.4",

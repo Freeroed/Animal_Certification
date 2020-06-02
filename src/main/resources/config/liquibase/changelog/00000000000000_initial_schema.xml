@@ -44,6 +44,12 @@
             </column>
             <column name="last_modified_by" type="varchar(50)"/>
             <column name="last_modified_date" type="timestamp"/>
+            <column name="personal_data_id" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+            <column name="address_id" type="bigint">
+                <constraints nullable="true"/>
+            </column>
         </createTable>
 
         <createTable tableName="jhi_authority">

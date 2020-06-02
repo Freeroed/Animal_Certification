@@ -1,6 +1,6 @@
 package ru.vlsu.animalcertification.web.rest;
 
-import ru.vlsu.animalcertification.AnimalCretificationApp;
+import ru.vlsu.animalcertification.AnimalCertificationApp;
 import ru.vlsu.animalcertification.domain.Authority;
 import ru.vlsu.animalcertification.domain.User;
 import ru.vlsu.animalcertification.repository.UserRepository;
@@ -36,7 +36,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  */
 @AutoConfigureMockMvc
 @WithMockUser(authorities = AuthoritiesConstants.ADMIN)
-@SpringBootTest(classes = AnimalCretificationApp.class)
+@SpringBootTest(classes = AnimalCertificationApp.class)
 public class UserResourceIT {
 
     private static final String DEFAULT_LOGIN = "johndoe";

@@ -3,7 +3,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { of } from 'rxjs';
 import { JhiEventManager } from 'ng-jhipster';
 
-import { AnimalCretificationTestModule } from '../../../test.module';
+import { AnimalCertificationTestModule } from '../../../test.module';
 import { MockEventManager } from '../../../helpers/mock-event-manager.service';
 import { MockActiveModal } from '../../../helpers/mock-active-modal.service';
 import { BorderCrossingPointDeleteDialogComponent } from 'app/entities/border-crossing-point/border-crossing-point-delete-dialog.component';
@@ -19,7 +19,7 @@ describe('Component Tests', () => {
 
     beforeEach(() => {
       TestBed.configureTestingModule({
-        imports: [AnimalCretificationTestModule],
+        imports: [AnimalCertificationTestModule],
         declarations: [BorderCrossingPointDeleteDialogComponent],
       })
         .overrideTemplate(BorderCrossingPointDeleteDialogComponent, '')

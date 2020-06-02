@@ -1,6 +1,6 @@
 package ru.vlsu.animalcertification.security;
 
-import ru.vlsu.animalcertification.AnimalCretificationApp;
+import ru.vlsu.animalcertification.AnimalCertificationApp;
 import ru.vlsu.animalcertification.domain.User;
 import ru.vlsu.animalcertification.repository.UserRepository;
 
@@ -21,7 +21,7 @@ import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 /**
  * Integrations tests for {@link DomainUserDetailsService}.
  */
-@SpringBootTest(classes = AnimalCretificationApp.class)
+@SpringBootTest(classes = AnimalCertificationApp.class)
 @Transactional
 public class DomainUserDetailsServiceIT {
 

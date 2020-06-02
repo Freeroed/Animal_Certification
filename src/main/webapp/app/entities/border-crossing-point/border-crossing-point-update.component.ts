@@ -25,6 +25,7 @@ export class BorderCrossingPointUpdateComponent implements OnInit {
     classification: [null, [Validators.required]],
     schedule: [null, [Validators.required]],
     scheduleOfOfficals: [null, [Validators.required]],
+    coordinates: [null, [Validators.required]],
     firstCountry: [],
     secondCountry: [],
   });
@@ -52,6 +53,7 @@ export class BorderCrossingPointUpdateComponent implements OnInit {
       classification: borderCrossingPoint.classification,
       schedule: borderCrossingPoint.schedule,
       scheduleOfOfficals: borderCrossingPoint.scheduleOfOfficals,
+      coordinates: borderCrossingPoint.coordinates,
       firstCountry: borderCrossingPoint.firstCountry,
       secondCountry: borderCrossingPoint.secondCountry,
     });
@@ -80,6 +82,7 @@ export class BorderCrossingPointUpdateComponent implements OnInit {
       classification: this.editForm.get(['classification'])!.value,
       schedule: this.editForm.get(['schedule'])!.value,
       scheduleOfOfficals: this.editForm.get(['scheduleOfOfficals'])!.value,
+      coordinates: this.editForm.get(['coordinates'])!.value,
       firstCountry: this.editForm.get(['firstCountry'])!.value,
       secondCountry: this.editForm.get(['secondCountry'])!.value,
     };

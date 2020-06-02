@@ -25,7 +25,7 @@
       "otherEntityField": "id"
     }
   ],
-  "changelogDate": "20200530171857",
+  "changelogDate": "20200601230913",
   "entityTableName": "breed",
   "dto": "no",
   "pagination": "no",

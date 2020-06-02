@@ -1,6 +1,6 @@
 package ru.vlsu.animalcertification.web.rest;
 
-import ru.vlsu.animalcertification.AnimalCretificationApp;
+import ru.vlsu.animalcertification.AnimalCertificationApp;
 import ru.vlsu.animalcertification.domain.BorderCrossingPoint;
 import ru.vlsu.animalcertification.repository.BorderCrossingPointRepository;
 
@@ -24,7 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 /**
  * Integration tests for the {@link BorderCrossingPointResource} REST controller.
  */
-@SpringBootTest(classes = AnimalCretificationApp.class)
+@SpringBootTest(classes = AnimalCertificationApp.class)
 @AutoConfigureMockMvc
 @WithMockUser
 public class BorderCrossingPointResourceIT {
@@ -43,6 +43,9 @@ public class BorderCrossingPointResourceIT {
 
     private static final String DEFAULT_SCHEDULE_OF_OFFICALS = "AAAAAAAAAA";
     private static final String UPDATED_SCHEDULE_OF_OFFICALS = "BBBBBBBBBB";
+
+    private static final String DEFAULT_COORDINATES = "AAAAAAAAAA";
+    private static final String UPDATED_COORDINATES = "BBBBBBBBBB";
 
     @Autowired
     private BorderCrossingPointRepository borderCrossingPointRepository;
@@ -67,7 +70,8 @@ public class BorderCrossingPointResourceIT {
             .adjacentPoint(DEFAULT_ADJACENT_POINT)
             .classification(DEFAULT_CLASSIFICATION)
             .schedule(DEFAULT_SCHEDULE)
-            .scheduleOfOfficals(DEFAULT_SCHEDULE_OF_OFFICALS);
+            .scheduleOfOfficals(DEFAULT_SCHEDULE_OF_OFFICALS)
+            .coordinates(DEFAULT_COORDINATES);
         return borderCrossingPoint;
     }
     /**
@@ -82,7 +86,8 @@ public class BorderCrossingPointResourceIT {
             .adjacentPoint(UPDATED_ADJACENT_POINT)
             .classification(UPDATED_CLASSIFICATION)
             .schedule(UPDATED_SCHEDULE)
-            .scheduleOfOfficals(UPDATED_SCHEDULE_OF_OFFICALS);
+            .scheduleOfOfficals(UPDATED_SCHEDULE_OF_OFFICALS)
+            .coordinates(UPDATED_COORDINATES);
         return borderCrossingPoint;
     }
 
@@ -110,6 +115,7 @@ public class BorderCrossingPointResourceIT {
         assertThat(testBorderCrossingPoint.getClassification()).isEqualTo(DEFAULT_CLASSIFICATION);
         assertThat(testBorderCrossingPoint.getSchedule()).isEqualTo(DEFAULT_SCHEDULE);
         assertThat(testBorderCrossingPoint.getScheduleOfOfficals()).isEqualTo(DEFAULT_SCHEDULE_OF_OFFICALS);
+        assertThat(testBorderCrossingPoint.getCoordinates()).isEqualTo(DEFAULT_COORDINATES);
     }
 
     @Test
@@ -229,6 +235,25 @@ public class BorderCrossingPointResourceIT {
 
     @Test
     @Transactional
+    public void checkCoordinatesIsRequired() throws Exception {
+        int databaseSizeBeforeTest = borderCrossingPointRepository.findAll().size();
+        // set the field null
+        borderCrossingPoint.setCoordinates(null);
+
+        // Create the BorderCrossingPoint, which fails.
+
+
+        restBorderCrossingPointMockMvc.perform(post("/api/border-crossing-points")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(TestUtil.convertObjectToJsonBytes(borderCrossingPoint)))
+            .andExpect(status().isBadRequest());
+
+        List<BorderCrossingPoint> borderCrossingPointList = borderCrossingPointRepository.findAll();
+        assertThat(borderCrossingPointList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllBorderCrossingPoints() throws Exception {
         // Initialize the database
         borderCrossingPointRepository.saveAndFlush(borderCrossingPoint);
@@ -242,7 +267,8 @@ public class BorderCrossingPointResourceIT {
             .andExpect(jsonPath("$.[*].adjacentPoint").value(hasItem(DEFAULT_ADJACENT_POINT)))
             .andExpect(jsonPath("$.[*].classification").value(hasItem(DEFAULT_CLASSIFICATION)))
             .andExpect(jsonPath("$.[*].schedule").value(hasItem(DEFAULT_SCHEDULE)))
-            .andExpect(jsonPath("$.[*].scheduleOfOfficals").value(hasItem(DEFAULT_SCHEDULE_OF_OFFICALS)));
+            .andExpect(jsonPath("$.[*].scheduleOfOfficals").value(hasItem(DEFAULT_SCHEDULE_OF_OFFICALS)))
+            .andExpect(jsonPath("$.[*].coordinates").value(hasItem(DEFAULT_COORDINATES)));
     }
     
     @Test
@@ -260,7 +286,8 @@ public class BorderCrossingPointResourceIT {
             .andExpect(jsonPath("$.adjacentPoint").value(DEFAULT_ADJACENT_POINT))
             .andExpect(jsonPath("$.classification").value(DEFAULT_CLASSIFICATION))
             .andExpect(jsonPath("$.schedule").value(DEFAULT_SCHEDULE))
-            .andExpect(jsonPath("$.scheduleOfOfficals").value(DEFAULT_SCHEDULE_OF_OFFICALS));
+            .andExpect(jsonPath("$.scheduleOfOfficals").value(DEFAULT_SCHEDULE_OF_OFFICALS))
+            .andExpect(jsonPath("$.coordinates").value(DEFAULT_COORDINATES));
     }
     @Test
     @Transactional
@@ -287,7 +314,8 @@ public class BorderCrossingPointResourceIT {
             .adjacentPoint(UPDATED_ADJACENT_POINT)
             .classification(UPDATED_CLASSIFICATION)
             .schedule(UPDATED_SCHEDULE)
-            .scheduleOfOfficals(UPDATED_SCHEDULE_OF_OFFICALS);
+            .scheduleOfOfficals(UPDATED_SCHEDULE_OF_OFFICALS)
+            .coordinates(UPDATED_COORDINATES);
 
         restBorderCrossingPointMockMvc.perform(put("/api/border-crossing-points")
             .contentType(MediaType.APPLICATION_JSON)
@@ -303,6 +331,7 @@ public class BorderCrossingPointResourceIT {
         assertThat(testBorderCrossingPoint.getClassification()).isEqualTo(UPDATED_CLASSIFICATION);
         assertThat(testBorderCrossingPoint.getSchedule()).isEqualTo(UPDATED_SCHEDULE);
         assertThat(testBorderCrossingPoint.getScheduleOfOfficals()).isEqualTo(UPDATED_SCHEDULE_OF_OFFICALS);
+        assertThat(testBorderCrossingPoint.getCoordinates()).isEqualTo(UPDATED_COORDINATES);
     }
 
     @Test

@@ -1,26 +1,26 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div *ngIf="document">
-            <h2><span jhiTranslate="animalCretificationApp.document.detail.title">Document</span> {{ document.id }}</h2>
+            <h2><span jhiTranslate="animalCertificationApp.document.detail.title">Document</span> {{ document.id }}</h2>
 
             <hr>
 
             <jhi-alert-error></jhi-alert-error>
 
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="animalCretificationApp.document.issuedAt">Issued At</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.document.issuedAt">Issued At</span></dt>
                 <dd>
                     <span>{{ document.issuedAt }}</span>
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.document.link">Link</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.document.link">Link</span></dt>
                 <dd>
                     <span>{{ document.link }}</span>
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.document.documentNumber">Document Number</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.document.documentNumber">Document Number</span></dt>
                 <dd>
                     <span>{{ document.documentNumber }}</span>
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.document.type">Type</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.document.type">Type</span></dt>
                 <dd>
                     <div *ngIf="document.type">
                         <a [routerLink]="['/document-type', document.type?.id, 'view']">{{ document.type?.id }}</a>

@@ -1,6 +1,6 @@
 package ru.vlsu.animalcertification.service;
 
-import ru.vlsu.animalcertification.AnimalCretificationApp;
+import ru.vlsu.animalcertification.AnimalCertificationApp;
 import ru.vlsu.animalcertification.config.Constants;
 import ru.vlsu.animalcertification.domain.User;
 import ru.vlsu.animalcertification.repository.UserRepository;
@@ -32,7 +32,7 @@ import static org.mockito.Mockito.when;
 /**
  * Integration tests for {@link UserService}.
  */
-@SpringBootTest(classes = AnimalCretificationApp.class)
+@SpringBootTest(classes = AnimalCertificationApp.class)
 @Transactional
 public class UserServiceIT {
 

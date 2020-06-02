@@ -3,7 +3,7 @@ import { HttpResponse } from '@angular/common/http';
 import { FormBuilder } from '@angular/forms';
 import { of } from 'rxjs';
 
-import { AnimalCretificationTestModule } from '../../../test.module';
+import { AnimalCertificationTestModule } from '../../../test.module';
 import { AnimalTypeUpdateComponent } from 'app/entities/animal-type/animal-type-update.component';
 import { AnimalTypeService } from 'app/entities/animal-type/animal-type.service';
 import { AnimalType } from 'app/shared/model/animal-type.model';
@@ -16,7 +16,7 @@ describe('Component Tests', () => {
 
     beforeEach(() => {
       TestBed.configureTestingModule({
-        imports: [AnimalCretificationTestModule],
+        imports: [AnimalCertificationTestModule],
         declarations: [AnimalTypeUpdateComponent],
         providers: [FormBuilder],
       })

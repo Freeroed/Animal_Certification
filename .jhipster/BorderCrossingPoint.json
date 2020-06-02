@@ -35,6 +35,13 @@
       "fieldValidateRules": [
         "required"
       ]
+    },
+    {
+      "fieldName": "coordinates",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
     }
   ],
   "relationships": [
@@ -53,7 +60,7 @@
       "otherEntityField": "id"
     }
   ],
-  "changelogDate": "20200530172757",
+  "changelogDate": "20200601231813",
   "entityTableName": "border_crossing_point",
   "dto": "no",
   "pagination": "no",

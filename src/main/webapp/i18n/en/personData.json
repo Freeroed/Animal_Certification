@@ -1,0 +1,29 @@
+{
+  "animalCertificationApp": {
+    "personData": {
+      "home": {
+        "title": "Person Data",
+        "createLabel": "Create a new Person Data",
+        "createOrEditLabel": "Create or edit a Person Data",
+        "notFound": "No Person Data found"
+      },
+      "created": "A new Person Data is created with identifier {{ param }}",
+      "updated": "A Person Data is updated with identifier {{ param }}",
+      "deleted": "A Person Data is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Person Data {{ id }}?"
+      },
+      "detail": {
+        "title": "Person Data"
+      },
+      "name": "Name",
+      "surname": "Surname",
+      "nameEng": "Name Eng",
+      "surnameEng": "Surname Eng",
+      "patronymic": "Patronymic",
+      "phone": "Phone",
+      "address": "Address",
+      "inn": "Inn"
+    }
+  }
+}

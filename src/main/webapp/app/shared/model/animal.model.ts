@@ -1,5 +1,6 @@
 import { Moment } from 'moment';
 import { IBreed } from 'app/shared/model/breed.model';
+import { IUser } from 'app/core/user/user.model';
 import { Gender } from 'app/shared/model/enumerations/gender.model';
 import { AnimalStatus } from 'app/shared/model/enumerations/animal-status.model';
 
@@ -15,6 +16,7 @@ export interface IAnimal {
   colorEng?: string;
   status?: AnimalStatus;
   breed?: IBreed;
+  master?: IUser;
 }
 
 export class Animal implements IAnimal {
@@ -29,6 +31,7 @@ export class Animal implements IAnimal {
     public color?: string,
     public colorEng?: string,
     public status?: AnimalStatus,
-    public breed?: IBreed
+    public breed?: IBreed,
+    public master?: IUser
   ) {}
 }

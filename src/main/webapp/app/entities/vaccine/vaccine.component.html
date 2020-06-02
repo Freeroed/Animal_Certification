@@ -1,10 +1,10 @@
 <div>
     <h2 id="page-heading">
-        <span jhiTranslate="animalCretificationApp.vaccine.home.title">Vaccines</span>
+        <span jhiTranslate="animalCertificationApp.vaccine.home.title">Vaccines</span>
 
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-vaccine" [routerLink]="['/vaccine/new']">
             <fa-icon icon="plus"></fa-icon>
-            <span  jhiTranslate="animalCretificationApp.vaccine.home.createLabel">
+            <span  jhiTranslate="animalCertificationApp.vaccine.home.createLabel">
             Create a new Vaccine
             </span>
         </button>
@@ -15,7 +15,7 @@
     <jhi-alert></jhi-alert>
 
     <div class="alert alert-warning" id="no-result" *ngIf="vaccines?.length === 0">
-        <span jhiTranslate="animalCretificationApp.vaccine.home.notFound">No vaccines found</span>
+        <span jhiTranslate="animalCertificationApp.vaccine.home.notFound">No vaccines found</span>
     </div>
 
     <div class="table-responsive" id="entities" *ngIf="vaccines && vaccines.length > 0">
@@ -23,13 +23,13 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="animalCretificationApp.vaccine.title">Title</span></th>
-                    <th scope="col" ><span jhiTranslate="animalCretificationApp.vaccine.date">Date</span></th>
-                    <th scope="col" ><span jhiTranslate="animalCretificationApp.vaccine.batchNumber">Batch Number</span></th>
-                    <th scope="col" ><span jhiTranslate="animalCretificationApp.vaccine.nameAndManufacturer">Name And Manufacturer</span></th>
-                    <th scope="col" ><span jhiTranslate="animalCretificationApp.vaccine.validUtil">Valid Util</span></th>
-                    <th scope="col" ><span jhiTranslate="animalCretificationApp.vaccine.type">Type</span></th>
-                    <th scope="col" ><span jhiTranslate="animalCretificationApp.vaccine.animal">Animal</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.vaccine.title">Title</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.vaccine.date">Date</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.vaccine.batchNumber">Batch Number</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.vaccine.nameAndManufacturer">Name And Manufacturer</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.vaccine.validUtil">Valid Util</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.vaccine.type">Type</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.vaccine.animal">Animal</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -41,7 +41,7 @@
                     <td>{{ vaccine.batchNumber }}</td>
                     <td>{{ vaccine.nameAndManufacturer }}</td>
                     <td>{{ vaccine.validUtil | date:'medium' }}</td>
-                    <td jhiTranslate="{{ 'animalCretificationApp.VaccineType.' + vaccine.type }}">{{ vaccine.type }}</td>
+                    <td jhiTranslate="{{ 'animalCertificationApp.VaccineType.' + vaccine.type }}">{{ vaccine.type }}</td>
                     <td>
                         <div *ngIf="vaccine.animal">
                             <a [routerLink]="['/animal', vaccine.animal?.id, 'view']" >{{ vaccine.animal?.id }}</a>

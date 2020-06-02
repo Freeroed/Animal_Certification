@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { HttpHeaders, HttpResponse } from '@angular/common/http';
 
-import { AnimalCretificationTestModule } from '../../../test.module';
+import { AnimalCertificationTestModule } from '../../../test.module';
 import { LaboratoryResearchComponent } from 'app/entities/laboratory-research/laboratory-research.component';
 import { LaboratoryResearchService } from 'app/entities/laboratory-research/laboratory-research.service';
 import { LaboratoryResearch } from 'app/shared/model/laboratory-research.model';
@@ -15,7 +15,7 @@ describe('Component Tests', () => {
 
     beforeEach(() => {
       TestBed.configureTestingModule({
-        imports: [AnimalCretificationTestModule],
+        imports: [AnimalCertificationTestModule],
         declarations: [LaboratoryResearchComponent],
       })
         .overrideTemplate(LaboratoryResearchComponent, '')
