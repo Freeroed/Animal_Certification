@@ -11,6 +11,10 @@ import { IDocument, Document } from 'app/shared/model/document.model';
 import { DocumentService } from './document.service';
 import { IDocumentType } from 'app/shared/model/document-type.model';
 import { DocumentTypeService } from 'app/entities/document-type/document-type.service';
+import { IRequest } from 'app/shared/model/request.model';
+import { RequestService } from 'app/entities/request/request.service';
+
+type SelectableEntity = IDocumentType | IRequest;
 
 @Component({
   selector: 'jhi-document-update',
@@ -19,6 +23,7 @@ import { DocumentTypeService } from 'app/entities/document-type/document-type.se
 export class DocumentUpdateComponent implements OnInit {
   isSaving = false;
   documenttypes: IDocumentType[] = [];
+  requests: IRequest[] = [];
 
   editForm = this.fb.group({
     id: [],
@@ -26,11 +31,13 @@ export class DocumentUpdateComponent implements OnInit {
     link: [null, [Validators.required]],
     documentNumber: [null, [Validators.required]],
     type: [],
+    request: [],
   });
 
   constructor(
     protected documentService: DocumentService,
     protected documentTypeService: DocumentTypeService,
+    protected requestService: RequestService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {}
@@ -45,6 +52,8 @@ export class DocumentUpdateComponent implements OnInit {
       this.updateForm(document);
 
       this.documentTypeService.query().subscribe((res: HttpResponse<IDocumentType[]>) => (this.documenttypes = res.body || []));
+
+      this.requestService.query().subscribe((res: HttpResponse<IRequest[]>) => (this.requests = res.body || []));
     });
   }
 
@@ -55,6 +64,7 @@ export class DocumentUpdateComponent implements OnInit {
       link: document.link,
       documentNumber: document.documentNumber,
       type: document.type,
+      request: document.request,
     });
   }
 
@@ -80,6 +90,7 @@ export class DocumentUpdateComponent implements OnInit {
       link: this.editForm.get(['link'])!.value,
       documentNumber: this.editForm.get(['documentNumber'])!.value,
       type: this.editForm.get(['type'])!.value,
+      request: this.editForm.get(['request'])!.value,
     };
   }
 
@@ -99,7 +110,7 @@ export class DocumentUpdateComponent implements OnInit {
     this.isSaving = false;
   }
 
-  trackById(index: number, item: IDocumentType): any {
+  trackById(index: number, item: SelectableEntity): any {
     return item.id;
   }
 }

@@ -93,8 +93,11 @@ relationship ManyToOne {
     Request{borderCrossingPoint} to BorderCrossingPoint,
 }
 
+relationship OneToMany {
+	Request{documents} to Document
+}
 relationship ManyToMany {
-	Request{documents} to Document{request}
+	Request{animals} to Animal{request}
 }
 
 enum TransportType {
@@ -155,12 +158,11 @@ relationship ManyToOne {
 entity PersonData {
 	name String required,
     surname String required,
-    nameEng String required,
-    surnameEng String required,
-    patronymic String required,
-    phone String required,
-    address String required,
-    inn String required,
+    nameEng String ,
+    surnameEng String ,
+    patronymic String ,
+    phone String ,
+    inn String ,
 }
 
 entity Address {

@@ -69,9 +69,17 @@
       "otherEntityRelationshipName": "animal",
       "relationshipName": "master",
       "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "request",
+      "otherEntityRelationshipName": "animals",
+      "relationshipName": "request",
+      "otherEntityField": "id",
+      "ownerSide": false
     }
   ],
-  "changelogDate": "20200601230813",
+  "changelogDate": "20200602202952",
   "entityTableName": "animal",
   "dto": "no",
   "pagination": "no",

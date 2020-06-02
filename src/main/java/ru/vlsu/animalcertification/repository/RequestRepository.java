@@ -26,13 +26,13 @@ public interface RequestRepository extends JpaRepository<Request, Long> {
     @Query("select request from Request request where request.rshInspector.login = ?#{principal.username}")
     List<Request> findByRshInspectorIsCurrentUser();
 
-    @Query(value = "select distinct request from Request request left join fetch request.documents",
+    @Query(value = "select distinct request from Request request left join fetch request.animals",
         countQuery = "select count(distinct request) from Request request")
     Page<Request> findAllWithEagerRelationships(Pageable pageable);
 
-    @Query("select distinct request from Request request left join fetch request.documents")
+    @Query("select distinct request from Request request left join fetch request.animals")
     List<Request> findAllWithEagerRelationships();
 
-    @Query("select request from Request request left join fetch request.documents where request.id =:id")
+    @Query("select request from Request request left join fetch request.animals where request.id =:id")
     Optional<Request> findOneWithEagerRelationships(@Param("id") Long id);
 }

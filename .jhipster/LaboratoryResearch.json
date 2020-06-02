@@ -54,7 +54,7 @@
       "otherEntityField": "id"
     }
   ],
-  "changelogDate": "20200601231213",
+  "changelogDate": "20200602203352",
   "entityTableName": "laboratory_research",
   "dto": "no",
   "pagination": "no",

@@ -68,10 +68,10 @@
                         <a [routerLink]="['/border-crossing-point', request.borderCrossingPoint?.id, 'view']">{{ request.borderCrossingPoint?.id }}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="animalCertificationApp.request.documents">Documents</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.request.animals">Animals</span></dt>
                 <dd>
-                    <span *ngFor="let documents of request.documents; let last = last">
-                        <a [routerLink]="['/document', documents?.id, 'view']">{{ documents.id }}</a>{{ last ? '' : ', ' }}
+                    <span *ngFor="let animals of request.animals; let last = last">
+                        <a [routerLink]="['/animal', animals?.id, 'view']">{{ animals.id }}</a>{{ last ? '' : ', ' }}
                     </span>
                 </dd>
             </dl>

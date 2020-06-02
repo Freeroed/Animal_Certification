@@ -19,12 +19,11 @@ export class PersonDataUpdateComponent implements OnInit {
     id: [],
     name: [null, [Validators.required]],
     surname: [null, [Validators.required]],
-    nameEng: [null, [Validators.required]],
-    surnameEng: [null, [Validators.required]],
-    patronymic: [null, [Validators.required]],
-    phone: [null, [Validators.required]],
-    address: [null, [Validators.required]],
-    inn: [null, [Validators.required]],
+    nameEng: [],
+    surnameEng: [],
+    patronymic: [],
+    phone: [],
+    inn: [],
   });
 
   constructor(protected personDataService: PersonDataService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
@@ -44,7 +43,6 @@ export class PersonDataUpdateComponent implements OnInit {
       surnameEng: personData.surnameEng,
       patronymic: personData.patronymic,
       phone: personData.phone,
-      address: personData.address,
       inn: personData.inn,
     });
   }
@@ -73,7 +71,6 @@ export class PersonDataUpdateComponent implements OnInit {
       surnameEng: this.editForm.get(['surnameEng'])!.value,
       patronymic: this.editForm.get(['patronymic'])!.value,
       phone: this.editForm.get(['phone'])!.value,
-      address: this.editForm.get(['address'])!.value,
       inn: this.editForm.get(['inn'])!.value,
     };
   }

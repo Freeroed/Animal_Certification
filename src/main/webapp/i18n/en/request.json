@@ -25,12 +25,13 @@
       "createdAt": "Created At",
       "lastModifiedAt": "Last Modified At",
       "status": "Status",
+      "documents": "Documents",
       "creater": "Creater",
       "veterinarian": "Veterinarian",
       "rshInspector": "Rsh Inspector",
       "destinationCountry": "Destination Country",
       "borderCrossingPoint": "Border Crossing Point",
-      "documents": "Documents"
+      "animals": "Animals"
     }
   }
 }

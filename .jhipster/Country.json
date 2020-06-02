@@ -32,7 +32,7 @@
       "otherEntityField": "id"
     }
   ],
-  "changelogDate": "20200601231513",
+  "changelogDate": "20200602203652",
   "entityTableName": "country",
   "dto": "no",
   "pagination": "no",

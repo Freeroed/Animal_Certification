@@ -1,6 +1,5 @@
 package ru.vlsu.animalcertification.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -10,8 +9,6 @@ import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * A Document.
@@ -44,10 +41,9 @@ public class Document implements Serializable {
     @JsonIgnoreProperties(value = "documents", allowSetters = true)
     private DocumentType type;
 
-    @ManyToMany(mappedBy = "documents")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnore
-    private Set<Request> requests = new HashSet<>();
+    @ManyToOne
+    @JsonIgnoreProperties(value = "documents", allowSetters = true)
+    private Request request;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -110,29 +106,17 @@ public class Document implements Serializable {
         this.type = documentType;
     }
 
-    public Set<Request> getRequests() {
-        return requests;
+    public Request getRequest() {
+        return request;
     }
 
-    public Document requests(Set<Request> requests) {
-        this.requests = requests;
+    public Document request(Request request) {
+        this.request = request;
         return this;
     }
 
-    public Document addRequest(Request request) {
-        this.requests.add(request);
-        request.getDocuments().add(this);
-        return this;
-    }
-
-    public Document removeRequest(Request request) {
-        this.requests.remove(request);
-        request.getDocuments().remove(this);
-        return this;
-    }
-
-    public void setRequests(Set<Request> requests) {
-        this.requests = requests;
+    public void setRequest(Request request) {
+        this.request = request;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

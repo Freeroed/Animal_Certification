@@ -2,7 +2,7 @@
   "animalCertificationApp": {
     "AnimalStatus": {
       "null": "",
-      "READY_TO_REQUEST": "Готов к заявке",
+      "READY_TO_REQUEST": "READY_TO_REQUEST",
       "IN_REQUEST": "IN_REQUEST",
       "IN_CONFIRM_REQUEST": "IN_CONFIRM_REQUEST"
     }

@@ -49,6 +49,12 @@
   ],
   "relationships": [
     {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "document",
+      "otherEntityRelationshipName": "request",
+      "relationshipName": "documents"
+    },
+    {
       "relationshipType": "many-to-one",
       "otherEntityName": "user",
       "otherEntityRelationshipName": "request",
@@ -85,14 +91,14 @@
     },
     {
       "relationshipType": "many-to-many",
-      "otherEntityName": "document",
+      "otherEntityName": "animal",
       "otherEntityRelationshipName": "request",
-      "relationshipName": "documents",
+      "relationshipName": "animals",
       "otherEntityField": "id",
       "ownerSide": true
     }
   ],
-  "changelogDate": "20200601231313",
+  "changelogDate": "20200602203452",
   "entityTableName": "request",
   "dto": "no",
   "pagination": "no",

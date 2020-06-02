@@ -15,10 +15,10 @@ import { ICountry } from 'app/shared/model/country.model';
 import { CountryService } from 'app/entities/country/country.service';
 import { IBorderCrossingPoint } from 'app/shared/model/border-crossing-point.model';
 import { BorderCrossingPointService } from 'app/entities/border-crossing-point/border-crossing-point.service';
-import { IDocument } from 'app/shared/model/document.model';
-import { DocumentService } from 'app/entities/document/document.service';
+import { IAnimal } from 'app/shared/model/animal.model';
+import { AnimalService } from 'app/entities/animal/animal.service';
 
-type SelectableEntity = IUser | ICountry | IBorderCrossingPoint | IDocument;
+type SelectableEntity = IUser | ICountry | IBorderCrossingPoint | IAnimal;
 
 @Component({
   selector: 'jhi-request-update',
@@ -29,7 +29,7 @@ export class RequestUpdateComponent implements OnInit {
   users: IUser[] = [];
   countries: ICountry[] = [];
   bordercrossingpoints: IBorderCrossingPoint[] = [];
-  documents: IDocument[] = [];
+  animals: IAnimal[] = [];
 
   editForm = this.fb.group({
     id: [],
@@ -47,7 +47,7 @@ export class RequestUpdateComponent implements OnInit {
     rshInspector: [],
     destinationCountry: [],
     borderCrossingPoint: [],
-    documents: [],
+    animals: [],
   });
 
   constructor(
@@ -55,7 +55,7 @@ export class RequestUpdateComponent implements OnInit {
     protected userService: UserService,
     protected countryService: CountryService,
     protected borderCrossingPointService: BorderCrossingPointService,
-    protected documentService: DocumentService,
+    protected animalService: AnimalService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {}
@@ -79,7 +79,7 @@ export class RequestUpdateComponent implements OnInit {
         .query()
         .subscribe((res: HttpResponse<IBorderCrossingPoint[]>) => (this.bordercrossingpoints = res.body || []));
 
-      this.documentService.query().subscribe((res: HttpResponse<IDocument[]>) => (this.documents = res.body || []));
+      this.animalService.query().subscribe((res: HttpResponse<IAnimal[]>) => (this.animals = res.body || []));
     });
   }
 
@@ -100,7 +100,7 @@ export class RequestUpdateComponent implements OnInit {
       rshInspector: request.rshInspector,
       destinationCountry: request.destinationCountry,
       borderCrossingPoint: request.borderCrossingPoint,
-      documents: request.documents,
+      animals: request.animals,
     });
   }
 
@@ -140,7 +140,7 @@ export class RequestUpdateComponent implements OnInit {
       rshInspector: this.editForm.get(['rshInspector'])!.value,
       destinationCountry: this.editForm.get(['destinationCountry'])!.value,
       borderCrossingPoint: this.editForm.get(['borderCrossingPoint'])!.value,
-      documents: this.editForm.get(['documents'])!.value,
+      animals: this.editForm.get(['animals'])!.value,
     };
   }
 
@@ -164,7 +164,7 @@ export class RequestUpdateComponent implements OnInit {
     return item.id;
   }
 
-  getSelected(selectedVals: IDocument[], option: IDocument): IDocument {
+  getSelected(selectedVals: IAnimal[], option: IAnimal): IAnimal {
     if (selectedVals) {
       for (let i = 0; i < selectedVals.length; i++) {
         if (option.id === selectedVals[i].id) {

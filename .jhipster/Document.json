@@ -32,15 +32,14 @@
       "otherEntityField": "id"
     },
     {
-      "relationshipType": "many-to-many",
+      "relationshipType": "many-to-one",
       "otherEntityName": "request",
       "otherEntityRelationshipName": "documents",
       "relationshipName": "request",
-      "otherEntityField": "id",
-      "ownerSide": false
+      "otherEntityField": "id"
     }
   ],
-  "changelogDate": "20200601231713",
+  "changelogDate": "20200602203852",
   "entityTableName": "document",
   "dto": "no",
   "pagination": "no",

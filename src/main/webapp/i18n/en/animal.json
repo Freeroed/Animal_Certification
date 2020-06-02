@@ -26,7 +26,8 @@
       "colorEng": "Color Eng",
       "status": "Status",
       "breed": "Breed",
-      "master": "Master"
+      "master": "Master",
+      "request": "Request"
     }
   }
 }

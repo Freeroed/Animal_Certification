@@ -136,9 +136,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label jhiTranslate="animalCertificationApp.request.documents" for="field_documents">Documents</label>
-                    <select class="form-control" id="field_documents" multiple name="documents" formControlName="documents">
-                        <option [ngValue]="getSelected(editForm.get('documents')!.value, documentOption)" *ngFor="let documentOption of documents; trackBy: trackById">{{ documentOption.id }}</option>
+                    <label jhiTranslate="animalCertificationApp.request.animals" for="field_animals">Animals</label>
+                    <select class="form-control" id="field_animals" multiple name="animals" formControlName="animals">
+                        <option [ngValue]="getSelected(editForm.get('animals')!.value, animalOption)" *ngFor="let animalOption of animals; trackBy: trackById">{{ animalOption.id }}</option>
                     </select>
                 </div>
             </div>

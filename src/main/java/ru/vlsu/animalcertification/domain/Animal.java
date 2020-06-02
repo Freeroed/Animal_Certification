@@ -1,5 +1,6 @@
 package ru.vlsu.animalcertification.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -9,6 +10,8 @@ import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
 
 import ru.vlsu.animalcertification.domain.enumeration.Gender;
 
@@ -70,6 +73,11 @@ public class Animal implements Serializable {
     @ManyToOne
     @JsonIgnoreProperties(value = "animals", allowSetters = true)
     private User master;
+
+    @ManyToMany(mappedBy = "animals")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnore
+    private Set<Request> requests = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -221,6 +229,31 @@ public class Animal implements Serializable {
 
     public void setMaster(User user) {
         this.master = user;
+    }
+
+    public Set<Request> getRequests() {
+        return requests;
+    }
+
+    public Animal requests(Set<Request> requests) {
+        this.requests = requests;
+        return this;
+    }
+
+    public Animal addRequest(Request request) {
+        this.requests.add(request);
+        request.getAnimals().add(this);
+        return this;
+    }
+
+    public Animal removeRequest(Request request) {
+        this.requests.remove(request);
+        request.getAnimals().remove(this);
+        return this;
+    }
+
+    public void setRequests(Set<Request> requests) {
+        this.requests = requests;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

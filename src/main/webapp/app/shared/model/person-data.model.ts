@@ -6,7 +6,6 @@ export interface IPersonData {
   surnameEng?: string;
   patronymic?: string;
   phone?: string;
-  address?: string;
   inn?: string;
 }
 
@@ -19,7 +18,6 @@ export class PersonData implements IPersonData {
     public surnameEng?: string,
     public patronymic?: string,
     public phone?: string,
-    public address?: string,
     public inn?: string
   ) {}
 }

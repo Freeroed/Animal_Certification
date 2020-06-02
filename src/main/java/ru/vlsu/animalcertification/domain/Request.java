@@ -65,6 +65,10 @@ public class Request implements Serializable {
     @Column(name = "status", nullable = false)
     private RequestStatus status;
 
+    @OneToMany(mappedBy = "request")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    private Set<Document> documents = new HashSet<>();
+
     @ManyToOne
     @JsonIgnoreProperties(value = "requests", allowSetters = true)
     private User creater;
@@ -87,10 +91,10 @@ public class Request implements Serializable {
 
     @ManyToMany
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JoinTable(name = "request_documents",
+    @JoinTable(name = "request_animals",
                joinColumns = @JoinColumn(name = "request_id", referencedColumnName = "id"),
-               inverseJoinColumns = @JoinColumn(name = "documents_id", referencedColumnName = "id"))
-    private Set<Document> documents = new HashSet<>();
+               inverseJoinColumns = @JoinColumn(name = "animals_id", referencedColumnName = "id"))
+    private Set<Animal> animals = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -218,6 +222,31 @@ public class Request implements Serializable {
         this.status = status;
     }
 
+    public Set<Document> getDocuments() {
+        return documents;
+    }
+
+    public Request documents(Set<Document> documents) {
+        this.documents = documents;
+        return this;
+    }
+
+    public Request addDocuments(Document document) {
+        this.documents.add(document);
+        document.setRequest(this);
+        return this;
+    }
+
+    public Request removeDocuments(Document document) {
+        this.documents.remove(document);
+        document.setRequest(null);
+        return this;
+    }
+
+    public void setDocuments(Set<Document> documents) {
+        this.documents = documents;
+    }
+
     public User getCreater() {
         return creater;
     }
@@ -283,29 +312,29 @@ public class Request implements Serializable {
         this.borderCrossingPoint = borderCrossingPoint;
     }
 
-    public Set<Document> getDocuments() {
-        return documents;
+    public Set<Animal> getAnimals() {
+        return animals;
     }
 
-    public Request documents(Set<Document> documents) {
-        this.documents = documents;
+    public Request animals(Set<Animal> animals) {
+        this.animals = animals;
         return this;
     }
 
-    public Request addDocuments(Document document) {
-        this.documents.add(document);
-        document.getRequests().add(this);
+    public Request addAnimals(Animal animal) {
+        this.animals.add(animal);
+        animal.getRequests().add(this);
         return this;
     }
 
-    public Request removeDocuments(Document document) {
-        this.documents.remove(document);
-        document.getRequests().remove(this);
+    public Request removeAnimals(Animal animal) {
+        this.animals.remove(animal);
+        animal.getRequests().remove(this);
         return this;
     }
 
-    public void setDocuments(Set<Document> documents) {
-        this.documents = documents;
+    public void setAnimals(Set<Animal> animals) {
+        this.animals = animals;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

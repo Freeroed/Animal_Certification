@@ -47,9 +47,6 @@ public class PersonDataResourceIT {
     private static final String DEFAULT_PHONE = "AAAAAAAAAA";
     private static final String UPDATED_PHONE = "BBBBBBBBBB";
 
-    private static final String DEFAULT_ADDRESS = "AAAAAAAAAA";
-    private static final String UPDATED_ADDRESS = "BBBBBBBBBB";
-
     private static final String DEFAULT_INN = "AAAAAAAAAA";
     private static final String UPDATED_INN = "BBBBBBBBBB";
 
@@ -187,119 +184,6 @@ public class PersonDataResourceIT {
 
     @Test
     @Transactional
-    public void checkNameEngIsRequired() throws Exception {
-        int databaseSizeBeforeTest = personDataRepository.findAll().size();
-        // set the field null
-        personData.setNameEng(null);
-
-        // Create the PersonData, which fails.
-
-
-        restPersonDataMockMvc.perform(post("/api/person-data")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(personData)))
-            .andExpect(status().isBadRequest());
-
-        List<PersonData> personDataList = personDataRepository.findAll();
-        assertThat(personDataList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
-    public void checkSurnameEngIsRequired() throws Exception {
-        int databaseSizeBeforeTest = personDataRepository.findAll().size();
-        // set the field null
-        personData.setSurnameEng(null);
-
-        // Create the PersonData, which fails.
-
-
-        restPersonDataMockMvc.perform(post("/api/person-data")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(personData)))
-            .andExpect(status().isBadRequest());
-
-        List<PersonData> personDataList = personDataRepository.findAll();
-        assertThat(personDataList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
-    public void checkPatronymicIsRequired() throws Exception {
-        int databaseSizeBeforeTest = personDataRepository.findAll().size();
-        // set the field null
-        personData.setPatronymic(null);
-
-        // Create the PersonData, which fails.
-
-
-        restPersonDataMockMvc.perform(post("/api/person-data")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(personData)))
-            .andExpect(status().isBadRequest());
-
-        List<PersonData> personDataList = personDataRepository.findAll();
-        assertThat(personDataList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
-    public void checkPhoneIsRequired() throws Exception {
-        int databaseSizeBeforeTest = personDataRepository.findAll().size();
-        // set the field null
-        personData.setPhone(null);
-
-        // Create the PersonData, which fails.
-
-
-        restPersonDataMockMvc.perform(post("/api/person-data")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(personData)))
-            .andExpect(status().isBadRequest());
-
-        List<PersonData> personDataList = personDataRepository.findAll();
-        assertThat(personDataList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
-    public void checkAddressIsRequired() throws Exception {
-        int databaseSizeBeforeTest = personDataRepository.findAll().size();
-        // set the field null
-
-        // Create the PersonData, which fails.
-
-
-        restPersonDataMockMvc.perform(post("/api/person-data")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(personData)))
-            .andExpect(status().isBadRequest());
-
-        List<PersonData> personDataList = personDataRepository.findAll();
-        assertThat(personDataList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
-    public void checkInnIsRequired() throws Exception {
-        int databaseSizeBeforeTest = personDataRepository.findAll().size();
-        // set the field null
-        personData.setInn(null);
-
-        // Create the PersonData, which fails.
-
-
-        restPersonDataMockMvc.perform(post("/api/person-data")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(personData)))
-            .andExpect(status().isBadRequest());
-
-        List<PersonData> personDataList = personDataRepository.findAll();
-        assertThat(personDataList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     public void getAllPersonData() throws Exception {
         // Initialize the database
         personDataRepository.saveAndFlush(personData);
@@ -315,10 +199,9 @@ public class PersonDataResourceIT {
             .andExpect(jsonPath("$.[*].surnameEng").value(hasItem(DEFAULT_SURNAME_ENG)))
             .andExpect(jsonPath("$.[*].patronymic").value(hasItem(DEFAULT_PATRONYMIC)))
             .andExpect(jsonPath("$.[*].phone").value(hasItem(DEFAULT_PHONE)))
-            .andExpect(jsonPath("$.[*].address").value(hasItem(DEFAULT_ADDRESS)))
             .andExpect(jsonPath("$.[*].inn").value(hasItem(DEFAULT_INN)));
     }
-
+    
     @Test
     @Transactional
     public void getPersonData() throws Exception {
@@ -336,7 +219,6 @@ public class PersonDataResourceIT {
             .andExpect(jsonPath("$.surnameEng").value(DEFAULT_SURNAME_ENG))
             .andExpect(jsonPath("$.patronymic").value(DEFAULT_PATRONYMIC))
             .andExpect(jsonPath("$.phone").value(DEFAULT_PHONE))
-            .andExpect(jsonPath("$.address").value(DEFAULT_ADDRESS))
             .andExpect(jsonPath("$.inn").value(DEFAULT_INN));
     }
     @Test

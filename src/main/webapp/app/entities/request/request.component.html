@@ -37,7 +37,7 @@
                     <th scope="col" ><span jhiTranslate="animalCertificationApp.request.rshInspector">Rsh Inspector</span></th>
                     <th scope="col" ><span jhiTranslate="animalCertificationApp.request.destinationCountry">Destination Country</span></th>
                     <th scope="col" ><span jhiTranslate="animalCertificationApp.request.borderCrossingPoint">Border Crossing Point</span></th>
-                    <th scope="col" ><span jhiTranslate="animalCertificationApp.request.documents">Documents</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.request.animals">Animals</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -73,8 +73,8 @@
                         </div>
                     </td>
                     <td>
-                        <span *ngFor="let documents of request.documents; let last = last">
-                            <a class="form-control-static" [routerLink]="['/document', documents?.id, 'view']">{{ documents.id }}</a>{{ last ? '' : ', ' }}
+                        <span *ngFor="let animals of request.animals; let last = last">
+                            <a class="form-control-static" [routerLink]="['/animal', animals?.id, 'view']">{{ animals.id }}</a>{{ last ? '' : ', ' }}
                         </span>
                     </td>
                     <td class="text-right">

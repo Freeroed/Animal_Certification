@@ -27,6 +27,7 @@
                     <th scope="col" ><span jhiTranslate="animalCertificationApp.document.link">Link</span></th>
                     <th scope="col" ><span jhiTranslate="animalCertificationApp.document.documentNumber">Document Number</span></th>
                     <th scope="col" ><span jhiTranslate="animalCertificationApp.document.type">Type</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.document.request">Request</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -39,6 +40,11 @@
                     <td>
                         <div *ngIf="document.type">
                             <a [routerLink]="['/document-type', document.type?.id, 'view']" >{{ document.type?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="document.request">
+                            <a [routerLink]="['/request', document.request?.id, 'view']" >{{ document.request?.id }}</a>
                         </div>
                     </td>
                     <td class="text-right">

@@ -17,49 +17,27 @@
     },
     {
       "fieldName": "nameEng",
-      "fieldType": "String",
-      "fieldValidateRules": [
-        "required"
-      ]
+      "fieldType": "String"
     },
     {
       "fieldName": "surnameEng",
-      "fieldType": "String",
-      "fieldValidateRules": [
-        "required"
-      ]
+      "fieldType": "String"
     },
     {
       "fieldName": "patronymic",
-      "fieldType": "String",
-      "fieldValidateRules": [
-        "required"
-      ]
+      "fieldType": "String"
     },
     {
       "fieldName": "phone",
-      "fieldType": "String",
-      "fieldValidateRules": [
-        "required"
-      ]
-    },
-    {
-      "fieldName": "address",
-      "fieldType": "String",
-      "fieldValidateRules": [
-        "required"
-      ]
+      "fieldType": "String"
     },
     {
       "fieldName": "inn",
-      "fieldType": "String",
-      "fieldValidateRules": [
-        "required"
-      ]
+      "fieldType": "String"
     }
   ],
   "relationships": [],
-  "changelogDate": "20200601231913",
+  "changelogDate": "20200602204052",
   "entityTableName": "personal_data",
   "dto": "no",
   "pagination": "no",

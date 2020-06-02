@@ -40,7 +40,6 @@ public class PersonData implements Serializable {
     @Column(name = "patronymic")
     private String patronymic;
 
-
     @Column(name = "phone")
     private String phone;
 
@@ -133,7 +132,6 @@ public class PersonData implements Serializable {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
 
     public String getInn() {
         return inn;

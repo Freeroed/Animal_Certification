@@ -8,7 +8,7 @@ export interface IDocument {
   link?: string;
   documentNumber?: string;
   type?: IDocumentType;
-  requests?: IRequest[];
+  request?: IRequest;
 }
 
 export class Document implements IDocument {
@@ -18,6 +18,6 @@ export class Document implements IDocument {
     public link?: string,
     public documentNumber?: string,
     public type?: IDocumentType,
-    public requests?: IRequest[]
+    public request?: IRequest
   ) {}
 }

@@ -60,7 +60,7 @@
       "otherEntityField": "id"
     }
   ],
-  "changelogDate": "20200601231813",
+  "changelogDate": "20200602203952",
   "entityTableName": "border_crossing_point",
   "dto": "no",
   "pagination": "no",
