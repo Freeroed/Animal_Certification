@@ -1,10 +1,10 @@
 <div>
     <h2 id="page-heading">
-        <span jhiTranslate="animalCretificationApp.country.home.title">Countries</span>
+        <span jhiTranslate="animalCertificationApp.country.home.title">Countries</span>
 
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-country" [routerLink]="['/country/new']">
             <fa-icon icon="plus"></fa-icon>
-            <span  jhiTranslate="animalCretificationApp.country.home.createLabel">
+            <span  jhiTranslate="animalCertificationApp.country.home.createLabel">
             Create a new Country
             </span>
         </button>
@@ -15,7 +15,7 @@
     <jhi-alert></jhi-alert>
 
     <div class="alert alert-warning" id="no-result" *ngIf="countries?.length === 0">
-        <span jhiTranslate="animalCretificationApp.country.home.notFound">No countries found</span>
+        <span jhiTranslate="animalCertificationApp.country.home.notFound">No countries found</span>
     </div>
 
     <div class="table-responsive" id="entities" *ngIf="countries && countries.length > 0">
@@ -23,10 +23,10 @@
             <thead>
                 <tr>
                     <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="animalCretificationApp.country.name">Name</span></th>
-                    <th scope="col" ><span jhiTranslate="animalCretificationApp.country.nameEng">Name Eng</span></th>
-                    <th scope="col" ><span jhiTranslate="animalCretificationApp.country.isoCode">Iso Code</span></th>
-                    <th scope="col" ><span jhiTranslate="animalCretificationApp.country.region">Region</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.country.name">Name</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.country.nameEng">Name Eng</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.country.isoCode">Iso Code</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.country.region">Region</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>

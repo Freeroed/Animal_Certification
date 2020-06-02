@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-            <h2 id="jhi-request-heading" jhiTranslate="animalCretificationApp.request.home.createOrEditLabel">Create or edit a Request</h2>
+            <h2 id="jhi-request-heading" jhiTranslate="animalCertificationApp.request.home.createOrEditLabel">Create or edit a Request</h2>
 
             <div>
                 <jhi-alert-error></jhi-alert-error>
@@ -12,49 +12,49 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.request.transportType" for="field_transportType">Transport Type</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.request.transportType" for="field_transportType">Transport Type</label>
                     <select class="form-control" name="transportType" formControlName="transportType" id="field_transportType">
-                        <option value="CAR">{{ 'animalCretificationApp.TransportType.CAR' | translate }}</option>
-                        <option value="TRAIN">{{ 'animalCretificationApp.TransportType.TRAIN' | translate }}</option>
-                        <option value="AIR_TRANSPORT">{{ 'animalCretificationApp.TransportType.AIR_TRANSPORT' | translate }}</option>
-                        <option value="WATER_TRANSPORT">{{ 'animalCretificationApp.TransportType.WATER_TRANSPORT' | translate }}</option>
+                        <option value="CAR">{{ 'animalCertificationApp.TransportType.CAR' | translate }}</option>
+                        <option value="TRAIN">{{ 'animalCertificationApp.TransportType.TRAIN' | translate }}</option>
+                        <option value="AIR_TRANSPORT">{{ 'animalCertificationApp.TransportType.AIR_TRANSPORT' | translate }}</option>
+                        <option value="WATER_TRANSPORT">{{ 'animalCertificationApp.TransportType.WATER_TRANSPORT' | translate }}</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.request.vehicleNumber" for="field_vehicleNumber">Vehicle Number</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.request.vehicleNumber" for="field_vehicleNumber">Vehicle Number</label>
                     <input type="text" class="form-control" name="vehicleNumber" id="field_vehicleNumber"
                            formControlName="vehicleNumber"/>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.request.transactionType" for="field_transactionType">Transaction Type</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.request.transactionType" for="field_transactionType">Transaction Type</label>
                     <select class="form-control" name="transactionType" formControlName="transactionType" id="field_transactionType">
-                        <option value="TRAVEL">{{ 'animalCretificationApp.TransactionType.TRAVEL' | translate }}</option>
+                        <option value="TRAVEL">{{ 'animalCertificationApp.TransactionType.TRAVEL' | translate }}</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.request.storageWay" for="field_storageWay">Storage Way</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.request.storageWay" for="field_storageWay">Storage Way</label>
                     <input type="text" class="form-control" name="storageWay" id="field_storageWay"
                            formControlName="storageWay"/>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.request.postalCode" for="field_postalCode">Postal Code</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.request.postalCode" for="field_postalCode">Postal Code</label>
                     <input type="text" class="form-control" name="postalCode" id="field_postalCode"
                            formControlName="postalCode"/>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.request.departureAt" for="field_departureAt">Departure At</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.request.departureAt" for="field_departureAt">Departure At</label>
                     <div class="d-flex">
                         <input id="field_departureAt" type="datetime-local" class="form-control" name="departureAt" formControlName="departureAt" placeholder="YYYY-MM-DD HH:mm"/>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.request.createdAt" for="field_createdAt">Created At</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.request.createdAt" for="field_createdAt">Created At</label>
                     <div class="d-flex">
                         <input id="field_createdAt" type="datetime-local" class="form-control" name="createdAt" formControlName="createdAt" placeholder="YYYY-MM-DD HH:mm"/>
                     </div>
@@ -71,21 +71,21 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.request.lastModifiedAt" for="field_lastModifiedAt">Last Modified At</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.request.lastModifiedAt" for="field_lastModifiedAt">Last Modified At</label>
                     <div class="d-flex">
                         <input id="field_lastModifiedAt" type="datetime-local" class="form-control" name="lastModifiedAt" formControlName="lastModifiedAt" placeholder="YYYY-MM-DD HH:mm"/>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.request.status" for="field_status">Status</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.request.status" for="field_status">Status</label>
                     <select class="form-control" name="status" formControlName="status" id="field_status">
-                        <option value="CREATED">{{ 'animalCretificationApp.RequestStatus.CREATED' | translate }}</option>
-                        <option value="PREPARED">{{ 'animalCretificationApp.RequestStatus.PREPARED' | translate }}</option>
-                        <option value="CONFIRM">{{ 'animalCretificationApp.RequestStatus.CONFIRM' | translate }}</option>
-                        <option value="FROM_ONE_CERTIFICATED">{{ 'animalCretificationApp.RequestStatus.FROM_ONE_CERTIFICATED' | translate }}</option>
-                        <option value="EXPORT_DOCS_ISSUED">{{ 'animalCretificationApp.RequestStatus.EXPORT_DOCS_ISSUED' | translate }}</option>
-                        <option value="CLOSED">{{ 'animalCretificationApp.RequestStatus.CLOSED' | translate }}</option>
+                        <option value="CREATED">{{ 'animalCertificationApp.RequestStatus.CREATED' | translate }}</option>
+                        <option value="PREPARED">{{ 'animalCertificationApp.RequestStatus.PREPARED' | translate }}</option>
+                        <option value="CONFIRM">{{ 'animalCertificationApp.RequestStatus.CONFIRM' | translate }}</option>
+                        <option value="FROM_ONE_CERTIFICATED">{{ 'animalCertificationApp.RequestStatus.FROM_ONE_CERTIFICATED' | translate }}</option>
+                        <option value="EXPORT_DOCS_ISSUED">{{ 'animalCertificationApp.RequestStatus.EXPORT_DOCS_ISSUED' | translate }}</option>
+                        <option value="CLOSED">{{ 'animalCertificationApp.RequestStatus.CLOSED' | translate }}</option>
                     </select>
                     <div *ngIf="editForm.get('status')!.invalid && (editForm.get('status')!.dirty || editForm.get('status')!.touched)">
                         <small class="form-text text-danger"
@@ -96,7 +96,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.request.creater" for="field_creater">Creater</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.request.creater" for="field_creater">Creater</label>
                     <select class="form-control" id="field_creater" name="creater" formControlName="creater">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="userOption.id === editForm.get('creater')!.value?.id ? editForm.get('creater')!.value : userOption" *ngFor="let userOption of users; trackBy: trackById">{{ userOption.id }}</option>
@@ -104,7 +104,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.request.veterinarian" for="field_veterinarian">Veterinarian</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.request.veterinarian" for="field_veterinarian">Veterinarian</label>
                     <select class="form-control" id="field_veterinarian" name="veterinarian" formControlName="veterinarian">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="userOption.id === editForm.get('veterinarian')!.value?.id ? editForm.get('veterinarian')!.value : userOption" *ngFor="let userOption of users; trackBy: trackById">{{ userOption.id }}</option>
@@ -112,7 +112,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.request.rshInspector" for="field_rshInspector">Rsh Inspector</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.request.rshInspector" for="field_rshInspector">Rsh Inspector</label>
                     <select class="form-control" id="field_rshInspector" name="rshInspector" formControlName="rshInspector">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="userOption.id === editForm.get('rshInspector')!.value?.id ? editForm.get('rshInspector')!.value : userOption" *ngFor="let userOption of users; trackBy: trackById">{{ userOption.id }}</option>
@@ -120,7 +120,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.request.destinationCountry" for="field_destinationCountry">Destination Country</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.request.destinationCountry" for="field_destinationCountry">Destination Country</label>
                     <select class="form-control" id="field_destinationCountry" name="destinationCountry" formControlName="destinationCountry">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="countryOption.id === editForm.get('destinationCountry')!.value?.id ? editForm.get('destinationCountry')!.value : countryOption" *ngFor="let countryOption of countries; trackBy: trackById">{{ countryOption.id }}</option>
@@ -128,15 +128,15 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.request.borderCrossingPoint" for="field_borderCrossingPoint">Border Crossing Point</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.request.borderCrossingPoint" for="field_borderCrossingPoint">Border Crossing Point</label>
                     <select class="form-control" id="field_borderCrossingPoint" name="borderCrossingPoint" formControlName="borderCrossingPoint">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="countryOption.id === editForm.get('borderCrossingPoint')!.value?.id ? editForm.get('borderCrossingPoint')!.value : countryOption" *ngFor="let countryOption of countries; trackBy: trackById">{{ countryOption.id }}</option>
+                        <option [ngValue]="borderCrossingPointOption.id === editForm.get('borderCrossingPoint')!.value?.id ? editForm.get('borderCrossingPoint')!.value : borderCrossingPointOption" *ngFor="let borderCrossingPointOption of bordercrossingpoints; trackBy: trackById">{{ borderCrossingPointOption.id }}</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label jhiTranslate="animalCretificationApp.request.documents" for="field_documents">Documents</label>
+                    <label jhiTranslate="animalCertificationApp.request.documents" for="field_documents">Documents</label>
                     <select class="form-control" id="field_documents" multiple name="documents" formControlName="documents">
                         <option [ngValue]="getSelected(editForm.get('documents')!.value, documentOption)" *ngFor="let documentOption of documents; trackBy: trackById">{{ documentOption.id }}</option>
                     </select>

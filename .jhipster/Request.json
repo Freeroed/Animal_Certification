@@ -78,7 +78,7 @@
     },
     {
       "relationshipType": "many-to-one",
-      "otherEntityName": "country",
+      "otherEntityName": "borderCrossingPoint",
       "otherEntityRelationshipName": "request",
       "relationshipName": "borderCrossingPoint",
       "otherEntityField": "id"
@@ -92,7 +92,7 @@
       "ownerSide": true
     }
   ],
-  "changelogDate": "20200530172257",
+  "changelogDate": "20200601231313",
   "entityTableName": "request",
   "dto": "no",
   "pagination": "no",

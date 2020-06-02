@@ -1,6 +1,6 @@
 {
   "global": {
-    "title": "Animal_Cretification",
+    "title": "Animal_Certification",
     "browsehappy": "Ваш браузер <strong>устарел</strong>. Пожалуйста <a href=\"http://browsehappy.com/?locale=ru\">обновите ваш браузер</a>.",
     "menu": {
       "home": "Главная",
@@ -18,6 +18,8 @@
         "documentType": "Document Type",
         "document": "Document",
         "borderCrossingPoint": "Border Crossing Point",
+        "personData": "Person Data",
+        "address": "Address",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

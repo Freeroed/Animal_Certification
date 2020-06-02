@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="personData">
+            <h2><span jhiTranslate="animalCertificationApp.personData.detail.title">Person Data</span> {{ personData.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="animalCertificationApp.personData.name">Name</span></dt>
+                <dd>
+                    <span>{{ personData.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="animalCertificationApp.personData.surname">Surname</span></dt>
+                <dd>
+                    <span>{{ personData.surname }}</span>
+                </dd>
+                <dt><span jhiTranslate="animalCertificationApp.personData.nameEng">Name Eng</span></dt>
+                <dd>
+                    <span>{{ personData.nameEng }}</span>
+                </dd>
+                <dt><span jhiTranslate="animalCertificationApp.personData.surnameEng">Surname Eng</span></dt>
+                <dd>
+                    <span>{{ personData.surnameEng }}</span>
+                </dd>
+                <dt><span jhiTranslate="animalCertificationApp.personData.patronymic">Patronymic</span></dt>
+                <dd>
+                    <span>{{ personData.patronymic }}</span>
+                </dd>
+                <dt><span jhiTranslate="animalCertificationApp.personData.phone">Phone</span></dt>
+                <dd>
+                    <span>{{ personData.phone }}</span>
+                </dd>
+                <dt><span jhiTranslate="animalCertificationApp.personData.address">Address</span></dt>
+                <dd>
+                    <span>{{ personData.address }}</span>
+                </dd>
+                <dt><span jhiTranslate="animalCertificationApp.personData.inn">Inn</span></dt>
+                <dd>
+                    <span>{{ personData.inn }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/person-data', personData.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

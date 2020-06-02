@@ -44,6 +44,10 @@ public class BorderCrossingPoint implements Serializable {
     @Column(name = "schedule_of_officals", nullable = false)
     private String scheduleOfOfficals;
 
+    @NotNull
+    @Column(name = "coordinates", nullable = false)
+    private String coordinates;
+
     @ManyToOne
     @JsonIgnoreProperties(value = "borderCrossingPoints", allowSetters = true)
     private Country firstCountry;
@@ -126,6 +130,19 @@ public class BorderCrossingPoint implements Serializable {
         this.scheduleOfOfficals = scheduleOfOfficals;
     }
 
+    public String getCoordinates() {
+        return coordinates;
+    }
+
+    public BorderCrossingPoint coordinates(String coordinates) {
+        this.coordinates = coordinates;
+        return this;
+    }
+
+    public void setCoordinates(String coordinates) {
+        this.coordinates = coordinates;
+    }
+
     public Country getFirstCountry() {
         return firstCountry;
     }
@@ -179,6 +196,7 @@ public class BorderCrossingPoint implements Serializable {
             ", classification='" + getClassification() + "'" +
             ", schedule='" + getSchedule() + "'" +
             ", scheduleOfOfficals='" + getScheduleOfOfficals() + "'" +
+            ", coordinates='" + getCoordinates() + "'" +
             "}";
     }
 }

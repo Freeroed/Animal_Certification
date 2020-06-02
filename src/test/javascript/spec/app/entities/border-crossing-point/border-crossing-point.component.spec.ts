@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { HttpHeaders, HttpResponse } from '@angular/common/http';
 
-import { AnimalCretificationTestModule } from '../../../test.module';
+import { AnimalCertificationTestModule } from '../../../test.module';
 import { BorderCrossingPointComponent } from 'app/entities/border-crossing-point/border-crossing-point.component';
 import { BorderCrossingPointService } from 'app/entities/border-crossing-point/border-crossing-point.service';
 import { BorderCrossingPoint } from 'app/shared/model/border-crossing-point.model';
@@ -15,7 +15,7 @@ describe('Component Tests', () => {
 
     beforeEach(() => {
       TestBed.configureTestingModule({
-        imports: [AnimalCretificationTestModule],
+        imports: [AnimalCertificationTestModule],
         declarations: [BorderCrossingPointComponent],
       })
         .overrideTemplate(BorderCrossingPointComponent, '')

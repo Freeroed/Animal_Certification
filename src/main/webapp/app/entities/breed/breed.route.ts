@@ -40,7 +40,7 @@ export const breedRoute: Routes = [
     component: BreedComponent,
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'animalCretificationApp.breed.home.title',
+      pageTitle: 'animalCertificationApp.breed.home.title',
     },
     canActivate: [UserRouteAccessService],
   },
@@ -52,7 +52,7 @@ export const breedRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'animalCretificationApp.breed.home.title',
+      pageTitle: 'animalCertificationApp.breed.home.title',
     },
     canActivate: [UserRouteAccessService],
   },
@@ -64,7 +64,7 @@ export const breedRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'animalCretificationApp.breed.home.title',
+      pageTitle: 'animalCertificationApp.breed.home.title',
     },
     canActivate: [UserRouteAccessService],
   },
@@ -76,7 +76,7 @@ export const breedRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'animalCretificationApp.breed.home.title',
+      pageTitle: 'animalCertificationApp.breed.home.title',
     },
     canActivate: [UserRouteAccessService],
   },

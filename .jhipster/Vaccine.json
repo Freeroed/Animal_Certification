@@ -54,7 +54,7 @@
       "otherEntityField": "id"
     }
   ],
-  "changelogDate": "20200530172057",
+  "changelogDate": "20200601231113",
   "entityTableName": "vaccine",
   "dto": "no",
   "pagination": "no",

@@ -1,5 +1,5 @@
 {
-  "animalCretificationApp": {
+  "animalCertificationApp": {
     "borderCrossingPoint": {
       "home": {
         "title": "Border Crossing Points",
@@ -21,6 +21,7 @@
       "classification": "Classification",
       "schedule": "Schedule",
       "scheduleOfOfficals": "Schedule Of Officals",
+      "coordinates": "Coordinates",
       "firstCountry": "First Country",
       "secondCountry": "Second Country"
     }

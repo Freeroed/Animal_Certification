@@ -4,10 +4,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ru.vlsu.animalcertification</groupId>
-    <artifactId>animal-cretification</artifactId>
+    <artifactId>animal-certification</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>Animal Cretification</name>
+    <name>Animal Certification</name>
 
     <repositories>
         <!-- jhipster-needle-maven-repository -->
@@ -102,24 +102,6 @@
     </dependencyManagement>
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/com.itextpdf/itextpdf -->
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>itextpdf</artifactId>
-            <version>5.5.13.1</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.itextpdf/kernel -->
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>kernel</artifactId>
-            <version>7.1.11</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.itextpdf/layout -->
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>layout</artifactId>
-            <version>7.1.11</version>
-        </dependency>
         <dependency>
             <groupId>io.github.jhipster</groupId>
             <artifactId>jhipster-framework</artifactId>
@@ -616,7 +598,7 @@
                             <image>adoptopenjdk:11-jre-hotspot</image>
                         </from>
                         <to>
-                            <image>animal_cretification:latest</image>
+                            <image>animal_certification:latest</image>
                         </to>
                         <container>
                             <entrypoint>
@@ -652,9 +634,9 @@
                         <changeLogFile>${project.basedir}/src/main/resources/config/liquibase/master.xml</changeLogFile>
                         <diffChangeLogFile>${project.basedir}/src/main/resources/config/liquibase/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
                         <driver>org.postgresql.Driver</driver>
-                        <url>jdbc:postgresql://localhost:5432/Animal_Cretification</url>
+                        <url>jdbc:postgresql://localhost:5432/Animal_Certification</url>
                         <defaultSchemaName></defaultSchemaName>
-                        <username>Animal_Cretification</username>
+                        <username>Animal_Certification</username>
                         <password></password>
                         <referenceUrl>hibernate:spring:ru.vlsu.animalcertification.domain?dialect=io.github.jhipster.domain.util.FixedPostgreSQL10Dialect&amp;hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&amp;hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy</referenceUrl>
                         <verbose>true</verbose>

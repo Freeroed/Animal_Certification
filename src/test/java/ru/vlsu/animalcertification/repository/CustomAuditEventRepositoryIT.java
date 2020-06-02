@@ -1,6 +1,6 @@
 package ru.vlsu.animalcertification.repository;
 
-import ru.vlsu.animalcertification.AnimalCretificationApp;
+import ru.vlsu.animalcertification.AnimalCertificationApp;
 
 import ru.vlsu.animalcertification.config.Constants;
 import ru.vlsu.animalcertification.config.audit.AuditEventConverter;
@@ -28,7 +28,7 @@ import static ru.vlsu.animalcertification.repository.CustomAuditEventRepository.
 /**
  * Integration tests for {@link CustomAuditEventRepository}.
  */
-@SpringBootTest(classes = AnimalCretificationApp.class)
+@SpringBootTest(classes = AnimalCertificationApp.class)
 @Transactional
 public class CustomAuditEventRepositoryIT {
 

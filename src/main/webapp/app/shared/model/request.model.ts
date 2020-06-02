@@ -1,6 +1,7 @@
 import { Moment } from 'moment';
 import { IUser } from 'app/core/user/user.model';
 import { ICountry } from 'app/shared/model/country.model';
+import { IBorderCrossingPoint } from 'app/shared/model/border-crossing-point.model';
 import { IDocument } from 'app/shared/model/document.model';
 import { TransportType } from 'app/shared/model/enumerations/transport-type.model';
 import { TransactionType } from 'app/shared/model/enumerations/transaction-type.model';
@@ -21,7 +22,7 @@ export interface IRequest {
   veterinarian?: IUser;
   rshInspector?: IUser;
   destinationCountry?: ICountry;
-  borderCrossingPoint?: ICountry;
+  borderCrossingPoint?: IBorderCrossingPoint;
   documents?: IDocument[];
 }
 
@@ -41,7 +42,7 @@ export class Request implements IRequest {
     public veterinarian?: IUser,
     public rshInspector?: IUser,
     public destinationCountry?: ICountry,
-    public borderCrossingPoint?: ICountry,
+    public borderCrossingPoint?: IBorderCrossingPoint,
     public documents?: IDocument[]
   ) {}
 }

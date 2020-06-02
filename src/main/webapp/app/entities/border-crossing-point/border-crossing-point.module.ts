@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { AnimalCretificationSharedModule } from 'app/shared/shared.module';
+import { AnimalCertificationSharedModule } from 'app/shared/shared.module';
 import { BorderCrossingPointComponent } from './border-crossing-point.component';
 import { BorderCrossingPointDetailComponent } from './border-crossing-point-detail.component';
 import { BorderCrossingPointUpdateComponent } from './border-crossing-point-update.component';
@@ -9,7 +9,7 @@ import { BorderCrossingPointDeleteDialogComponent } from './border-crossing-poin
 import { borderCrossingPointRoute } from './border-crossing-point.route';
 
 @NgModule({
-  imports: [AnimalCretificationSharedModule, RouterModule.forChild(borderCrossingPointRoute)],
+  imports: [AnimalCertificationSharedModule, RouterModule.forChild(borderCrossingPointRoute)],
   declarations: [
     BorderCrossingPointComponent,
     BorderCrossingPointDetailComponent,
@@ -18,4 +18,4 @@ import { borderCrossingPointRoute } from './border-crossing-point.route';
   ],
   entryComponents: [BorderCrossingPointDeleteDialogComponent],
 })
-export class AnimalCretificationBorderCrossingPointModule {}
+export class AnimalCertificationBorderCrossingPointModule {}

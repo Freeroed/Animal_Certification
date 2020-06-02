@@ -40,7 +40,7 @@ export const laboratoryResearchRoute: Routes = [
     component: LaboratoryResearchComponent,
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'animalCretificationApp.laboratoryResearch.home.title',
+      pageTitle: 'animalCertificationApp.laboratoryResearch.home.title',
     },
     canActivate: [UserRouteAccessService],
   },
@@ -52,7 +52,7 @@ export const laboratoryResearchRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'animalCretificationApp.laboratoryResearch.home.title',
+      pageTitle: 'animalCertificationApp.laboratoryResearch.home.title',
     },
     canActivate: [UserRouteAccessService],
   },
@@ -64,7 +64,7 @@ export const laboratoryResearchRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'animalCretificationApp.laboratoryResearch.home.title',
+      pageTitle: 'animalCertificationApp.laboratoryResearch.home.title',
     },
     canActivate: [UserRouteAccessService],
   },
@@ -76,7 +76,7 @@ export const laboratoryResearchRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'animalCretificationApp.laboratoryResearch.home.title',
+      pageTitle: 'animalCertificationApp.laboratoryResearch.home.title',
     },
     canActivate: [UserRouteAccessService],
   },

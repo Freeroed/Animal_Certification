@@ -1,6 +1,6 @@
 package ru.vlsu.animalcertification.web.rest;
 
-import ru.vlsu.animalcertification.AnimalCretificationApp;
+import ru.vlsu.animalcertification.AnimalCertificationApp;
 import ru.vlsu.animalcertification.domain.Vaccine;
 import ru.vlsu.animalcertification.repository.VaccineRepository;
 
@@ -27,7 +27,7 @@ import ru.vlsu.animalcertification.domain.enumeration.VaccineType;
 /**
  * Integration tests for the {@link VaccineResource} REST controller.
  */
-@SpringBootTest(classes = AnimalCretificationApp.class)
+@SpringBootTest(classes = AnimalCertificationApp.class)
 @AutoConfigureMockMvc
 @WithMockUser
 public class VaccineResourceIT {

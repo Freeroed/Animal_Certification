@@ -1,11 +1,11 @@
 version: '2'
 services:
-  animal_cretification-postgresql:
+  animal_certification-postgresql:
     image: postgres:12.1
     # volumes:
-    #     - ~/volumes/jhipster/Animal_Cretification/postgresql/:/var/lib/postgresql/data/
+    #     - ~/volumes/jhipster/Animal_Certification/postgresql/:/var/lib/postgresql/data/
     environment:
-      - POSTGRES_USER=Animal_Cretification
+      - POSTGRES_USER=Animal_Certification
       - POSTGRES_PASSWORD=
     ports:
       - 5432:5432

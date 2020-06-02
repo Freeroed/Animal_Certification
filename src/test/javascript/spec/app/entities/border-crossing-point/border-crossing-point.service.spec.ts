@@ -20,7 +20,7 @@ describe('Service Tests', () => {
       service = injector.get(BorderCrossingPointService);
       httpMock = injector.get(HttpTestingController);
 
-      elemDefault = new BorderCrossingPoint(0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA');
+      elemDefault = new BorderCrossingPoint(0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA', 'AAAAAAA');
     });
 
     describe('Service methods', () => {
@@ -59,6 +59,7 @@ describe('Service Tests', () => {
             classification: 'BBBBBB',
             schedule: 'BBBBBB',
             scheduleOfOfficals: 'BBBBBB',
+            coordinates: 'BBBBBB',
           },
           elemDefault
         );
@@ -80,6 +81,7 @@ describe('Service Tests', () => {
             classification: 'BBBBBB',
             schedule: 'BBBBBB',
             scheduleOfOfficals: 'BBBBBB',
+            coordinates: 'BBBBBB',
           },
           elemDefault
         );

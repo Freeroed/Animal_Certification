@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { AnimalCretificationSharedModule } from 'app/shared/shared.module';
+import { AnimalCertificationSharedModule } from 'app/shared/shared.module';
 import { AnimalTypeComponent } from './animal-type.component';
 import { AnimalTypeDetailComponent } from './animal-type-detail.component';
 import { AnimalTypeUpdateComponent } from './animal-type-update.component';
@@ -9,8 +9,8 @@ import { AnimalTypeDeleteDialogComponent } from './animal-type-delete-dialog.com
 import { animalTypeRoute } from './animal-type.route';
 
 @NgModule({
-  imports: [AnimalCretificationSharedModule, RouterModule.forChild(animalTypeRoute)],
+  imports: [AnimalCertificationSharedModule, RouterModule.forChild(animalTypeRoute)],
   declarations: [AnimalTypeComponent, AnimalTypeDetailComponent, AnimalTypeUpdateComponent, AnimalTypeDeleteDialogComponent],
   entryComponents: [AnimalTypeDeleteDialogComponent],
 })
-export class AnimalCretificationAnimalTypeModule {}
+export class AnimalCertificationAnimalTypeModule {}

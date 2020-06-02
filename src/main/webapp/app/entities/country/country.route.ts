@@ -40,7 +40,7 @@ export const countryRoute: Routes = [
     component: CountryComponent,
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'animalCretificationApp.country.home.title',
+      pageTitle: 'animalCertificationApp.country.home.title',
     },
     canActivate: [UserRouteAccessService],
   },
@@ -52,7 +52,7 @@ export const countryRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'animalCretificationApp.country.home.title',
+      pageTitle: 'animalCertificationApp.country.home.title',
     },
     canActivate: [UserRouteAccessService],
   },
@@ -64,7 +64,7 @@ export const countryRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'animalCretificationApp.country.home.title',
+      pageTitle: 'animalCertificationApp.country.home.title',
     },
     canActivate: [UserRouteAccessService],
   },
@@ -76,7 +76,7 @@ export const countryRoute: Routes = [
     },
     data: {
       authorities: [Authority.USER],
-      pageTitle: 'animalCretificationApp.country.home.title',
+      pageTitle: 'animalCertificationApp.country.home.title',
     },
     canActivate: [UserRouteAccessService],
   },

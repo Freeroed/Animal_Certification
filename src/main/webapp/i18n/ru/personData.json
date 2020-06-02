@@ -1,0 +1,29 @@
+{
+  "animalCertificationApp": {
+    "personData": {
+      "home": {
+        "title": "Person Data",
+        "createLabel": "Создать новый Person Data",
+        "createOrEditLabel": "Создать или отредактировать Person Data",
+        "notFound": "No Person Data found"
+      },
+      "created": "Новый Person Data создан с идентификатором {{ param }}",
+      "updated": "Person Data обновлен с идентификатором {{ param }}",
+      "deleted": "Person Data удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Person Data {{ id }}?"
+      },
+      "detail": {
+        "title": "Person Data"
+      },
+      "name": "Name",
+      "surname": "Surname",
+      "nameEng": "Name Eng",
+      "surnameEng": "Surname Eng",
+      "patronymic": "Patronymic",
+      "phone": "Phone",
+      "address": "Address",
+      "inn": "Inn"
+    }
+  }
+}

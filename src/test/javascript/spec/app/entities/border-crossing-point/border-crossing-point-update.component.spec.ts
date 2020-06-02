@@ -3,7 +3,7 @@ import { HttpResponse } from '@angular/common/http';
 import { FormBuilder } from '@angular/forms';
 import { of } from 'rxjs';
 
-import { AnimalCretificationTestModule } from '../../../test.module';
+import { AnimalCertificationTestModule } from '../../../test.module';
 import { BorderCrossingPointUpdateComponent } from 'app/entities/border-crossing-point/border-crossing-point-update.component';
 import { BorderCrossingPointService } from 'app/entities/border-crossing-point/border-crossing-point.service';
 import { BorderCrossingPoint } from 'app/shared/model/border-crossing-point.model';
@@ -16,7 +16,7 @@ describe('Component Tests', () => {
 
     beforeEach(() => {
       TestBed.configureTestingModule({
-        imports: [AnimalCretificationTestModule],
+        imports: [AnimalCertificationTestModule],
         declarations: [BorderCrossingPointUpdateComponent],
         providers: [FormBuilder],
       })

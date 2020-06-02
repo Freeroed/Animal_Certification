@@ -1,11 +1,11 @@
 id;transport_type;vehicle_number;transaction_type;storage_way;postal_code;departure_at;created_at;last_modified_at;status
-1;WATER_TRANSPORT;Computers;TRAVEL;District Concrete;Gloves;2020-05-30T02:44:03;2020-05-30T07:12:30;2020-05-29T22:24:52;PREPARED
-2;WATER_TRANSPORT;distributed;TRAVEL;Human;Pine bus;2020-05-30T06:23:54;2020-05-30T14:08:25;2020-05-30T17:05:45;CLOSED
-3;AIR_TRANSPORT;efficient Graphic Interface;TRAVEL;SDD intuitive;bypass;2020-05-29T23:00:04;2020-05-30T15:25:46;2020-05-30T03:09:10;CREATED
-4;TRAIN;Customer UIC-Franc;TRAVEL;models Legacy disintermediate;Square Tunnel Azerbaijanian Manat;2020-05-30T03:42:26;2020-05-29T18:53:28;2020-05-30T14:04:53;FROM_ONE_CERTIFICATED
-5;CAR;full-range Crossroad Creative;TRAVEL;Computer;auxiliary Afghanistan US Dollar;2020-05-30T12:26:17;2020-05-30T04:18:44;2020-05-29T23:05:40;CLOSED
-6;AIR_TRANSPORT;quantifying;TRAVEL;experiences;Designer monetize out-of-the-box;2020-05-30T01:44:56;2020-05-29T20:17:06;2020-05-29T17:54:03;EXPORT_DOCS_ISSUED
-7;AIR_TRANSPORT;content Vermont;TRAVEL;vortals Monaco Steel;invoice technologies Customer-focused;2020-05-29T19:07:57;2020-05-30T00:35:44;2020-05-30T10:05:17;EXPORT_DOCS_ISSUED
-8;CAR;Personal Loan Account Health;TRAVEL;array;Liaison invoice;2020-05-29T22:35:48;2020-05-30T07:56:41;2020-05-30T03:08:10;CLOSED
-9;TRAIN;Liberian Dollar Hawaii;TRAVEL;Investor;Small deposit Analyst;2020-05-29T20:14:23;2020-05-29T20:33:12;2020-05-30T12:14:22;FROM_ONE_CERTIFICATED
-10;WATER_TRANSPORT;Concrete Future dot-com;TRAVEL;Grocery Steel Cotton;Books;2020-05-30T00:58:45;2020-05-29T17:43:14;2020-05-30T05:52:10;CREATED
+1;WATER_TRANSPORT;Computers;TRAVEL;District Concrete;Gloves;2020-06-01T08:34:19;2020-06-01T13:02:46;2020-06-01T04:15:08;PREPARED
+2;WATER_TRANSPORT;distributed;TRAVEL;Human;Pine bus;2020-06-01T12:14:10;2020-06-01T19:58:41;2020-06-01T22:56:01;CLOSED
+3;AIR_TRANSPORT;efficient Graphic Interface;TRAVEL;SDD intuitive;bypass;2020-06-01T04:50:20;2020-06-01T21:16:02;2020-06-01T08:59:26;CREATED
+4;TRAIN;Customer UIC-Franc;TRAVEL;models Legacy disintermediate;Square Tunnel Azerbaijanian Manat;2020-06-01T09:32:42;2020-06-01T00:43:44;2020-06-01T19:55:09;FROM_ONE_CERTIFICATED
+5;CAR;full-range Crossroad Creative;TRAVEL;Computer;auxiliary Afghanistan US Dollar;2020-06-01T18:16:33;2020-06-01T10:09:00;2020-06-01T04:55:56;CLOSED
+6;AIR_TRANSPORT;quantifying;TRAVEL;experiences;Designer monetize out-of-the-box;2020-06-01T07:35:12;2020-06-01T02:07:22;2020-05-31T23:44:19;EXPORT_DOCS_ISSUED
+7;AIR_TRANSPORT;content Vermont;TRAVEL;vortals Monaco Steel;invoice technologies Customer-focused;2020-06-01T00:58:13;2020-06-01T06:26:00;2020-06-01T15:55:33;EXPORT_DOCS_ISSUED
+8;CAR;Personal Loan Account Health;TRAVEL;array;Liaison invoice;2020-06-01T04:26:04;2020-06-01T13:46:57;2020-06-01T08:58:26;CLOSED
+9;TRAIN;Liberian Dollar Hawaii;TRAVEL;Investor;Small deposit Analyst;2020-06-01T02:04:39;2020-06-01T02:23:28;2020-06-01T18:04:38;FROM_ONE_CERTIFICATED
+10;WATER_TRANSPORT;Concrete Future dot-com;TRAVEL;Grocery Steel Cotton;Books;2020-06-01T06:49:01;2020-05-31T23:33:30;2020-06-01T11:42:26;CREATED

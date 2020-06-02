@@ -7,6 +7,7 @@ export interface IBorderCrossingPoint {
   classification?: string;
   schedule?: string;
   scheduleOfOfficals?: string;
+  coordinates?: string;
   firstCountry?: ICountry;
   secondCountry?: ICountry;
 }
@@ -19,6 +20,7 @@ export class BorderCrossingPoint implements IBorderCrossingPoint {
     public classification?: string,
     public schedule?: string,
     public scheduleOfOfficals?: string,
+    public coordinates?: string,
     public firstCountry?: ICountry,
     public secondCountry?: ICountry
   ) {}

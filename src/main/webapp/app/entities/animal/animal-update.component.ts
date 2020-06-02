@@ -11,6 +11,10 @@ import { IAnimal, Animal } from 'app/shared/model/animal.model';
 import { AnimalService } from './animal.service';
 import { IBreed } from 'app/shared/model/breed.model';
 import { BreedService } from 'app/entities/breed/breed.service';
+import { IUser } from 'app/core/user/user.model';
+import { UserService } from 'app/core/user/user.service';
+
+type SelectableEntity = IBreed | IUser;
 
 @Component({
   selector: 'jhi-animal-update',
@@ -19,6 +23,7 @@ import { BreedService } from 'app/entities/breed/breed.service';
 export class AnimalUpdateComponent implements OnInit {
   isSaving = false;
   breeds: IBreed[] = [];
+  users: IUser[] = [];
 
   editForm = this.fb.group({
     id: [],
@@ -32,11 +37,13 @@ export class AnimalUpdateComponent implements OnInit {
     colorEng: [],
     status: [null, [Validators.required]],
     breed: [],
+    master: [],
   });
 
   constructor(
     protected animalService: AnimalService,
     protected breedService: BreedService,
+    protected userService: UserService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {}
@@ -51,6 +58,8 @@ export class AnimalUpdateComponent implements OnInit {
       this.updateForm(animal);
 
       this.breedService.query().subscribe((res: HttpResponse<IBreed[]>) => (this.breeds = res.body || []));
+
+      this.userService.query().subscribe((res: HttpResponse<IUser[]>) => (this.users = res.body || []));
     });
   }
 
@@ -67,6 +76,7 @@ export class AnimalUpdateComponent implements OnInit {
       colorEng: animal.colorEng,
       status: animal.status,
       breed: animal.breed,
+      master: animal.master,
     });
   }
 
@@ -98,6 +108,7 @@ export class AnimalUpdateComponent implements OnInit {
       colorEng: this.editForm.get(['colorEng'])!.value,
       status: this.editForm.get(['status'])!.value,
       breed: this.editForm.get(['breed'])!.value,
+      master: this.editForm.get(['master'])!.value,
     };
   }
 
@@ -117,7 +128,7 @@ export class AnimalUpdateComponent implements OnInit {
     this.isSaving = false;
   }
 
-  trackById(index: number, item: IBreed): any {
+  trackById(index: number, item: SelectableEntity): any {
     return item.id;
   }
 }

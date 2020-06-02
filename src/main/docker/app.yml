@@ -1,16 +1,16 @@
 version: '2'
 services:
-  animal_cretification-app:
-    image: animal_cretification
+  animal_certification-app:
+    image: animal_certification
     environment:
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
       - SPRING_PROFILES_ACTIVE=prod,swagger
       - MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED=true
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://animal_cretification-postgresql:5432/Animal_Cretification
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://animal_certification-postgresql:5432/Animal_Certification
       - JHIPSTER_SLEEP=30 # gives time for other services to boot before the application
     ports:
       - 8080:8080
-  animal_cretification-postgresql:
+  animal_certification-postgresql:
     extends:
       file: postgresql.yml
-      service: animal_cretification-postgresql
+      service: animal_certification-postgresql

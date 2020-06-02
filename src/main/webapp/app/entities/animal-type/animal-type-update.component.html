@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-            <h2 id="jhi-animal-type-heading" jhiTranslate="animalCretificationApp.animalType.home.createOrEditLabel">Create or edit a Animal Type</h2>
+            <h2 id="jhi-animal-type-heading" jhiTranslate="animalCertificationApp.animalType.home.createOrEditLabel">Create or edit a Animal Type</h2>
 
             <div>
                 <jhi-alert-error></jhi-alert-error>
@@ -12,7 +12,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.animalType.typeName" for="field_typeName">Type Name</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.animalType.typeName" for="field_typeName">Type Name</label>
                     <input type="text" class="form-control" name="typeName" id="field_typeName"
                            formControlName="typeName"/>
                     <div *ngIf="editForm.get('typeName')!.invalid && (editForm.get('typeName')!.dirty || editForm.get('typeName')!.touched)">
@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.animalType.typeNameEng" for="field_typeNameEng">Type Name Eng</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.animalType.typeNameEng" for="field_typeNameEng">Type Name Eng</label>
                     <input type="text" class="form-control" name="typeNameEng" id="field_typeNameEng"
                            formControlName="typeNameEng"/>
                     <div *ngIf="editForm.get('typeNameEng')!.invalid && (editForm.get('typeNameEng')!.dirty || editForm.get('typeNameEng')!.touched)">
@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.animalType.scientificNameENG" for="field_scientificNameENG">Scientific Name ENG</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.animalType.scientificNameENG" for="field_scientificNameENG">Scientific Name ENG</label>
                     <input type="text" class="form-control" name="scientificNameENG" id="field_scientificNameENG"
                            formControlName="scientificNameENG"/>
                     <div *ngIf="editForm.get('scientificNameENG')!.invalid && (editForm.get('scientificNameENG')!.dirty || editForm.get('scientificNameENG')!.touched)">

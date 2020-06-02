@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="address">
+            <h2><span jhiTranslate="animalCertificationApp.address.detail.title">Address</span> {{ address.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="animalCertificationApp.address.region">Region</span></dt>
+                <dd>
+                    <span>{{ address.region }}</span>
+                </dd>
+                <dt><span jhiTranslate="animalCertificationApp.address.city">City</span></dt>
+                <dd>
+                    <span>{{ address.city }}</span>
+                </dd>
+                <dt><span jhiTranslate="animalCertificationApp.address.street">Street</span></dt>
+                <dd>
+                    <span>{{ address.street }}</span>
+                </dd>
+                <dt><span jhiTranslate="animalCertificationApp.address.house">House</span></dt>
+                <dd>
+                    <span>{{ address.house }}</span>
+                </dd>
+                <dt><span jhiTranslate="animalCertificationApp.address.apartment">Apartment</span></dt>
+                <dd>
+                    <span>{{ address.apartment }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/address', address.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

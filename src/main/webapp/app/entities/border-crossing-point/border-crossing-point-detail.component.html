@@ -1,40 +1,44 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div *ngIf="borderCrossingPoint">
-            <h2><span jhiTranslate="animalCretificationApp.borderCrossingPoint.detail.title">Border Crossing Point</span> {{ borderCrossingPoint.id }}</h2>
+            <h2><span jhiTranslate="animalCertificationApp.borderCrossingPoint.detail.title">Border Crossing Point</span> {{ borderCrossingPoint.id }}</h2>
 
             <hr>
 
             <jhi-alert-error></jhi-alert-error>
 
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="animalCretificationApp.borderCrossingPoint.location">Location</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.borderCrossingPoint.location">Location</span></dt>
                 <dd>
                     <span>{{ borderCrossingPoint.location }}</span>
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.borderCrossingPoint.adjacentPoint">Adjacent Point</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.borderCrossingPoint.adjacentPoint">Adjacent Point</span></dt>
                 <dd>
                     <span>{{ borderCrossingPoint.adjacentPoint }}</span>
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.borderCrossingPoint.classification">Classification</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.borderCrossingPoint.classification">Classification</span></dt>
                 <dd>
                     <span>{{ borderCrossingPoint.classification }}</span>
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.borderCrossingPoint.schedule">Schedule</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.borderCrossingPoint.schedule">Schedule</span></dt>
                 <dd>
                     <span>{{ borderCrossingPoint.schedule }}</span>
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.borderCrossingPoint.scheduleOfOfficals">Schedule Of Officals</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.borderCrossingPoint.scheduleOfOfficals">Schedule Of Officals</span></dt>
                 <dd>
                     <span>{{ borderCrossingPoint.scheduleOfOfficals }}</span>
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.borderCrossingPoint.firstCountry">First Country</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.borderCrossingPoint.coordinates">Coordinates</span></dt>
+                <dd>
+                    <span>{{ borderCrossingPoint.coordinates }}</span>
+                </dd>
+                <dt><span jhiTranslate="animalCertificationApp.borderCrossingPoint.firstCountry">First Country</span></dt>
                 <dd>
                     <div *ngIf="borderCrossingPoint.firstCountry">
                         <a [routerLink]="['/country', borderCrossingPoint.firstCountry?.id, 'view']">{{ borderCrossingPoint.firstCountry?.id }}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="animalCretificationApp.borderCrossingPoint.secondCountry">Second Country</span></dt>
+                <dt><span jhiTranslate="animalCertificationApp.borderCrossingPoint.secondCountry">Second Country</span></dt>
                 <dd>
                     <div *ngIf="borderCrossingPoint.secondCountry">
                         <a [routerLink]="['/country', borderCrossingPoint.secondCountry?.id, 'view']">{{ borderCrossingPoint.secondCountry?.id }}</a>

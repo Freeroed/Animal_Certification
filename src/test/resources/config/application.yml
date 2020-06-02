@@ -18,10 +18,10 @@ spring:
   # Uncomment the following line to enable tests against production database type rather than H2, using Testcontainers
   #active: testcontainers
   application:
-    name: Animal_Cretification
+    name: Animal_Certification
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:h2:mem:Animal_Cretification;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    url: jdbc:h2:mem:Animal_Certification;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
     name:
     username:
     password:
@@ -60,13 +60,13 @@ spring:
       enabled: false
   task:
     execution:
-      thread-name-prefix: animal-cretification-task-
+      thread-name-prefix: animal-certification-task-
       pool:
         core-size: 1
         max-size: 50
         queue-capacity: 10000
     scheduling:
-      thread-name-prefix: animal-cretification-scheduling-
+      thread-name-prefix: animal-certification-scheduling-
       pool:
         size: 1
   thymeleaf:
@@ -84,7 +84,7 @@ server:
 
 jhipster:
   clientApp:
-    name: 'animalCretificationApp'
+    name: 'animalCertificationApp'
   logging:
     # To test json console appender
     use-json-format: false
@@ -100,7 +100,7 @@ jhipster:
     authentication:
       jwt:
         # This token must be encoded using Base64 (you can type `echo 'secret-key'|base64` on your command line)
-        base64-secret: YjJjYmU2NWFiOTFiYTAyZTBkNWZkYmUxNzE4MWNlZDRmMDdjMjc3YTg2Zjc0MzE5NTJiZjFkOWE1Mjc3MDliOTkzY2NmZWVlMjA3Mjg4ZWNjNzU3NWM5ZDU0MGU4M2JhZjU5ZmQxYWMwOTEzMThjN2QzNjdiYjEzNmE2YWJmOWQ=
+        base64-secret: OTBkNzQ5ZTU1MzZhMGJlY2Y0MDQwYTBlMmM2OGVhMGJlMDViMTUxZTlkMDNhZWMyMzAxYjZkOWE3YTAwNmVmMjA1M2UxMzViZTU4YTkyYjBhNTBlN2Q4YmZmNDRiYmM1ZWI1NjM3YmFmZDJiZjYzMzllNmM1NWMyMDg3MmVlZDI=
         # Token is valid 24 hours
         token-validity-in-seconds: 86400
   metrics:

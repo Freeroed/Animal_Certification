@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-            <h2 id="jhi-border-crossing-point-heading" jhiTranslate="animalCretificationApp.borderCrossingPoint.home.createOrEditLabel">Create or edit a Border Crossing Point</h2>
+            <h2 id="jhi-border-crossing-point-heading" jhiTranslate="animalCertificationApp.borderCrossingPoint.home.createOrEditLabel">Create or edit a Border Crossing Point</h2>
 
             <div>
                 <jhi-alert-error></jhi-alert-error>
@@ -12,7 +12,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.borderCrossingPoint.location" for="field_location">Location</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.borderCrossingPoint.location" for="field_location">Location</label>
                     <input type="text" class="form-control" name="location" id="field_location"
                            formControlName="location"/>
                     <div *ngIf="editForm.get('location')!.invalid && (editForm.get('location')!.dirty || editForm.get('location')!.touched)">
@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.borderCrossingPoint.adjacentPoint" for="field_adjacentPoint">Adjacent Point</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.borderCrossingPoint.adjacentPoint" for="field_adjacentPoint">Adjacent Point</label>
                     <input type="text" class="form-control" name="adjacentPoint" id="field_adjacentPoint"
                            formControlName="adjacentPoint"/>
                     <div *ngIf="editForm.get('adjacentPoint')!.invalid && (editForm.get('adjacentPoint')!.dirty || editForm.get('adjacentPoint')!.touched)">
@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.borderCrossingPoint.classification" for="field_classification">Classification</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.borderCrossingPoint.classification" for="field_classification">Classification</label>
                     <input type="text" class="form-control" name="classification" id="field_classification"
                            formControlName="classification"/>
                     <div *ngIf="editForm.get('classification')!.invalid && (editForm.get('classification')!.dirty || editForm.get('classification')!.touched)">
@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.borderCrossingPoint.schedule" for="field_schedule">Schedule</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.borderCrossingPoint.schedule" for="field_schedule">Schedule</label>
                     <input type="text" class="form-control" name="schedule" id="field_schedule"
                            formControlName="schedule"/>
                     <div *ngIf="editForm.get('schedule')!.invalid && (editForm.get('schedule')!.dirty || editForm.get('schedule')!.touched)">
@@ -60,7 +60,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.borderCrossingPoint.scheduleOfOfficals" for="field_scheduleOfOfficals">Schedule Of Officals</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.borderCrossingPoint.scheduleOfOfficals" for="field_scheduleOfOfficals">Schedule Of Officals</label>
                     <input type="text" class="form-control" name="scheduleOfOfficals" id="field_scheduleOfOfficals"
                            formControlName="scheduleOfOfficals"/>
                     <div *ngIf="editForm.get('scheduleOfOfficals')!.invalid && (editForm.get('scheduleOfOfficals')!.dirty || editForm.get('scheduleOfOfficals')!.touched)">
@@ -72,7 +72,19 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.borderCrossingPoint.firstCountry" for="field_firstCountry">First Country</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.borderCrossingPoint.coordinates" for="field_coordinates">Coordinates</label>
+                    <input type="text" class="form-control" name="coordinates" id="field_coordinates"
+                           formControlName="coordinates"/>
+                    <div *ngIf="editForm.get('coordinates')!.invalid && (editForm.get('coordinates')!.dirty || editForm.get('coordinates')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('coordinates')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.borderCrossingPoint.firstCountry" for="field_firstCountry">First Country</label>
                     <select class="form-control" id="field_firstCountry" name="firstCountry" formControlName="firstCountry">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="countryOption.id === editForm.get('firstCountry')!.value?.id ? editForm.get('firstCountry')!.value : countryOption" *ngFor="let countryOption of countries; trackBy: trackById">{{ countryOption.id }}</option>
@@ -80,7 +92,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.borderCrossingPoint.secondCountry" for="field_secondCountry">Second Country</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.borderCrossingPoint.secondCountry" for="field_secondCountry">Second Country</label>
                     <select class="form-control" id="field_secondCountry" name="secondCountry" formControlName="secondCountry">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="countryOption.id === editForm.get('secondCountry')!.value?.id ? editForm.get('secondCountry')!.value : countryOption" *ngFor="let countryOption of countries; trackBy: trackById">{{ countryOption.id }}</option>

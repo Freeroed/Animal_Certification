@@ -83,7 +83,7 @@ public class Request implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties(value = "requests", allowSetters = true)
-    private Country borderCrossingPoint;
+    private BorderCrossingPoint borderCrossingPoint;
 
     @ManyToMany
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -270,17 +270,17 @@ public class Request implements Serializable {
         this.destinationCountry = country;
     }
 
-    public Country getBorderCrossingPoint() {
+    public BorderCrossingPoint getBorderCrossingPoint() {
         return borderCrossingPoint;
     }
 
-    public Request borderCrossingPoint(Country country) {
-        this.borderCrossingPoint = country;
+    public Request borderCrossingPoint(BorderCrossingPoint borderCrossingPoint) {
+        this.borderCrossingPoint = borderCrossingPoint;
         return this;
     }
 
-    public void setBorderCrossingPoint(Country country) {
-        this.borderCrossingPoint = country;
+    public void setBorderCrossingPoint(BorderCrossingPoint borderCrossingPoint) {
+        this.borderCrossingPoint = borderCrossingPoint;
     }
 
     public Set<Document> getDocuments() {

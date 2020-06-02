@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-            <h2 id="jhi-animal-heading" jhiTranslate="animalCretificationApp.animal.home.createOrEditLabel">Create or edit a Animal</h2>
+            <h2 id="jhi-animal-heading" jhiTranslate="animalCertificationApp.animal.home.createOrEditLabel">Create or edit a Animal</h2>
 
             <div>
                 <jhi-alert-error></jhi-alert-error>
@@ -12,7 +12,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.animal.nickname" for="field_nickname">Nickname</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.animal.nickname" for="field_nickname">Nickname</label>
                     <input type="text" class="form-control" name="nickname" id="field_nickname"
                            formControlName="nickname"/>
                     <div *ngIf="editForm.get('nickname')!.invalid && (editForm.get('nickname')!.dirty || editForm.get('nickname')!.touched)">
@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.animal.birthdate" for="field_birthdate">Birthdate</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.animal.birthdate" for="field_birthdate">Birthdate</label>
                     <div class="d-flex">
                         <input id="field_birthdate" type="datetime-local" class="form-control" name="birthdate" formControlName="birthdate" placeholder="YYYY-MM-DD HH:mm"/>
                     </div>
@@ -41,10 +41,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.animal.gender" for="field_gender">Gender</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.animal.gender" for="field_gender">Gender</label>
                     <select class="form-control" name="gender" formControlName="gender" id="field_gender">
-                        <option value="MALE">{{ 'animalCretificationApp.Gender.MALE' | translate }}</option>
-                        <option value="FEMALE">{{ 'animalCretificationApp.Gender.FEMALE' | translate }}</option>
+                        <option value="MALE">{{ 'animalCertificationApp.Gender.MALE' | translate }}</option>
+                        <option value="FEMALE">{{ 'animalCertificationApp.Gender.FEMALE' | translate }}</option>
                     </select>
                     <div *ngIf="editForm.get('gender')!.invalid && (editForm.get('gender')!.dirty || editForm.get('gender')!.touched)">
                         <small class="form-text text-danger"
@@ -55,25 +55,25 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.animal.chip" for="field_chip">Chip</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.animal.chip" for="field_chip">Chip</label>
                     <input type="text" class="form-control" name="chip" id="field_chip"
                            formControlName="chip"/>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.animal.birthPlace" for="field_birthPlace">Birth Place</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.animal.birthPlace" for="field_birthPlace">Birth Place</label>
                     <input type="text" class="form-control" name="birthPlace" id="field_birthPlace"
                            formControlName="birthPlace"/>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.animal.tnvedCode" for="field_tnvedCode">Tnved Code</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.animal.tnvedCode" for="field_tnvedCode">Tnved Code</label>
                     <input type="text" class="form-control" name="tnvedCode" id="field_tnvedCode"
                            formControlName="tnvedCode"/>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.animal.color" for="field_color">Color</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.animal.color" for="field_color">Color</label>
                     <input type="text" class="form-control" name="color" id="field_color"
                            formControlName="color"/>
                     <div *ngIf="editForm.get('color')!.invalid && (editForm.get('color')!.dirty || editForm.get('color')!.touched)">
@@ -85,17 +85,17 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.animal.colorEng" for="field_colorEng">Color Eng</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.animal.colorEng" for="field_colorEng">Color Eng</label>
                     <input type="text" class="form-control" name="colorEng" id="field_colorEng"
                            formControlName="colorEng"/>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.animal.status" for="field_status">Status</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.animal.status" for="field_status">Status</label>
                     <select class="form-control" name="status" formControlName="status" id="field_status">
-                        <option value="READY_TO_REQUEST">{{ 'animalCretificationApp.AnimalStatus.READY_TO_REQUEST' | translate }}</option>
-                        <option value="IN_REQUEST">{{ 'animalCretificationApp.AnimalStatus.IN_REQUEST' | translate }}</option>
-                        <option value="IN_CONFIRM_REQUEST">{{ 'animalCretificationApp.AnimalStatus.IN_CONFIRM_REQUEST' | translate }}</option>
+                        <option value="READY_TO_REQUEST">{{ 'animalCertificationApp.AnimalStatus.READY_TO_REQUEST' | translate }}</option>
+                        <option value="IN_REQUEST">{{ 'animalCertificationApp.AnimalStatus.IN_REQUEST' | translate }}</option>
+                        <option value="IN_CONFIRM_REQUEST">{{ 'animalCertificationApp.AnimalStatus.IN_CONFIRM_REQUEST' | translate }}</option>
                     </select>
                     <div *ngIf="editForm.get('status')!.invalid && (editForm.get('status')!.dirty || editForm.get('status')!.touched)">
                         <small class="form-text text-danger"
@@ -106,10 +106,18 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCretificationApp.animal.breed" for="field_breed">Breed</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.animal.breed" for="field_breed">Breed</label>
                     <select class="form-control" id="field_breed" name="breed" formControlName="breed">
                         <option [ngValue]="null"></option>
                         <option [ngValue]="breedOption.id === editForm.get('breed')!.value?.id ? editForm.get('breed')!.value : breedOption" *ngFor="let breedOption of breeds; trackBy: trackById">{{ breedOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.animal.master" for="field_master">Master</label>
+                    <select class="form-control" id="field_master" name="master" formControlName="master">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === editForm.get('master')!.value?.id ? editForm.get('master')!.value : userOption" *ngFor="let userOption of users; trackBy: trackById">{{ userOption.id }}</option>
                     </select>
                 </div>
             </div>
