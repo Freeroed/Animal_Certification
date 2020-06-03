@@ -3,7 +3,7 @@ package ru.vlsu.animalcertification.service.dto;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class PersonDataDTO implements Serializable {
+public class PersonalDataDTO implements Serializable {
 
     private Long id;
 
@@ -85,7 +85,7 @@ public class PersonDataDTO implements Serializable {
         this.inn = inn;
     }
 
-    public PersonDataDTO() {
+    public PersonalDataDTO() {
     }
 
     @Override
@@ -106,7 +106,7 @@ public class PersonDataDTO implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        PersonDataDTO that = (PersonDataDTO) o;
+        PersonalDataDTO that = (PersonalDataDTO) o;
         return Objects.equals(id, that.id) &&
             Objects.equals(name, that.name) &&
             Objects.equals(surname, that.surname) &&

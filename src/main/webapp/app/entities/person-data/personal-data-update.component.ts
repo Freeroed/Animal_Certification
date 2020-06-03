@@ -5,14 +5,14 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 
-import { IPersonData, PersonData } from 'app/shared/model/person-data.model';
-import { PersonDataService } from './person-data.service';
+import { IPersonalData, PersonalData } from 'app/shared/model/personal-data.model';
+import { PersonalDataService } from './personal-data.service';
 
 @Component({
-  selector: 'jhi-person-data-update',
-  templateUrl: './person-data-update.component.html',
+  selector: 'jhi-personal-data-update',
+  templateUrl: './personal-data-update.component.html',
 })
-export class PersonDataUpdateComponent implements OnInit {
+export class PersonalDataUpdateComponent implements OnInit {
   isSaving = false;
 
   editForm = this.fb.group({
@@ -26,7 +26,7 @@ export class PersonDataUpdateComponent implements OnInit {
     inn: [],
   });
 
-  constructor(protected personDataService: PersonDataService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
+  constructor(protected personalDataService: PersonalDataService, protected activatedRoute: ActivatedRoute, private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ personData }) => {
@@ -34,7 +34,7 @@ export class PersonDataUpdateComponent implements OnInit {
     });
   }
 
-  updateForm(personData: IPersonData): void {
+  updateForm(personData: IPersonalData): void {
     this.editForm.patchValue({
       id: personData.id,
       name: personData.name,
@@ -55,15 +55,15 @@ export class PersonDataUpdateComponent implements OnInit {
     this.isSaving = true;
     const personData = this.createFromForm();
     if (personData.id !== undefined) {
-      this.subscribeToSaveResponse(this.personDataService.update(personData));
+      this.subscribeToSaveResponse(this.personalDataService.update(personData));
     } else {
-      this.subscribeToSaveResponse(this.personDataService.create(personData));
+      this.subscribeToSaveResponse(this.personalDataService.create(personData));
     }
   }
 
-  private createFromForm(): IPersonData {
+  private createFromForm(): IPersonalData {
     return {
-      ...new PersonData(),
+      ...new PersonalData(),
       id: this.editForm.get(['id'])!.value,
       name: this.editForm.get(['name'])!.value,
       surname: this.editForm.get(['surname'])!.value,
@@ -75,7 +75,7 @@ export class PersonDataUpdateComponent implements OnInit {
     };
   }
 
-  protected subscribeToSaveResponse(result: Observable<HttpResponse<IPersonData>>): void {
+  protected subscribeToSaveResponse(result: Observable<HttpResponse<IPersonalData>>): void {
     result.subscribe(
       () => this.onSaveSuccess(),
       () => this.onSaveError()

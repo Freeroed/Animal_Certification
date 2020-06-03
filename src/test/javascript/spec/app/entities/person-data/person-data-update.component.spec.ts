@@ -4,12 +4,12 @@ import { FormBuilder } from '@angular/forms';
 import { of } from 'rxjs';
 
 import { AnimalCertificationTestModule } from '../../../test.module';
-import { PersonDataUpdateComponent } from 'app/entities/person-data/person-data-update.component';
-import { PersonDataService } from 'app/entities/person-data/person-data.service';
-import { PersonData } from 'app/shared/model/person-data.model';
+import { PersonDataUpdateComponent } from 'app/entities/person-data/personal-data-update.component';
+import { PersonDataService } from 'app/entities/person-data/personal-data.service';
+import { PersonData } from 'app/shared/model/personal-data.model';
 
 describe('Component Tests', () => {
-  describe('PersonData Management Update Component', () => {
+  describe('PersonalData Management Update Component', () => {
     let comp: PersonDataUpdateComponent;
     let fixture: ComponentFixture<PersonDataUpdateComponent>;
     let service: PersonDataService;

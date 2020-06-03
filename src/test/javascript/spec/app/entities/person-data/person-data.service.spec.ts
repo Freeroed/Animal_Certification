@@ -1,10 +1,10 @@
 import { TestBed, getTestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { PersonDataService } from 'app/entities/person-data/person-data.service';
-import { IPersonData, PersonData } from 'app/shared/model/person-data.model';
+import { PersonDataService } from 'app/entities/person-data/personal-data.service';
+import { IPersonData, PersonData } from 'app/shared/model/personal-data.model';
 
 describe('Service Tests', () => {
-  describe('PersonData Service', () => {
+  describe('PersonalData Service', () => {
     let injector: TestBed;
     let service: PersonDataService;
     let httpMock: HttpTestingController;
@@ -34,7 +34,7 @@ describe('Service Tests', () => {
         expect(expectedResult).toMatchObject(elemDefault);
       });
 
-      it('should create a PersonData', () => {
+      it('should create a PersonalData', () => {
         const returnedFromService = Object.assign(
           {
             id: 0,
@@ -51,7 +51,7 @@ describe('Service Tests', () => {
         expect(expectedResult).toMatchObject(expected);
       });
 
-      it('should update a PersonData', () => {
+      it('should update a PersonalData', () => {
         const returnedFromService = Object.assign(
           {
             name: 'BBBBBB',
@@ -74,7 +74,7 @@ describe('Service Tests', () => {
         expect(expectedResult).toMatchObject(expected);
       });
 
-      it('should return a list of PersonData', () => {
+      it('should return a list of PersonalData', () => {
         const returnedFromService = Object.assign(
           {
             name: 'BBBBBB',
@@ -98,7 +98,7 @@ describe('Service Tests', () => {
         expect(expectedResult).toContainEqual(expected);
       });
 
-      it('should delete a PersonData', () => {
+      it('should delete a PersonalData', () => {
         service.delete(123).subscribe(resp => (expectedResult = resp.ok));
 
         const req = httpMock.expectOne({ method: 'DELETE' });

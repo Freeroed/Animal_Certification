@@ -1,4 +1,4 @@
-export interface IPersonData {
+export interface IPersonalData {
   id?: number;
   name?: string;
   surname?: string;
@@ -9,7 +9,7 @@ export interface IPersonData {
   inn?: string;
 }
 
-export class PersonData implements IPersonData {
+export class PersonalData implements IPersonalData {
   constructor(
     public id?: number,
     public name?: string,

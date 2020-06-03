@@ -1,6 +1,6 @@
 {
   "animalCertificationApp": {
-    "personData": {
+    "personalData": {
       "home": {
         "title": "Person Data",
         "createLabel": "Создать новый Person Data",

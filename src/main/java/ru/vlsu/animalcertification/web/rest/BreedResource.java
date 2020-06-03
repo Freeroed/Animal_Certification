@@ -1,7 +1,10 @@
 package ru.vlsu.animalcertification.web.rest;
 
+import org.springframework.data.domain.Pageable;
 import ru.vlsu.animalcertification.domain.Breed;
 import ru.vlsu.animalcertification.repository.BreedRepository;
+import ru.vlsu.animalcertification.service.BreedService;
+import ru.vlsu.animalcertification.service.dto.BreedDTO;
 import ru.vlsu.animalcertification.web.rest.errors.BadRequestAlertException;
 
 import io.github.jhipster.web.util.HeaderUtil;
@@ -36,24 +39,27 @@ public class BreedResource {
 
     private final BreedRepository breedRepository;
 
-    public BreedResource(BreedRepository breedRepository) {
+    private final BreedService breedService;
+
+    public BreedResource(BreedRepository breedRepository, BreedService breedService) {
         this.breedRepository = breedRepository;
+        this.breedService = breedService;
     }
 
     /**
      * {@code POST  /breeds} : Create a new breed.
      *
-     * @param breed the breed to create.
+     * @param breedDTO the breed to create.
      * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new breed, or with status {@code 400 (Bad Request)} if the breed has already an ID.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/breeds")
-    public ResponseEntity<Breed> createBreed(@Valid @RequestBody Breed breed) throws URISyntaxException {
-        log.debug("REST request to save Breed : {}", breed);
-        if (breed.getId() != null) {
+    public ResponseEntity<BreedDTO> createBreed(@Valid @RequestBody BreedDTO breedDTO) throws URISyntaxException {
+        log.debug("REST request to save Breed : {}", breedDTO);
+        if (breedDTO.getId() != null) {
             throw new BadRequestAlertException("A new breed cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        Breed result = breedRepository.save(breed);
+        BreedDTO result = breedService.save(breedDTO);
         return ResponseEntity.created(new URI("/api/breeds/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);
@@ -86,9 +92,9 @@ public class BreedResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of breeds in body.
      */
     @GetMapping("/breeds")
-    public List<Breed> getAllBreeds() {
+    public ResponseEntity getAllBreeds() {
         log.debug("REST request to get all Breeds");
-        return breedRepository.findAll();
+        return ResponseEntity.ok(breedService.findAll(Pageable.unpaged()).getContent());
     }
 
     /**

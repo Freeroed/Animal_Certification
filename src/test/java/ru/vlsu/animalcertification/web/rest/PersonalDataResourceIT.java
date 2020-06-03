@@ -1,8 +1,8 @@
 package ru.vlsu.animalcertification.web.rest;
 
 import ru.vlsu.animalcertification.AnimalCertificationApp;
-import ru.vlsu.animalcertification.domain.PersonData;
-import ru.vlsu.animalcertification.repository.PersonDataRepository;
+import ru.vlsu.animalcertification.domain.PersonalData;
+import ru.vlsu.animalcertification.repository.PersonalDataRepository;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -27,7 +27,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = AnimalCertificationApp.class)
 @AutoConfigureMockMvc
 @WithMockUser
-public class PersonDataResourceIT {
+public class PersonalDataResourceIT {
 
     private static final String DEFAULT_NAME = "AAAAAAAAAA";
     private static final String UPDATED_NAME = "BBBBBBBBBB";
@@ -51,7 +51,7 @@ public class PersonDataResourceIT {
     private static final String UPDATED_INN = "BBBBBBBBBB";
 
     @Autowired
-    private PersonDataRepository personDataRepository;
+    private PersonalDataRepository personalDataRepository;
 
     @Autowired
     private EntityManager em;
@@ -59,7 +59,7 @@ public class PersonDataResourceIT {
     @Autowired
     private MockMvc restPersonDataMockMvc;
 
-    private PersonData personData;
+    private PersonalData personalData;
 
     /**
      * Create an entity for this test.
@@ -67,8 +67,8 @@ public class PersonDataResourceIT {
      * This is a static method, as tests for other entities might also need it,
      * if they test an entity which requires the current entity.
      */
-    public static PersonData createEntity(EntityManager em) {
-        PersonData personData = new PersonData()
+    public static PersonalData createEntity(EntityManager em) {
+        PersonalData personalData = new PersonalData()
             .name(DEFAULT_NAME)
             .surname(DEFAULT_SURNAME)
             .nameEng(DEFAULT_NAME_ENG)
@@ -76,7 +76,7 @@ public class PersonDataResourceIT {
             .patronymic(DEFAULT_PATRONYMIC)
             .phone(DEFAULT_PHONE)
             .inn(DEFAULT_INN);
-        return personData;
+        return personalData;
     }
     /**
      * Create an updated entity for this test.
@@ -84,8 +84,8 @@ public class PersonDataResourceIT {
      * This is a static method, as tests for other entities might also need it,
      * if they test an entity which requires the current entity.
      */
-    public static PersonData createUpdatedEntity(EntityManager em) {
-        PersonData personData = new PersonData()
+    public static PersonalData createUpdatedEntity(EntityManager em) {
+        PersonalData personalData = new PersonalData()
             .name(UPDATED_NAME)
             .surname(UPDATED_SURNAME)
             .nameEng(UPDATED_NAME_ENG)
@@ -93,106 +93,106 @@ public class PersonDataResourceIT {
             .patronymic(UPDATED_PATRONYMIC)
             .phone(UPDATED_PHONE)
             .inn(UPDATED_INN);
-        return personData;
+        return personalData;
     }
 
     @BeforeEach
     public void initTest() {
-        personData = createEntity(em);
+        personalData = createEntity(em);
     }
 
     @Test
     @Transactional
     public void createPersonData() throws Exception {
-        int databaseSizeBeforeCreate = personDataRepository.findAll().size();
-        // Create the PersonData
+        int databaseSizeBeforeCreate = personalDataRepository.findAll().size();
+        // Create the PersonalData
         restPersonDataMockMvc.perform(post("/api/person-data")
             .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(personData)))
+            .content(TestUtil.convertObjectToJsonBytes(personalData)))
             .andExpect(status().isCreated());
 
-        // Validate the PersonData in the database
-        List<PersonData> personDataList = personDataRepository.findAll();
-        assertThat(personDataList).hasSize(databaseSizeBeforeCreate + 1);
-        PersonData testPersonData = personDataList.get(personDataList.size() - 1);
-        assertThat(testPersonData.getName()).isEqualTo(DEFAULT_NAME);
-        assertThat(testPersonData.getSurname()).isEqualTo(DEFAULT_SURNAME);
-        assertThat(testPersonData.getNameEng()).isEqualTo(DEFAULT_NAME_ENG);
-        assertThat(testPersonData.getSurnameEng()).isEqualTo(DEFAULT_SURNAME_ENG);
-        assertThat(testPersonData.getPatronymic()).isEqualTo(DEFAULT_PATRONYMIC);
-        assertThat(testPersonData.getPhone()).isEqualTo(DEFAULT_PHONE);
-        assertThat(testPersonData.getInn()).isEqualTo(DEFAULT_INN);
+        // Validate the PersonalData in the database
+        List<PersonalData> personalDataList = personalDataRepository.findAll();
+        assertThat(personalDataList).hasSize(databaseSizeBeforeCreate + 1);
+        PersonalData testPersonalData = personalDataList.get(personalDataList.size() - 1);
+        assertThat(testPersonalData.getName()).isEqualTo(DEFAULT_NAME);
+        assertThat(testPersonalData.getSurname()).isEqualTo(DEFAULT_SURNAME);
+        assertThat(testPersonalData.getNameEng()).isEqualTo(DEFAULT_NAME_ENG);
+        assertThat(testPersonalData.getSurnameEng()).isEqualTo(DEFAULT_SURNAME_ENG);
+        assertThat(testPersonalData.getPatronymic()).isEqualTo(DEFAULT_PATRONYMIC);
+        assertThat(testPersonalData.getPhone()).isEqualTo(DEFAULT_PHONE);
+        assertThat(testPersonalData.getInn()).isEqualTo(DEFAULT_INN);
     }
 
     @Test
     @Transactional
     public void createPersonDataWithExistingId() throws Exception {
-        int databaseSizeBeforeCreate = personDataRepository.findAll().size();
+        int databaseSizeBeforeCreate = personalDataRepository.findAll().size();
 
-        // Create the PersonData with an existing ID
-        personData.setId(1L);
+        // Create the PersonalData with an existing ID
+        personalData.setId(1L);
 
         // An entity with an existing ID cannot be created, so this API call must fail
         restPersonDataMockMvc.perform(post("/api/person-data")
             .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(personData)))
+            .content(TestUtil.convertObjectToJsonBytes(personalData)))
             .andExpect(status().isBadRequest());
 
-        // Validate the PersonData in the database
-        List<PersonData> personDataList = personDataRepository.findAll();
-        assertThat(personDataList).hasSize(databaseSizeBeforeCreate);
+        // Validate the PersonalData in the database
+        List<PersonalData> personalDataList = personalDataRepository.findAll();
+        assertThat(personalDataList).hasSize(databaseSizeBeforeCreate);
     }
 
 
     @Test
     @Transactional
     public void checkNameIsRequired() throws Exception {
-        int databaseSizeBeforeTest = personDataRepository.findAll().size();
+        int databaseSizeBeforeTest = personalDataRepository.findAll().size();
         // set the field null
-        personData.setName(null);
+        personalData.setName(null);
 
-        // Create the PersonData, which fails.
+        // Create the PersonalData, which fails.
 
 
         restPersonDataMockMvc.perform(post("/api/person-data")
             .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(personData)))
+            .content(TestUtil.convertObjectToJsonBytes(personalData)))
             .andExpect(status().isBadRequest());
 
-        List<PersonData> personDataList = personDataRepository.findAll();
-        assertThat(personDataList).hasSize(databaseSizeBeforeTest);
+        List<PersonalData> personalDataList = personalDataRepository.findAll();
+        assertThat(personalDataList).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
     @Transactional
     public void checkSurnameIsRequired() throws Exception {
-        int databaseSizeBeforeTest = personDataRepository.findAll().size();
+        int databaseSizeBeforeTest = personalDataRepository.findAll().size();
         // set the field null
-        personData.setSurname(null);
+        personalData.setSurname(null);
 
-        // Create the PersonData, which fails.
+        // Create the PersonalData, which fails.
 
 
         restPersonDataMockMvc.perform(post("/api/person-data")
             .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(personData)))
+            .content(TestUtil.convertObjectToJsonBytes(personalData)))
             .andExpect(status().isBadRequest());
 
-        List<PersonData> personDataList = personDataRepository.findAll();
-        assertThat(personDataList).hasSize(databaseSizeBeforeTest);
+        List<PersonalData> personalDataList = personalDataRepository.findAll();
+        assertThat(personalDataList).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
     @Transactional
     public void getAllPersonData() throws Exception {
         // Initialize the database
-        personDataRepository.saveAndFlush(personData);
+        personalDataRepository.saveAndFlush(personalData);
 
         // Get all the personDataList
         restPersonDataMockMvc.perform(get("/api/person-data?sort=id,desc"))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
-            .andExpect(jsonPath("$.[*].id").value(hasItem(personData.getId().intValue())))
+            .andExpect(jsonPath("$.[*].id").value(hasItem(personalData.getId().intValue())))
             .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)))
             .andExpect(jsonPath("$.[*].surname").value(hasItem(DEFAULT_SURNAME)))
             .andExpect(jsonPath("$.[*].nameEng").value(hasItem(DEFAULT_NAME_ENG)))
@@ -201,18 +201,18 @@ public class PersonDataResourceIT {
             .andExpect(jsonPath("$.[*].phone").value(hasItem(DEFAULT_PHONE)))
             .andExpect(jsonPath("$.[*].inn").value(hasItem(DEFAULT_INN)));
     }
-    
+
     @Test
     @Transactional
     public void getPersonData() throws Exception {
         // Initialize the database
-        personDataRepository.saveAndFlush(personData);
+        personalDataRepository.saveAndFlush(personalData);
 
-        // Get the personData
-        restPersonDataMockMvc.perform(get("/api/person-data/{id}", personData.getId()))
+        // Get the personalData
+        restPersonDataMockMvc.perform(get("/api/person-data/{id}", personalData.getId()))
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
-            .andExpect(jsonPath("$.id").value(personData.getId().intValue()))
+            .andExpect(jsonPath("$.id").value(personalData.getId().intValue()))
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME))
             .andExpect(jsonPath("$.surname").value(DEFAULT_SURNAME))
             .andExpect(jsonPath("$.nameEng").value(DEFAULT_NAME_ENG))
@@ -224,7 +224,7 @@ public class PersonDataResourceIT {
     @Test
     @Transactional
     public void getNonExistingPersonData() throws Exception {
-        // Get the personData
+        // Get the personalData
         restPersonDataMockMvc.perform(get("/api/person-data/{id}", Long.MAX_VALUE))
             .andExpect(status().isNotFound());
     }
@@ -233,15 +233,15 @@ public class PersonDataResourceIT {
     @Transactional
     public void updatePersonData() throws Exception {
         // Initialize the database
-        personDataRepository.saveAndFlush(personData);
+        personalDataRepository.saveAndFlush(personalData);
 
-        int databaseSizeBeforeUpdate = personDataRepository.findAll().size();
+        int databaseSizeBeforeUpdate = personalDataRepository.findAll().size();
 
-        // Update the personData
-        PersonData updatedPersonData = personDataRepository.findById(personData.getId()).get();
-        // Disconnect from session so that the updates on updatedPersonData are not directly saved in db
-        em.detach(updatedPersonData);
-        updatedPersonData
+        // Update the personalData
+        PersonalData updatedPersonalData = personalDataRepository.findById(personalData.getId()).get();
+        // Disconnect from session so that the updates on updatedPersonalData are not directly saved in db
+        em.detach(updatedPersonalData);
+        updatedPersonalData
             .name(UPDATED_NAME)
             .surname(UPDATED_SURNAME)
             .nameEng(UPDATED_NAME_ENG)
@@ -252,53 +252,53 @@ public class PersonDataResourceIT {
 
         restPersonDataMockMvc.perform(put("/api/person-data")
             .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(updatedPersonData)))
+            .content(TestUtil.convertObjectToJsonBytes(updatedPersonalData)))
             .andExpect(status().isOk());
 
-        // Validate the PersonData in the database
-        List<PersonData> personDataList = personDataRepository.findAll();
-        assertThat(personDataList).hasSize(databaseSizeBeforeUpdate);
-        PersonData testPersonData = personDataList.get(personDataList.size() - 1);
-        assertThat(testPersonData.getName()).isEqualTo(UPDATED_NAME);
-        assertThat(testPersonData.getSurname()).isEqualTo(UPDATED_SURNAME);
-        assertThat(testPersonData.getNameEng()).isEqualTo(UPDATED_NAME_ENG);
-        assertThat(testPersonData.getSurnameEng()).isEqualTo(UPDATED_SURNAME_ENG);
-        assertThat(testPersonData.getPatronymic()).isEqualTo(UPDATED_PATRONYMIC);
-        assertThat(testPersonData.getPhone()).isEqualTo(UPDATED_PHONE);
-        assertThat(testPersonData.getInn()).isEqualTo(UPDATED_INN);
+        // Validate the PersonalData in the database
+        List<PersonalData> personalDataList = personalDataRepository.findAll();
+        assertThat(personalDataList).hasSize(databaseSizeBeforeUpdate);
+        PersonalData testPersonalData = personalDataList.get(personalDataList.size() - 1);
+        assertThat(testPersonalData.getName()).isEqualTo(UPDATED_NAME);
+        assertThat(testPersonalData.getSurname()).isEqualTo(UPDATED_SURNAME);
+        assertThat(testPersonalData.getNameEng()).isEqualTo(UPDATED_NAME_ENG);
+        assertThat(testPersonalData.getSurnameEng()).isEqualTo(UPDATED_SURNAME_ENG);
+        assertThat(testPersonalData.getPatronymic()).isEqualTo(UPDATED_PATRONYMIC);
+        assertThat(testPersonalData.getPhone()).isEqualTo(UPDATED_PHONE);
+        assertThat(testPersonalData.getInn()).isEqualTo(UPDATED_INN);
     }
 
     @Test
     @Transactional
     public void updateNonExistingPersonData() throws Exception {
-        int databaseSizeBeforeUpdate = personDataRepository.findAll().size();
+        int databaseSizeBeforeUpdate = personalDataRepository.findAll().size();
 
         // If the entity doesn't have an ID, it will throw BadRequestAlertException
         restPersonDataMockMvc.perform(put("/api/person-data")
             .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(personData)))
+            .content(TestUtil.convertObjectToJsonBytes(personalData)))
             .andExpect(status().isBadRequest());
 
-        // Validate the PersonData in the database
-        List<PersonData> personDataList = personDataRepository.findAll();
-        assertThat(personDataList).hasSize(databaseSizeBeforeUpdate);
+        // Validate the PersonalData in the database
+        List<PersonalData> personalDataList = personalDataRepository.findAll();
+        assertThat(personalDataList).hasSize(databaseSizeBeforeUpdate);
     }
 
     @Test
     @Transactional
     public void deletePersonData() throws Exception {
         // Initialize the database
-        personDataRepository.saveAndFlush(personData);
+        personalDataRepository.saveAndFlush(personalData);
 
-        int databaseSizeBeforeDelete = personDataRepository.findAll().size();
+        int databaseSizeBeforeDelete = personalDataRepository.findAll().size();
 
-        // Delete the personData
-        restPersonDataMockMvc.perform(delete("/api/person-data/{id}", personData.getId())
+        // Delete the personalData
+        restPersonDataMockMvc.perform(delete("/api/person-data/{id}", personalData.getId())
             .accept(MediaType.APPLICATION_JSON))
             .andExpect(status().isNoContent());
 
         // Validate the database contains one less item
-        List<PersonData> personDataList = personDataRepository.findAll();
-        assertThat(personDataList).hasSize(databaseSizeBeforeDelete - 1);
+        List<PersonalData> personalDataList = personalDataRepository.findAll();
+        assertThat(personalDataList).hasSize(databaseSizeBeforeDelete - 1);
     }
 }

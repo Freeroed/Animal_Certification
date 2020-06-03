@@ -23,7 +23,7 @@ public class VaccineDTO implements Serializable {
 
     private VaccineType type;
 
-    private Animal animal;
+    private AnimalDTO animal;
 
     public Long getId() {
         return id;
@@ -81,11 +81,11 @@ public class VaccineDTO implements Serializable {
         this.type = type;
     }
 
-    public Animal getAnimal() {
+    public AnimalDTO getAnimal() {
         return animal;
     }
 
-    public void setAnimal(Animal animal) {
+    public void setAnimal(AnimalDTO animal) {
         this.animal = animal;
     }
 

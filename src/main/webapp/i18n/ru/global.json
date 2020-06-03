@@ -18,7 +18,7 @@
         "documentType": "Document Type",
         "document": "Document",
         "borderCrossingPoint": "Border Crossing Point",
-        "personData": "Person Data",
+        "personalData": "Personal Data",
         "address": "Address",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },

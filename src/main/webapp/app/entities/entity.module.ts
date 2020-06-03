@@ -52,7 +52,7 @@ import { RouterModule } from '@angular/router';
       },
       {
         path: 'person-data',
-        loadChildren: () => import('./person-data/person-data.module').then(m => m.AnimalCertificationPersonDataModule),
+        loadChildren: () => import('./person-data/personal-data.module').then(m => m.AnimalCertificationPersonDataModule),
       },
       {
         path: 'address',

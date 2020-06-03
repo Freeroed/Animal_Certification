@@ -4,11 +4,11 @@ import { HttpHeaders, HttpResponse } from '@angular/common/http';
 
 import { AnimalCertificationTestModule } from '../../../test.module';
 import { PersonDataComponent } from 'app/entities/person-data/person-data.component';
-import { PersonDataService } from 'app/entities/person-data/person-data.service';
-import { PersonData } from 'app/shared/model/person-data.model';
+import { PersonDataService } from 'app/entities/person-data/personal-data.service';
+import { PersonData } from 'app/shared/model/personal-data.model';
 
 describe('Component Tests', () => {
-  describe('PersonData Management Component', () => {
+  describe('PersonalData Management Component', () => {
     let comp: PersonDataComponent;
     let fixture: ComponentFixture<PersonDataComponent>;
     let service: PersonDataService;

@@ -1,0 +1,73 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="animalCertificationApp.personalData.home.title">Person Data</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-person-data" [routerLink]="['/person-data/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="animalCertificationApp.personalData.home.createLabel">
+            Create a new Person Data
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="personalData?.length === 0">
+        <span jhiTranslate="animalCertificationApp.personalData.home.notFound">No personalData found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="personalData && personalData.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.personalData.name">Name</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.personalData.surname">Surname</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.personalData.nameEng">Name Eng</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.personalData.surnameEng">Surname Eng</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.personalData.patronymic">Patronymic</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.personalData.phone">Phone</span></th>
+                    <th scope="col" ><span jhiTranslate="animalCertificationApp.personalData.inn">Inn</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let personalData of personalData ;trackBy: trackId">
+                    <td><a [routerLink]="['/person-data', personalData.id, 'view']">{{ personalData.id }}</a></td>
+                    <td>{{ personalData.name }}</td>
+                    <td>{{ personalData.surname }}</td>
+                    <td>{{ personalData.nameEng }}</td>
+                    <td>{{ personalData.surnameEng }}</td>
+                    <td>{{ personalData.patronymic }}</td>
+                    <td>{{ personalData.phone }}</td>
+                    <td>{{ personalData.inn }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/person-data', personalData.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/person-data', personalData.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(personalData)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

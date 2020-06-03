@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="personalData">
+            <h2><span jhiTranslate="animalCertificationApp.personalData.detail.title">Person Data</span> {{ personalData.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="animalCertificationApp.personalData.name">Name</span></dt>
+                <dd>
+                    <span>{{ personalData.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="animalCertificationApp.personalData.surname">Surname</span></dt>
+                <dd>
+                    <span>{{ personalData.surname }}</span>
+                </dd>
+                <dt><span jhiTranslate="animalCertificationApp.personalData.nameEng">Name Eng</span></dt>
+                <dd>
+                    <span>{{ personalData.nameEng }}</span>
+                </dd>
+                <dt><span jhiTranslate="animalCertificationApp.personalData.surnameEng">Surname Eng</span></dt>
+                <dd>
+                    <span>{{ personalData.surnameEng }}</span>
+                </dd>
+                <dt><span jhiTranslate="animalCertificationApp.personalData.patronymic">Patronymic</span></dt>
+                <dd>
+                    <span>{{ personalData.patronymic }}</span>
+                </dd>
+                <dt><span jhiTranslate="animalCertificationApp.personalData.phone">Phone</span></dt>
+                <dd>
+                    <span>{{ personalData.phone }}</span>
+                </dd>
+                <dt><span jhiTranslate="animalCertificationApp.personalData.inn">Inn</span></dt>
+                <dd>
+                    <span>{{ personalData.inn }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/person-data', personalData.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

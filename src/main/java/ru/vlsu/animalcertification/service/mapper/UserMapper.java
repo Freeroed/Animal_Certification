@@ -1,5 +1,6 @@
 package ru.vlsu.animalcertification.service.mapper;
 
+import org.mapstruct.Named;
 import ru.vlsu.animalcertification.domain.Authority;
 import ru.vlsu.animalcertification.domain.User;
 import ru.vlsu.animalcertification.service.dto.UserDTO;
@@ -25,6 +26,7 @@ public class UserMapper {
             .collect(Collectors.toList());
     }
 
+    @Named("userToUserDTO")
     public UserDTO userToUserDTO(User user) {
         return new UserDTO(user);
     }
@@ -36,6 +38,7 @@ public class UserMapper {
             .collect(Collectors.toList());
     }
 
+    @Named("userDTOToUser")
     public User userDTOToUser(UserDTO userDTO) {
         if (userDTO == null) {
             return null;
@@ -78,4 +81,6 @@ public class UserMapper {
         user.setId(id);
         return user;
     }
+
+
 }

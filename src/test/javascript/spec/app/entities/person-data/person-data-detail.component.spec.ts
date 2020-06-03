@@ -3,11 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 
 import { AnimalCertificationTestModule } from '../../../test.module';
-import { PersonDataDetailComponent } from 'app/entities/person-data/person-data-detail.component';
-import { PersonData } from 'app/shared/model/person-data.model';
+import { PersonDataDetailComponent } from 'app/entities/person-data/personal-data-detail.component';
+import { PersonData } from 'app/shared/model/personal-data.model';
 
 describe('Component Tests', () => {
-  describe('PersonData Management Detail Component', () => {
+  describe('PersonalData Management Detail Component', () => {
     let comp: PersonDataDetailComponent;
     let fixture: ComponentFixture<PersonDataDetailComponent>;
     const route = ({ data: of({ personData: new PersonData(123) }) } as any) as ActivatedRoute;

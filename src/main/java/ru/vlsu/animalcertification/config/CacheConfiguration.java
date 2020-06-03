@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import io.github.jhipster.config.cache.PrefixedKeyGenerator;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.*;
+import ru.vlsu.animalcertification.domain.PersonalData;
 
 @Configuration
 @EnableCaching
@@ -62,7 +63,7 @@ public class CacheConfiguration {
             createCache(cm, ru.vlsu.animalcertification.domain.DocumentType.class.getName());
             createCache(cm, ru.vlsu.animalcertification.domain.Document.class.getName());
             createCache(cm, ru.vlsu.animalcertification.domain.BorderCrossingPoint.class.getName());
-            createCache(cm, ru.vlsu.animalcertification.domain.PersonData.class.getName());
+            createCache(cm, PersonalData.class.getName());
             createCache(cm, ru.vlsu.animalcertification.domain.Address.class.getName());
             // jhipster-needle-ehcache-add-entry
         };

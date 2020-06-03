@@ -9,12 +9,12 @@ import javax.validation.constraints.*;
 import java.io.Serializable;
 
 /**
- * A PersonData.
+ * A PersonalData.
  */
 @Entity
 @Table(name = "personal_data")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class PersonData implements Serializable {
+public class PersonalData implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -59,7 +59,7 @@ public class PersonData implements Serializable {
         return name;
     }
 
-    public PersonData name(String name) {
+    public PersonalData name(String name) {
         this.name = name;
         return this;
     }
@@ -72,7 +72,7 @@ public class PersonData implements Serializable {
         return surname;
     }
 
-    public PersonData surname(String surname) {
+    public PersonalData surname(String surname) {
         this.surname = surname;
         return this;
     }
@@ -85,7 +85,7 @@ public class PersonData implements Serializable {
         return nameEng;
     }
 
-    public PersonData nameEng(String nameEng) {
+    public PersonalData nameEng(String nameEng) {
         this.nameEng = nameEng;
         return this;
     }
@@ -98,7 +98,7 @@ public class PersonData implements Serializable {
         return surnameEng;
     }
 
-    public PersonData surnameEng(String surnameEng) {
+    public PersonalData surnameEng(String surnameEng) {
         this.surnameEng = surnameEng;
         return this;
     }
@@ -111,7 +111,7 @@ public class PersonData implements Serializable {
         return patronymic;
     }
 
-    public PersonData patronymic(String patronymic) {
+    public PersonalData patronymic(String patronymic) {
         this.patronymic = patronymic;
         return this;
     }
@@ -124,7 +124,7 @@ public class PersonData implements Serializable {
         return phone;
     }
 
-    public PersonData phone(String phone) {
+    public PersonalData phone(String phone) {
         this.phone = phone;
         return this;
     }
@@ -137,7 +137,7 @@ public class PersonData implements Serializable {
         return inn;
     }
 
-    public PersonData inn(String inn) {
+    public PersonalData inn(String inn) {
         this.inn = inn;
         return this;
     }
@@ -152,10 +152,10 @@ public class PersonData implements Serializable {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof PersonData)) {
+        if (!(o instanceof PersonalData)) {
             return false;
         }
-        return id != null && id.equals(((PersonData) o).id);
+        return id != null && id.equals(((PersonalData) o).id);
     }
 
     @Override
@@ -166,7 +166,7 @@ public class PersonData implements Serializable {
     // prettier-ignore
     @Override
     public String toString() {
-        return "PersonData{" +
+        return "PersonalData{" +
             "id=" + getId() +
             ", name='" + getName() + "'" +
             ", surname='" + getSurname() + "'" +

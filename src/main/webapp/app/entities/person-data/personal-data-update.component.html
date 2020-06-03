@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-            <h2 id="jhi-person-data-heading" jhiTranslate="animalCertificationApp.personData.home.createOrEditLabel">Create or edit a Person Data</h2>
+            <h2 id="jhi-person-data-heading" jhiTranslate="animalCertificationApp.personalData.home.createOrEditLabel">Create or edit a Person Data</h2>
 
             <div>
                 <jhi-alert-error></jhi-alert-error>
@@ -12,7 +12,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCertificationApp.personData.name" for="field_name">Name</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.personalData.name" for="field_name">Name</label>
                     <input type="text" class="form-control" name="name" id="field_name"
                            formControlName="name"/>
                     <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCertificationApp.personData.surname" for="field_surname">Surname</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.personalData.surname" for="field_surname">Surname</label>
                     <input type="text" class="form-control" name="surname" id="field_surname"
                            formControlName="surname"/>
                     <div *ngIf="editForm.get('surname')!.invalid && (editForm.get('surname')!.dirty || editForm.get('surname')!.touched)">
@@ -36,31 +36,31 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCertificationApp.personData.nameEng" for="field_nameEng">Name Eng</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.personalData.nameEng" for="field_nameEng">Name Eng</label>
                     <input type="text" class="form-control" name="nameEng" id="field_nameEng"
                            formControlName="nameEng"/>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCertificationApp.personData.surnameEng" for="field_surnameEng">Surname Eng</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.personalData.surnameEng" for="field_surnameEng">Surname Eng</label>
                     <input type="text" class="form-control" name="surnameEng" id="field_surnameEng"
                            formControlName="surnameEng"/>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCertificationApp.personData.patronymic" for="field_patronymic">Patronymic</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.personalData.patronymic" for="field_patronymic">Patronymic</label>
                     <input type="text" class="form-control" name="patronymic" id="field_patronymic"
                            formControlName="patronymic"/>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCertificationApp.personData.phone" for="field_phone">Phone</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.personalData.phone" for="field_phone">Phone</label>
                     <input type="text" class="form-control" name="phone" id="field_phone"
                            formControlName="phone"/>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="animalCertificationApp.personData.inn" for="field_inn">Inn</label>
+                    <label class="form-control-label" jhiTranslate="animalCertificationApp.personalData.inn" for="field_inn">Inn</label>
                     <input type="text" class="form-control" name="inn" id="field_inn"
                            formControlName="inn"/>
                 </div>

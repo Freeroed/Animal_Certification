@@ -6,21 +6,21 @@ import { flatMap } from 'rxjs/operators';
 
 import { Authority } from 'app/shared/constants/authority.constants';
 import { UserRouteAccessService } from 'app/core/auth/user-route-access-service';
-import { IPersonData, PersonData } from 'app/shared/model/person-data.model';
-import { PersonDataService } from './person-data.service';
-import { PersonDataComponent } from './person-data.component';
-import { PersonDataDetailComponent } from './person-data-detail.component';
-import { PersonDataUpdateComponent } from './person-data-update.component';
+import { IPersonalData, PersonalData } from 'app/shared/model/personal-data.model';
+import { PersonalDataService } from './personal-data.service';
+import { PersonalDataComponent } from './personal-data.component';
+import { PersonalDataDetailComponent } from './personal-data-detail.component';
+import { PersonalDataUpdateComponent } from './personal-data-update.component';
 
 @Injectable({ providedIn: 'root' })
-export class PersonDataResolve implements Resolve<IPersonData> {
-  constructor(private service: PersonDataService, private router: Router) {}
+export class PersonalDataResolve implements Resolve<IPersonalData> {
+  constructor(private service: PersonalDataService, private router: Router) {}
 
-  resolve(route: ActivatedRouteSnapshot): Observable<IPersonData> | Observable<never> {
+  resolve(route: ActivatedRouteSnapshot): Observable<IPersonalData> | Observable<never> {
     const id = route.params['id'];
     if (id) {
       return this.service.find(id).pipe(
-        flatMap((personData: HttpResponse<PersonData>) => {
+        flatMap((personData: HttpResponse<PersonalData>) => {
           if (personData.body) {
             return of(personData.body);
           } else {
@@ -30,14 +30,14 @@ export class PersonDataResolve implements Resolve<IPersonData> {
         })
       );
     }
-    return of(new PersonData());
+    return of(new PersonalData());
   }
 }
 
-export const personDataRoute: Routes = [
+export const personalDataRoute: Routes = [
   {
     path: '',
-    component: PersonDataComponent,
+    component: PersonalDataComponent,
     data: {
       authorities: [Authority.USER],
       pageTitle: 'animalCertificationApp.personData.home.title',
@@ -46,9 +46,9 @@ export const personDataRoute: Routes = [
   },
   {
     path: ':id/view',
-    component: PersonDataDetailComponent,
+    component: PersonalDataDetailComponent,
     resolve: {
-      personData: PersonDataResolve,
+      personData: PersonalDataResolve,
     },
     data: {
       authorities: [Authority.USER],
@@ -58,9 +58,9 @@ export const personDataRoute: Routes = [
   },
   {
     path: 'new',
-    component: PersonDataUpdateComponent,
+    component: PersonalDataUpdateComponent,
     resolve: {
-      personData: PersonDataResolve,
+      personData: PersonalDataResolve,
     },
     data: {
       authorities: [Authority.USER],
@@ -70,9 +70,9 @@ export const personDataRoute: Routes = [
   },
   {
     path: ':id/edit',
-    component: PersonDataUpdateComponent,
+    component: PersonalDataUpdateComponent,
     resolve: {
-      personData: PersonDataResolve,
+      personData: PersonalDataResolve,
     },
     data: {
       authorities: [Authority.USER],

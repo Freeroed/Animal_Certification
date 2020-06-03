@@ -4,22 +4,26 @@ import { Subscription } from 'rxjs';
 import { JhiEventManager } from 'ng-jhipster';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { IPersonData } from 'app/shared/model/person-data.model';
-import { PersonDataService } from './person-data.service';
-import { PersonDataDeleteDialogComponent } from './person-data-delete-dialog.component';
+import { IPersonalData } from 'app/shared/model/personal-data.model';
+import { PersonalDataService } from './personal-data.service';
+import { PersonalDataDeleteDialogComponent } from './personal-data-delete-dialog.component';
 
 @Component({
   selector: 'jhi-person-data',
-  templateUrl: './person-data.component.html',
+  templateUrl: './personal-data.component.html',
 })
-export class PersonDataComponent implements OnInit, OnDestroy {
-  personData?: IPersonData[];
+export class PersonalDataComponent implements OnInit, OnDestroy {
+  personalData?: IPersonalData[];
   eventSubscriber?: Subscription;
 
-  constructor(protected personDataService: PersonDataService, protected eventManager: JhiEventManager, protected modalService: NgbModal) {}
+  constructor(
+    protected personalDataService: PersonalDataService,
+    protected eventManager: JhiEventManager,
+    protected modalService: NgbModal
+  ) {}
 
   loadAll(): void {
-    this.personDataService.query().subscribe((res: HttpResponse<IPersonData[]>) => (this.personData = res.body || []));
+    this.personalDataService.query().subscribe((res: HttpResponse<IPersonalData[]>) => (this.personalData = res.body || []));
   }
 
   ngOnInit(): void {
@@ -33,7 +37,7 @@ export class PersonDataComponent implements OnInit, OnDestroy {
     }
   }
 
-  trackId(index: number, item: IPersonData): number {
+  trackId(index: number, item: IPersonalData): number {
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
     return item.id!;
   }
@@ -42,8 +46,8 @@ export class PersonDataComponent implements OnInit, OnDestroy {
     this.eventSubscriber = this.eventManager.subscribe('personDataListModification', () => this.loadAll());
   }
 
-  delete(personData: IPersonData): void {
-    const modalRef = this.modalService.open(PersonDataDeleteDialogComponent, { size: 'lg', backdrop: 'static' });
+  delete(personData: IPersonalData): void {
+    const modalRef = this.modalService.open(PersonalDataDeleteDialogComponent, { size: 'lg', backdrop: 'static' });
     modalRef.componentInstance.personData = personData;
   }
 }

@@ -6,11 +6,11 @@ import { JhiEventManager } from 'ng-jhipster';
 import { AnimalCertificationTestModule } from '../../../test.module';
 import { MockEventManager } from '../../../helpers/mock-event-manager.service';
 import { MockActiveModal } from '../../../helpers/mock-active-modal.service';
-import { PersonDataDeleteDialogComponent } from 'app/entities/person-data/person-data-delete-dialog.component';
-import { PersonDataService } from 'app/entities/person-data/person-data.service';
+import { PersonDataDeleteDialogComponent } from 'app/entities/person-data/personal-data-delete-dialog.component';
+import { PersonDataService } from 'app/entities/person-data/personal-data.service';
 
 describe('Component Tests', () => {
-  describe('PersonData Management Delete Component', () => {
+  describe('PersonalData Management Delete Component', () => {
     let comp: PersonDataDeleteDialogComponent;
     let fixture: ComponentFixture<PersonDataDeleteDialogComponent>;
     let service: PersonDataService;
