@@ -37,12 +37,9 @@ public class BreedResource {
     @Value("${jhipster.clientApp.name}")
     private String applicationName;
 
-    private final BreedRepository breedRepository;
-
     private final BreedService breedService;
 
-    public BreedResource(BreedRepository breedRepository, BreedService breedService) {
-        this.breedRepository = breedRepository;
+    public BreedResource(BreedService breedService) {
         this.breedService = breedService;
     }
 
@@ -68,21 +65,21 @@ public class BreedResource {
     /**
      * {@code PUT  /breeds} : Updates an existing breed.
      *
-     * @param breed the breed to update.
+     * @param breedDto the breed to update.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated breed,
      * or with status {@code 400 (Bad Request)} if the breed is not valid,
      * or with status {@code 500 (Internal Server Error)} if the breed couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/breeds")
-    public ResponseEntity<Breed> updateBreed(@Valid @RequestBody Breed breed) throws URISyntaxException {
-        log.debug("REST request to update Breed : {}", breed);
-        if (breed.getId() == null) {
+    public ResponseEntity<BreedDTO> updateBreed(@Valid @RequestBody BreedDTO breedDto) throws URISyntaxException {
+        log.debug("REST request to update Breed : {}", breedDto);
+        if (breedDto.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
-        Breed result = breedRepository.save(breed);
+        BreedDTO result = breedService.save(breedDto);
         return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, breed.getId().toString()))
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, breedDto.getId().toString()))
             .body(result);
     }
 
@@ -104,9 +101,9 @@ public class BreedResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the breed, or with status {@code 404 (Not Found)}.
      */
     @GetMapping("/breeds/{id}")
-    public ResponseEntity<Breed> getBreed(@PathVariable Long id) {
+    public ResponseEntity<BreedDTO> getBreed(@PathVariable Long id) {
         log.debug("REST request to get Breed : {}", id);
-        Optional<Breed> breed = breedRepository.findById(id);
+        Optional<BreedDTO> breed = breedService.findOne(id);
         return ResponseUtil.wrapOrNotFound(breed);
     }
 
@@ -119,8 +116,7 @@ public class BreedResource {
     @DeleteMapping("/breeds/{id}")
     public ResponseEntity<Void> deleteBreed(@PathVariable Long id) {
         log.debug("REST request to delete Breed : {}", id);
-
-        breedRepository.deleteById(id);
+        breedService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }
 }

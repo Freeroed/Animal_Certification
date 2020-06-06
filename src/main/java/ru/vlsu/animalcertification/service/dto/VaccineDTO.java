@@ -111,4 +111,18 @@ public class VaccineDTO implements Serializable {
     public int hashCode() {
         return Objects.hash(id, title, date, batchNumber, nameAndManufacturer, validUtil, type, animal);
     }
+
+    @Override
+    public String toString() {
+        return "VaccineDTO{" +
+            "id=" + id +
+            ", title='" + title + '\'' +
+            ", date=" + date +
+            ", batchNumber='" + batchNumber + '\'' +
+            ", nameAndManufacturer='" + nameAndManufacturer + '\'' +
+            ", validUtil=" + validUtil +
+            ", type=" + type +
+            ", animal=" + animal +
+            '}';
+    }
 }

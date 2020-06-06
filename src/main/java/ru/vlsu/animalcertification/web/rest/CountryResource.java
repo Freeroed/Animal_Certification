@@ -1,22 +1,21 @@
 package ru.vlsu.animalcertification.web.rest;
 
-import ru.vlsu.animalcertification.domain.Country;
-import ru.vlsu.animalcertification.repository.CountryRepository;
-import ru.vlsu.animalcertification.web.rest.errors.BadRequestAlertException;
-
 import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import ru.vlsu.animalcertification.service.CountryService;
+import ru.vlsu.animalcertification.service.dto.CountryDTO;
+import ru.vlsu.animalcertification.web.rest.errors.BadRequestAlertException;
 
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.List;
 import java.util.Optional;
 
 /**
@@ -34,26 +33,26 @@ public class CountryResource {
     @Value("${jhipster.clientApp.name}")
     private String applicationName;
 
-    private final CountryRepository countryRepository;
+    private final CountryService countryService;
 
-    public CountryResource(CountryRepository countryRepository) {
-        this.countryRepository = countryRepository;
+    public CountryResource(CountryService countryService) {
+        this.countryService = countryService;
     }
 
     /**
      * {@code POST  /countries} : Create a new country.
      *
-     * @param country the country to create.
+     * @param countryDto the country to create.
      * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new country, or with status {@code 400 (Bad Request)} if the country has already an ID.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/countries")
-    public ResponseEntity<Country> createCountry(@Valid @RequestBody Country country) throws URISyntaxException {
-        log.debug("REST request to save Country : {}", country);
-        if (country.getId() != null) {
+    public ResponseEntity<CountryDTO> createCountry(@Valid @RequestBody CountryDTO countryDto) throws URISyntaxException {
+        log.debug("REST request to save Country : {}", countryDto);
+        if (countryDto.getId() != null) {
             throw new BadRequestAlertException("A new country cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        Country result = countryRepository.save(country);
+        CountryDTO result = countryService.save(countryDto);
         return ResponseEntity.created(new URI("/api/countries/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);
@@ -62,21 +61,21 @@ public class CountryResource {
     /**
      * {@code PUT  /countries} : Updates an existing country.
      *
-     * @param country the country to update.
+     * @param countryDto the country to update.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated country,
      * or with status {@code 400 (Bad Request)} if the country is not valid,
      * or with status {@code 500 (Internal Server Error)} if the country couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/countries")
-    public ResponseEntity<Country> updateCountry(@Valid @RequestBody Country country) throws URISyntaxException {
-        log.debug("REST request to update Country : {}", country);
-        if (country.getId() == null) {
+    public ResponseEntity<CountryDTO> updateCountry(@Valid @RequestBody CountryDTO countryDto) throws URISyntaxException {
+        log.debug("REST request to update Country : {}", countryDto);
+        if (countryDto.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
-        Country result = countryRepository.save(country);
+        CountryDTO result = countryService.save(countryDto);
         return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, country.getId().toString()))
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, countryDto.getId().toString()))
             .body(result);
     }
 
@@ -86,9 +85,9 @@ public class CountryResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of countries in body.
      */
     @GetMapping("/countries")
-    public List<Country> getAllCountries() {
+    public ResponseEntity getAllCountries() {
         log.debug("REST request to get all Countries");
-        return countryRepository.findAll();
+        return ResponseEntity.ok(countryService.findAll(Pageable.unpaged()).getContent());
     }
 
     /**
@@ -98,9 +97,9 @@ public class CountryResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the country, or with status {@code 404 (Not Found)}.
      */
     @GetMapping("/countries/{id}")
-    public ResponseEntity<Country> getCountry(@PathVariable Long id) {
+    public ResponseEntity<CountryDTO> getCountry(@PathVariable Long id) {
         log.debug("REST request to get Country : {}", id);
-        Optional<Country> country = countryRepository.findById(id);
+        Optional<CountryDTO> country = countryService.findOne(id);
         return ResponseUtil.wrapOrNotFound(country);
     }
 
@@ -113,8 +112,7 @@ public class CountryResource {
     @DeleteMapping("/countries/{id}")
     public ResponseEntity<Void> deleteCountry(@PathVariable Long id) {
         log.debug("REST request to delete Country : {}", id);
-
-        countryRepository.deleteById(id);
+        countryService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }
 }

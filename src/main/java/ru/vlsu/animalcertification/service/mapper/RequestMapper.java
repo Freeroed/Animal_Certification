@@ -2,9 +2,7 @@ package ru.vlsu.animalcertification.service.mapper;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import ru.vlsu.animalcertification.domain.Animal;
 import ru.vlsu.animalcertification.domain.Request;
-import ru.vlsu.animalcertification.service.dto.AnimalDTO;
 import ru.vlsu.animalcertification.service.dto.RequestDTO;
 
 import java.util.List;

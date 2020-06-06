@@ -1,22 +1,21 @@
 package ru.vlsu.animalcertification.web.rest;
 
-import ru.vlsu.animalcertification.domain.Vaccine;
-import ru.vlsu.animalcertification.repository.VaccineRepository;
-import ru.vlsu.animalcertification.web.rest.errors.BadRequestAlertException;
-
 import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import ru.vlsu.animalcertification.service.VaccineService;
+import ru.vlsu.animalcertification.service.dto.VaccineDTO;
+import ru.vlsu.animalcertification.web.rest.errors.BadRequestAlertException;
 
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.List;
 import java.util.Optional;
 
 /**
@@ -34,26 +33,26 @@ public class VaccineResource {
     @Value("${jhipster.clientApp.name}")
     private String applicationName;
 
-    private final VaccineRepository vaccineRepository;
+    private final VaccineService vaccineService;
 
-    public VaccineResource(VaccineRepository vaccineRepository) {
-        this.vaccineRepository = vaccineRepository;
+    public VaccineResource(VaccineService vaccineService) {
+        this.vaccineService = vaccineService;
     }
 
     /**
      * {@code POST  /vaccines} : Create a new vaccine.
      *
-     * @param vaccine the vaccine to create.
+     * @param vaccineDto the vaccine to create.
      * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new vaccine, or with status {@code 400 (Bad Request)} if the vaccine has already an ID.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/vaccines")
-    public ResponseEntity<Vaccine> createVaccine(@Valid @RequestBody Vaccine vaccine) throws URISyntaxException {
-        log.debug("REST request to save Vaccine : {}", vaccine);
-        if (vaccine.getId() != null) {
+    public ResponseEntity<VaccineDTO> createVaccine(@Valid @RequestBody VaccineDTO vaccineDto) throws URISyntaxException {
+        log.debug("REST request to save Vaccine : {}", vaccineDto);
+        if (vaccineDto.getId() != null) {
             throw new BadRequestAlertException("A new vaccine cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        Vaccine result = vaccineRepository.save(vaccine);
+        VaccineDTO result = vaccineService.save(vaccineDto);
         return ResponseEntity.created(new URI("/api/vaccines/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);
@@ -62,21 +61,21 @@ public class VaccineResource {
     /**
      * {@code PUT  /vaccines} : Updates an existing vaccine.
      *
-     * @param vaccine the vaccine to update.
+     * @param vaccineDto the vaccine to update.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated vaccine,
      * or with status {@code 400 (Bad Request)} if the vaccine is not valid,
      * or with status {@code 500 (Internal Server Error)} if the vaccine couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/vaccines")
-    public ResponseEntity<Vaccine> updateVaccine(@Valid @RequestBody Vaccine vaccine) throws URISyntaxException {
-        log.debug("REST request to update Vaccine : {}", vaccine);
-        if (vaccine.getId() == null) {
+    public ResponseEntity<VaccineDTO> updateVaccine(@Valid @RequestBody VaccineDTO vaccineDto) throws URISyntaxException {
+        log.debug("REST request to update Vaccine : {}", vaccineDto);
+        if (vaccineDto.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
-        Vaccine result = vaccineRepository.save(vaccine);
+        VaccineDTO result = vaccineService.save(vaccineDto);
         return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, vaccine.getId().toString()))
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, vaccineDto.getId().toString()))
             .body(result);
     }
 
@@ -86,9 +85,9 @@ public class VaccineResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of vaccines in body.
      */
     @GetMapping("/vaccines")
-    public List<Vaccine> getAllVaccines() {
+    public ResponseEntity getAllVaccines() {
         log.debug("REST request to get all Vaccines");
-        return vaccineRepository.findAll();
+        return ResponseEntity.ok(vaccineService.findAll(Pageable.unpaged()).getContent());
     }
 
     /**
@@ -98,9 +97,9 @@ public class VaccineResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the vaccine, or with status {@code 404 (Not Found)}.
      */
     @GetMapping("/vaccines/{id}")
-    public ResponseEntity<Vaccine> getVaccine(@PathVariable Long id) {
+    public ResponseEntity<VaccineDTO> getVaccine(@PathVariable Long id) {
         log.debug("REST request to get Vaccine : {}", id);
-        Optional<Vaccine> vaccine = vaccineRepository.findById(id);
+        Optional<VaccineDTO> vaccine = vaccineService.findOne(id);
         return ResponseUtil.wrapOrNotFound(vaccine);
     }
 
@@ -114,7 +113,7 @@ public class VaccineResource {
     public ResponseEntity<Void> deleteVaccine(@PathVariable Long id) {
         log.debug("REST request to delete Vaccine : {}", id);
 
-        vaccineRepository.deleteById(id);
+        vaccineService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }
 }

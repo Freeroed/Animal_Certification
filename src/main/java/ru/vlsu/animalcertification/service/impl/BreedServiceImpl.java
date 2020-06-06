@@ -45,11 +45,14 @@ public class BreedServiceImpl implements BreedService {
 
     @Override
     public Optional<BreedDTO> findOne(Long id) {
-        return Optional.empty();
+        log.debug("Request to get Breed by id : {}", id);
+        return breedRepository.findById(id)
+            .map(breedMapper::toDto);
     }
 
     @Override
     public void delete(Long id) {
-
+        log.debug("Request to delete Breed by id : {}", id);
+        breedRepository.deleteById(id);
     }
 }

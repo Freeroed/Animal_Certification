@@ -1,7 +1,10 @@
 package ru.vlsu.animalcertification.web.rest;
 
+import org.springframework.data.domain.Pageable;
 import ru.vlsu.animalcertification.domain.LaboratoryResearch;
 import ru.vlsu.animalcertification.repository.LaboratoryResearchRepository;
+import ru.vlsu.animalcertification.service.LaboratoryResearchService;
+import ru.vlsu.animalcertification.service.dto.LaboratoryResearchDTO;
 import ru.vlsu.animalcertification.web.rest.errors.BadRequestAlertException;
 
 import io.github.jhipster.web.util.HeaderUtil;
@@ -34,26 +37,26 @@ public class LaboratoryResearchResource {
     @Value("${jhipster.clientApp.name}")
     private String applicationName;
 
-    private final LaboratoryResearchRepository laboratoryResearchRepository;
+    private final LaboratoryResearchService laboratoryResearchService;
 
-    public LaboratoryResearchResource(LaboratoryResearchRepository laboratoryResearchRepository) {
-        this.laboratoryResearchRepository = laboratoryResearchRepository;
+    public LaboratoryResearchResource(LaboratoryResearchService laboratoryResearchService) {
+        this.laboratoryResearchService = laboratoryResearchService;
     }
 
     /**
      * {@code POST  /laboratory-researches} : Create a new laboratoryResearch.
      *
-     * @param laboratoryResearch the laboratoryResearch to create.
+     * @param laboratoryResearchDto the laboratoryResearch to create.
      * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new laboratoryResearch, or with status {@code 400 (Bad Request)} if the laboratoryResearch has already an ID.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/laboratory-researches")
-    public ResponseEntity<LaboratoryResearch> createLaboratoryResearch(@Valid @RequestBody LaboratoryResearch laboratoryResearch) throws URISyntaxException {
-        log.debug("REST request to save LaboratoryResearch : {}", laboratoryResearch);
-        if (laboratoryResearch.getId() != null) {
+    public ResponseEntity<LaboratoryResearchDTO> createLaboratoryResearch(@Valid @RequestBody LaboratoryResearchDTO laboratoryResearchDto) throws URISyntaxException {
+        log.debug("REST request to save LaboratoryResearch : {}", laboratoryResearchDto);
+        if (laboratoryResearchDto.getId() != null) {
             throw new BadRequestAlertException("A new laboratoryResearch cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        LaboratoryResearch result = laboratoryResearchRepository.save(laboratoryResearch);
+        LaboratoryResearchDTO result = laboratoryResearchService.save(laboratoryResearchDto);
         return ResponseEntity.created(new URI("/api/laboratory-researches/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);
@@ -62,21 +65,21 @@ public class LaboratoryResearchResource {
     /**
      * {@code PUT  /laboratory-researches} : Updates an existing laboratoryResearch.
      *
-     * @param laboratoryResearch the laboratoryResearch to update.
+     * @param laboratoryResearchDto the laboratoryResearch to update.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated laboratoryResearch,
      * or with status {@code 400 (Bad Request)} if the laboratoryResearch is not valid,
      * or with status {@code 500 (Internal Server Error)} if the laboratoryResearch couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/laboratory-researches")
-    public ResponseEntity<LaboratoryResearch> updateLaboratoryResearch(@Valid @RequestBody LaboratoryResearch laboratoryResearch) throws URISyntaxException {
-        log.debug("REST request to update LaboratoryResearch : {}", laboratoryResearch);
-        if (laboratoryResearch.getId() == null) {
+    public ResponseEntity<LaboratoryResearchDTO> updateLaboratoryResearch(@Valid @RequestBody LaboratoryResearchDTO laboratoryResearchDto) throws URISyntaxException {
+        log.debug("REST request to update LaboratoryResearch : {}", laboratoryResearchDto);
+        if (laboratoryResearchDto.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
-        LaboratoryResearch result = laboratoryResearchRepository.save(laboratoryResearch);
+        LaboratoryResearchDTO result = laboratoryResearchService.save(laboratoryResearchDto);
         return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, laboratoryResearch.getId().toString()))
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, laboratoryResearchDto.getId().toString()))
             .body(result);
     }
 
@@ -86,9 +89,9 @@ public class LaboratoryResearchResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of laboratoryResearches in body.
      */
     @GetMapping("/laboratory-researches")
-    public List<LaboratoryResearch> getAllLaboratoryResearches() {
+    public ResponseEntity getAllLaboratoryResearches() {
         log.debug("REST request to get all LaboratoryResearches");
-        return laboratoryResearchRepository.findAll();
+        return ResponseEntity.ok(laboratoryResearchService.findAll(Pageable.unpaged()).getContent());
     }
 
     /**
@@ -98,9 +101,9 @@ public class LaboratoryResearchResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the laboratoryResearch, or with status {@code 404 (Not Found)}.
      */
     @GetMapping("/laboratory-researches/{id}")
-    public ResponseEntity<LaboratoryResearch> getLaboratoryResearch(@PathVariable Long id) {
+    public ResponseEntity<LaboratoryResearchDTO> getLaboratoryResearch(@PathVariable Long id) {
         log.debug("REST request to get LaboratoryResearch : {}", id);
-        Optional<LaboratoryResearch> laboratoryResearch = laboratoryResearchRepository.findById(id);
+        Optional<LaboratoryResearchDTO> laboratoryResearch = laboratoryResearchService.findOne(id);
         return ResponseUtil.wrapOrNotFound(laboratoryResearch);
     }
 
@@ -113,8 +116,7 @@ public class LaboratoryResearchResource {
     @DeleteMapping("/laboratory-researches/{id}")
     public ResponseEntity<Void> deleteLaboratoryResearch(@PathVariable Long id) {
         log.debug("REST request to delete LaboratoryResearch : {}", id);
-
-        laboratoryResearchRepository.deleteById(id);
+        laboratoryResearchService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }
 }

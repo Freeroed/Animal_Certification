@@ -1,7 +1,10 @@
 package ru.vlsu.animalcertification.web.rest;
 
+import org.springframework.data.domain.Pageable;
 import ru.vlsu.animalcertification.domain.DocumentType;
 import ru.vlsu.animalcertification.repository.DocumentTypeRepository;
+import ru.vlsu.animalcertification.service.DocumentTypeService;
+import ru.vlsu.animalcertification.service.dto.DocumentTypeDTO;
 import ru.vlsu.animalcertification.web.rest.errors.BadRequestAlertException;
 
 import io.github.jhipster.web.util.HeaderUtil;
@@ -34,26 +37,26 @@ public class DocumentTypeResource {
     @Value("${jhipster.clientApp.name}")
     private String applicationName;
 
-    private final DocumentTypeRepository documentTypeRepository;
+    private final DocumentTypeService documentTypeService;
 
-    public DocumentTypeResource(DocumentTypeRepository documentTypeRepository) {
-        this.documentTypeRepository = documentTypeRepository;
+    public DocumentTypeResource(DocumentTypeService documentTypeService) {
+        this.documentTypeService = documentTypeService;
     }
 
     /**
      * {@code POST  /document-types} : Create a new documentType.
      *
-     * @param documentType the documentType to create.
+     * @param documentTypeDto the documentType to create.
      * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new documentType, or with status {@code 400 (Bad Request)} if the documentType has already an ID.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/document-types")
-    public ResponseEntity<DocumentType> createDocumentType(@Valid @RequestBody DocumentType documentType) throws URISyntaxException {
-        log.debug("REST request to save DocumentType : {}", documentType);
-        if (documentType.getId() != null) {
+    public ResponseEntity<DocumentTypeDTO> createDocumentType(@Valid @RequestBody DocumentTypeDTO documentTypeDto) throws URISyntaxException {
+        log.debug("REST request to save DocumentType : {}", documentTypeDto);
+        if (documentTypeDto.getId() != null) {
             throw new BadRequestAlertException("A new documentType cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        DocumentType result = documentTypeRepository.save(documentType);
+        DocumentTypeDTO result = documentTypeService.save(documentTypeDto);
         return ResponseEntity.created(new URI("/api/document-types/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);
@@ -62,21 +65,21 @@ public class DocumentTypeResource {
     /**
      * {@code PUT  /document-types} : Updates an existing documentType.
      *
-     * @param documentType the documentType to update.
+     * @param documentTypeDto the documentType to update.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated documentType,
      * or with status {@code 400 (Bad Request)} if the documentType is not valid,
      * or with status {@code 500 (Internal Server Error)} if the documentType couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/document-types")
-    public ResponseEntity<DocumentType> updateDocumentType(@Valid @RequestBody DocumentType documentType) throws URISyntaxException {
-        log.debug("REST request to update DocumentType : {}", documentType);
-        if (documentType.getId() == null) {
+    public ResponseEntity<DocumentTypeDTO> updateDocumentType(@Valid @RequestBody DocumentTypeDTO documentTypeDto) throws URISyntaxException {
+        log.debug("REST request to update DocumentType : {}", documentTypeDto);
+        if (documentTypeDto.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
-        DocumentType result = documentTypeRepository.save(documentType);
+        DocumentTypeDTO result = documentTypeService.save(documentTypeDto);
         return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, documentType.getId().toString()))
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, documentTypeDto.getId().toString()))
             .body(result);
     }
 
@@ -86,9 +89,9 @@ public class DocumentTypeResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of documentTypes in body.
      */
     @GetMapping("/document-types")
-    public List<DocumentType> getAllDocumentTypes() {
+    public ResponseEntity getAllDocumentTypes() {
         log.debug("REST request to get all DocumentTypes");
-        return documentTypeRepository.findAll();
+        return ResponseEntity.ok(documentTypeService.findAll(Pageable.unpaged()).getContent());
     }
 
     /**
@@ -98,9 +101,9 @@ public class DocumentTypeResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the documentType, or with status {@code 404 (Not Found)}.
      */
     @GetMapping("/document-types/{id}")
-    public ResponseEntity<DocumentType> getDocumentType(@PathVariable Long id) {
+    public ResponseEntity<DocumentTypeDTO> getDocumentType(@PathVariable Long id) {
         log.debug("REST request to get DocumentType : {}", id);
-        Optional<DocumentType> documentType = documentTypeRepository.findById(id);
+        Optional<DocumentTypeDTO> documentType = documentTypeService.findOne(id);
         return ResponseUtil.wrapOrNotFound(documentType);
     }
 
@@ -113,8 +116,7 @@ public class DocumentTypeResource {
     @DeleteMapping("/document-types/{id}")
     public ResponseEntity<Void> deleteDocumentType(@PathVariable Long id) {
         log.debug("REST request to delete DocumentType : {}", id);
-
-        documentTypeRepository.deleteById(id);
+        documentTypeService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }
 }

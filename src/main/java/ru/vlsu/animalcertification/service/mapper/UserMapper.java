@@ -28,7 +28,28 @@ public class UserMapper {
 
     @Named("userToUserDTO")
     public UserDTO userToUserDTO(User user) {
-        return new UserDTO(user);
+        if (user == null) {
+            return null;
+        }
+        else {
+            UserDTO userDTO = new UserDTO();
+            userDTO.setId(user.getId());
+            userDTO.setLogin(user.getLogin());
+            userDTO.setFirstName(user.getFirstName());
+            userDTO.setLastName(user.getLastName());
+            userDTO.setEmail(user.getEmail());
+            userDTO.setActivated(user.getActivated());
+            userDTO.setImageUrl(user.getImageUrl());
+            userDTO.setLangKey(user.getLangKey());
+            userDTO.setCreatedBy(user.getCreatedBy());
+            userDTO.setCreatedDate(user.getCreatedDate());
+            userDTO.setLastModifiedBy(user.getLastModifiedBy());
+            userDTO.setLastModifiedDate(user.getLastModifiedDate());
+            userDTO.setAuthorities(user.getAuthorities().stream()
+                .map(Authority::getName)
+                .collect(Collectors.toSet()));
+            return userDTO;
+        }
     }
 
     public List<User> userDTOsToUsers(List<UserDTO> userDTOs) {

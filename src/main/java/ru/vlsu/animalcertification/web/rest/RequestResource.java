@@ -1,7 +1,10 @@
 package ru.vlsu.animalcertification.web.rest;
 
+import org.springframework.data.domain.Pageable;
 import ru.vlsu.animalcertification.domain.Request;
 import ru.vlsu.animalcertification.repository.RequestRepository;
+import ru.vlsu.animalcertification.service.RequestService;
+import ru.vlsu.animalcertification.service.dto.RequestDTO;
 import ru.vlsu.animalcertification.web.rest.errors.BadRequestAlertException;
 
 import io.github.jhipster.web.util.HeaderUtil;
@@ -34,26 +37,26 @@ public class RequestResource {
     @Value("${jhipster.clientApp.name}")
     private String applicationName;
 
-    private final RequestRepository requestRepository;
+    private final RequestService requestService;
 
-    public RequestResource(RequestRepository requestRepository) {
-        this.requestRepository = requestRepository;
+    public RequestResource(RequestService requestService) {
+        this.requestService = requestService;
     }
 
     /**
      * {@code POST  /requests} : Create a new request.
      *
-     * @param request the request to create.
+     * @param requestDto the request to create.
      * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new request, or with status {@code 400 (Bad Request)} if the request has already an ID.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/requests")
-    public ResponseEntity<Request> createRequest(@Valid @RequestBody Request request) throws URISyntaxException {
-        log.debug("REST request to save Request : {}", request);
-        if (request.getId() != null) {
+    public ResponseEntity<RequestDTO> createRequest(@Valid @RequestBody RequestDTO requestDto) throws URISyntaxException {
+        log.debug("REST request to save Request : {}", requestDto);
+        if (requestDto.getId() != null) {
             throw new BadRequestAlertException("A new request cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        Request result = requestRepository.save(request);
+        RequestDTO result = requestService.save(requestDto);
         return ResponseEntity.created(new URI("/api/requests/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);
@@ -62,21 +65,21 @@ public class RequestResource {
     /**
      * {@code PUT  /requests} : Updates an existing request.
      *
-     * @param request the request to update.
+     * @param requestDto the request to update.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated request,
      * or with status {@code 400 (Bad Request)} if the request is not valid,
      * or with status {@code 500 (Internal Server Error)} if the request couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/requests")
-    public ResponseEntity<Request> updateRequest(@Valid @RequestBody Request request) throws URISyntaxException {
-        log.debug("REST request to update Request : {}", request);
-        if (request.getId() == null) {
+    public ResponseEntity<RequestDTO> updateRequest(@Valid @RequestBody RequestDTO requestDto) throws URISyntaxException {
+        log.debug("REST request to update Request : {}", requestDto);
+        if (requestDto.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
-        Request result = requestRepository.save(request);
+        RequestDTO result = requestService.save(requestDto);
         return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, request.getId().toString()))
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, requestDto.getId().toString()))
             .body(result);
     }
 
@@ -87,9 +90,9 @@ public class RequestResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of requests in body.
      */
     @GetMapping("/requests")
-    public List<Request> getAllRequests(@RequestParam(required = false, defaultValue = "false") boolean eagerload) {
+    public ResponseEntity getAllRequests(@RequestParam(required = false, defaultValue = "false") boolean eagerload) {
         log.debug("REST request to get all Requests");
-        return requestRepository.findAllWithEagerRelationships();
+        return ResponseEntity.ok(requestService.findAll(Pageable.unpaged()).getContent());
     }
 
     /**
@@ -99,9 +102,9 @@ public class RequestResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the request, or with status {@code 404 (Not Found)}.
      */
     @GetMapping("/requests/{id}")
-    public ResponseEntity<Request> getRequest(@PathVariable Long id) {
+    public ResponseEntity<RequestDTO> getRequest(@PathVariable Long id) {
         log.debug("REST request to get Request : {}", id);
-        Optional<Request> request = requestRepository.findOneWithEagerRelationships(id);
+        Optional<RequestDTO> request = requestService.findOne(id);
         return ResponseUtil.wrapOrNotFound(request);
     }
 
@@ -114,8 +117,7 @@ public class RequestResource {
     @DeleteMapping("/requests/{id}")
     public ResponseEntity<Void> deleteRequest(@PathVariable Long id) {
         log.debug("REST request to delete Request : {}", id);
-
-        requestRepository.deleteById(id);
+        requestService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }
 }
