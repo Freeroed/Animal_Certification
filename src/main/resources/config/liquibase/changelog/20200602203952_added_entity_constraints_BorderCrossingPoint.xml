@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity BorderCrossingPoint.
+    -->
+    <changeSet id="20200602203952-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="first_country_id"
+                                 baseTableName="border_crossing_point"
+                                 constraintName="fk_border_crossing_point_first_country_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="country"/>
+
+        <addForeignKeyConstraint baseColumnNames="second_country_id"
+                                 baseTableName="border_crossing_point"
+                                 constraintName="fk_border_crossing_point_second_country_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="country"/>
+
+    </changeSet>
+</databaseChangeLog>
